@@ -1,0 +1,28 @@
+#Tweet details
+GET https://api.twitter.com/2/tweets/1389579275670593539?tweet.fields=attachments,author_id,context_annotations,created_at,entities,geo,id,lang,source,text&expansions=attachments.media_keys&media.fields=type,url,width,height
+Authorization: Bearer {{token}}
+Cookie: personalization_id="{{personalization_id}}"; guest_id={{guest_id}}
+
+#List of many tweets without pagination token
+###
+GET https://api.twitter.com/2/users/{{author_id}}/tweets?max_results=5&expansions=attachments.media_keys&tweet.fields=attachments,author_id,context_annotations,created_at,entities,geo,id,lang,source,text&media.fields=type,url,width,height
+Authorization: Bearer {{token}}
+Cookie: personalization_id="{{personalization_id}}"; guest_id={{guest_id}}
+
+> {%
+    client.global.set("pagination_token", response.body.meta.next_token);
+%}
+
+###
+#List of many tweets with pagination token
+GET https://api.twitter.com/2/users/{{author_id}}/tweets?max_results=5&pagination_token={{pagination_token}}&expansions=attachments.media_keys&tweet.fields=attachments,author_id,context_annotations,created_at,entities,geo,id,lang,source,text&media.fields=type,url,width,height
+Authorization: Bearer {{token}}
+Cookie: personalization_id="{{personalization_id}}"; guest_id={{guest_id}}
+
+> {%
+    client.global.set("pagination_token", response.body.meta.next_token);
+%}
+
+###
+
+
