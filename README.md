@@ -1,4 +1,4 @@
-# Warn-Me
+# WarnMe
 the aggregator of meteo warnings from Twitter and others sources
 
 ## Business requirements
