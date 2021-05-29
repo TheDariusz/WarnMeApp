@@ -19,14 +19,10 @@ public class MeteoAlertController {
         this.tweetService = tweetService;
     }
 
-    @PostMapping
-    @RequestMapping("/{id}")
+    @GetMapping("/{id}")
     public void fetchAllAlerts(@PathVariable("id") String twitterUserId) {
         tweetService.syncTweets(twitterUserId);
     }
 
-    @GetMapping("/{id}")
-    public void getSingleTweet(@PathVariable("id") String tweetId) {
-        tweetService.getSingleTweet(tweetId);
-    }
+
 }

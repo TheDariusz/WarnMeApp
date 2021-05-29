@@ -2,8 +2,11 @@ package com.thedariusz.warnme.twitter;
 
 import com.thedariusz.warnme.MeteoAlertMapper;
 import com.thedariusz.warnme.MeteoAlertService;
-import reactor.core.Disposable;
+import com.thedariusz.warnme.twitter.model.Hashtag;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -16,7 +19,7 @@ public class TweetService {
         METEO_ALERT,
         OTHER
     }
-
+    private static final Logger logger = LoggerFactory.getLogger(TweetService.class);
     private static final Map<TweetType, Set<String>> TWEET_TYPE_TO_KEYWORDS = Map.of(
             TweetType.METEO, Set.of("meteo", "weather", "pogoda", "burze", "burza",
                     "upał", "mróz", "meteoimgw", "przymrozki", "temperatura", "hydro",
@@ -38,9 +41,11 @@ public class TweetService {
     }
 
     public void syncTweets(String twitterUserId) {
-        List<TweetDto> allTweets = twitterClient.fetchAllTweets(twitterUserId);
 
-        List<MeteoAlert> meteoAlerts = allTweets.stream()
+        TweetDtoWrapper allTweetsStructure = twitterClient.fetchAllTweets(twitterUserId);
+        TweetDto[] allTweetsBody = allTweetsStructure.getData();
+        List<MeteoAlert> meteoAlerts = Arrays.asList(allTweetsBody).stream()
+                .peek(tweetDto -> logger.info("\n Analyzing tweet: ------------------------------\n{}", tweetDto))
                 .filter(this::isMeteoAlert)
                 .map(meteoAlertMapper::mapToMeteoAlertFromTweet)
                 .collect(Collectors.toList());
@@ -49,20 +54,23 @@ public class TweetService {
     }
 
     boolean isMeteoAlert(TweetDto tweetDto) {
-        TweetType tweetType = getTweetTypeBasedOnHashTags(tweetDto.getHashTags());
+        TweetType tweetType = getTweetTypeBasedOnHashTags(tweetDto.getEntities().getHashtags());
         return tweetType.equals(TweetType.METEO_ALERT);
     }
 
-    TweetType getTweetTypeBasedOnHashTags(List<String> hashTags) {
+    TweetType getTweetTypeBasedOnHashTags(Hashtag[] hashTags) {
+        if (hashTags==null) {
+            return TweetType.OTHER;
+        }
 
-        TweetType tweetType = hashTags
+        TweetType tweetType = Arrays.asList(hashTags)
                 .stream()
-                .map(String::toLowerCase)
+                .map(hashtag -> hashtag.getTag().toLowerCase())
                 .anyMatch(getMeteoKeywords()::contains) ? TweetType.METEO : TweetType.OTHER;
 
-        boolean hasMeteoAlertKeywords = hashTags
+        boolean hasMeteoAlertKeywords = Arrays.asList(hashTags)
                 .stream()
-                .map(String::toLowerCase)
+                .map(hashtag -> hashtag.getTag().toLowerCase())
                 .anyMatch(getMeteoAlertKeywords()::contains);
 
         if (tweetType.equals(TweetType.METEO) && hasMeteoAlertKeywords) {
@@ -79,9 +87,4 @@ public class TweetService {
         return TWEET_TYPE_TO_KEYWORDS.get(TweetType.METEO_ALERT);
     }
 
-    public TweetDto getSingleTweet(String tweetId) {
-        TweetDto singleTweet = twitterClient.getSingleTweetDto(tweetId);
-//        Disposable singleTweet = twitterClient.getSingleTweetDispose(tweetId);
-        return null;
-    }
 }

@@ -18,7 +18,7 @@ public class InMemoryMeteoAlertDao implements MeteoAlertDao {
 
     @Override
     public void save(MeteoAlert meteoAlert) {
-        logger.info("Saving {}", meteoAlert);
+        logger.info("\nSaving to DB: -----------------------------------\n{}", meteoAlert);
         DB_METEO_ALERTS.add(meteoAlert);
     }
 

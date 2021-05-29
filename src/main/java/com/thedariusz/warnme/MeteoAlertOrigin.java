@@ -3,12 +3,12 @@ package com.thedariusz.warnme;
 public class MeteoAlertOrigin {
 
     private String sourceName;
-    private String sourceDesc;
+    private String sourceAuthorId;
     private String originalId;
 
-    public MeteoAlertOrigin(String sourceName, String sourceDesc, String originalId) {
+    public MeteoAlertOrigin(String sourceName, String sourceAuthorId, String originalId) {
         this.sourceName = sourceName;
-        this.sourceDesc = sourceDesc;
+        this.sourceAuthorId = sourceAuthorId;
         this.originalId = originalId;
     }
 
@@ -28,19 +28,19 @@ public class MeteoAlertOrigin {
         this.originalId = originalId;
     }
 
-    public String getSourceDesc() {
-        return sourceDesc;
+    public String getSourceAuthorId() {
+        return sourceAuthorId;
     }
 
-    public void setSourceDesc(String sourceDesc) {
-        this.sourceDesc = sourceDesc;
+    public void setSourceAuthorId(String sourceAuthorId) {
+        this.sourceAuthorId = sourceAuthorId;
     }
 
     @Override
     public String toString() {
         return "AlertOrigin{" +
                 "source='" + sourceName + '\'' +
-                ", description='" + sourceDesc + '\'' +
+                ", description='" + sourceAuthorId + '\'' +
                 ", originalId='" + originalId + '\'' +
                 '}';
     }

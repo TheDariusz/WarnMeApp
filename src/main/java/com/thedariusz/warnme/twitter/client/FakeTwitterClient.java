@@ -1,17 +1,13 @@
 package com.thedariusz.warnme.twitter.client;
 
 import com.thedariusz.warnme.twitter.TweetDto;
+import com.thedariusz.warnme.twitter.TweetDtoWrapper;
 import com.thedariusz.warnme.twitter.TwitterClient;
 import reactor.core.Disposable;
 
-import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-
 public class FakeTwitterClient implements TwitterClient {
 
-    public List<TweetDto> fetchAllTweets(String twitterUserId) {
+    public TweetDtoWrapper fetchAllTweets(String twitterUserId) {
 //        List<TweetDto> tweetDtos = new ArrayList<>();
 //        if ("1139834822011084801".equals(twitterUserId)) {
 //            tweetDtos =  List.of(
@@ -42,8 +38,4 @@ public class FakeTwitterClient implements TwitterClient {
         return null;
     }
 
-    @Override
-    public Disposable getSingleTweetDispose(String tweetId) {
-        return null;
-    }
 }

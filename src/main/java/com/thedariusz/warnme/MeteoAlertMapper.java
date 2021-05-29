@@ -29,8 +29,8 @@ public class MeteoAlertMapper {
                 getAlertCategories(tweetDto),
                 tweetDto.getCreationDate(),
                 tweetDto.getText(),
-                new MeteoAlertOrigin("Twitter", tweetDto.getAuthor().getName(), tweetDto.getTweetId()),
-                tweetDto.getMediaList()
+                new MeteoAlertOrigin("Twitter", tweetDto.getAuthor_id(), tweetDto.getId()),
+                null //todo list of urls
         );
     }
 
@@ -47,7 +47,7 @@ public class MeteoAlertMapper {
     }
 
     private Set<String> getAlertCategories(TweetDto tweetDto) {
-        final Set<String> categoriesFromHashTags = meteoAlertCategoryMapper.getCategories(tweetDto.getHashTags());
+        final Set<String> categoriesFromHashTags = meteoAlertCategoryMapper.getCategories(tweetDto.getEntities().getHashtags());
         final Set<String> categoriesFromText = meteoAlertCategoryMapper.getCategoriesFromText(tweetDto.getText());
 
         return Stream.of(categoriesFromHashTags, categoriesFromText)
