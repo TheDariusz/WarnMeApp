@@ -1,4 +1,4 @@
-# Warn-Me
+# WarnMe
 the aggregator of meteo warnings from Twitter and others sources
 
 ## Business requirements
@@ -17,7 +17,7 @@ Informacje o burzach pozyskiwane ze strony [burze.dzis.net](https://burze.dzis.n
 
 Wszystkie informacje powinny być wyświetlane w formie postów ułożonych od najnowszego do najstarszego (timeline), z implementacją paginacji lub dynamicznego doładowania kolejnych postów.
 
-Aplikacja powinna umożliwiać logowanie dla użytkowników z możliwością ustawiania podstawowej konfiguracji aplikacji dla danego użytkownika (np. ) (podstawową konfigurację  pozyskanych z zewnętrznych źródeł informacji w bazie danych do wykorzystania  
+Aplikacja powinna umożliwiać logowanie dla użytkowników z możliwością ustawiania podstawowej konfiguracji aplikacji dla danego użytkownika (podstawową konfigurację  pozyskanych z zewnętrznych źródeł informacji w bazie danych do wykorzystania  
 
 Dodatkowe wymagania (cloud):
 - wysyłanie ostrzeżeń mailowo przez SMTP (aka newsletter)
