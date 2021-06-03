@@ -1,50 +1,57 @@
 package com.thedariusz.warnme.twitter.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Meta {
-    private String oldest_id;
-    private String newest_id;
-    private String result_count;
-    private String next_token;
 
-    public String getOldest_id() {
-        return oldest_id;
-    }
+    private String oldestId;
+    private String newestId;
+    private String resultCount;
+    private String nextToken;
 
-    public void setOldest_id(String oldest_id) {
-        this.oldest_id = oldest_id;
-    }
-
-    public String getNewest_id() {
-        return newest_id;
-    }
-
-    public void setNewest_id(String newest_id) {
-        this.newest_id = newest_id;
-    }
-
-    public String getResult_count() {
-        return result_count;
-    }
-
-    public void setResult_count(String result_count) {
-        this.result_count = result_count;
-    }
-
-    public String getNext_token() {
-        return next_token;
-    }
-
-    public void setNext_token(String next_token) {
-        this.next_token = next_token;
-    }
-
-    public Meta(String oldest_id, String newest_id, String result_count, String next_token) {
-        this.oldest_id = oldest_id;
-        this.newest_id = newest_id;
-        this.result_count = result_count;
-        this.next_token = next_token;
+    public Meta(String oldestId, String newestId, String resultCount, String nextToken) {
+        this.oldestId = oldestId;
+        this.newestId = newestId;
+        this.resultCount = resultCount;
+        this.nextToken = nextToken;
     }
 
     public Meta() {
+    }
+
+    public String getOldestId() {
+        return oldestId;
+    }
+
+    @JsonProperty("oldest_id")
+    public void setOldestId(String oldestId) {
+        this.oldestId = oldestId;
+    }
+
+    public String getNewestId() {
+        return newestId;
+    }
+
+    @JsonProperty("newest_id")
+    public void setNewestId(String newestId) {
+        this.newestId = newestId;
+    }
+
+    public String getResultCount() {
+        return resultCount;
+    }
+
+    @JsonProperty("result_count")
+    public void setResultCount(String resultCount) {
+        this.resultCount = resultCount;
+    }
+
+    public String getNextToken() {
+        return nextToken;
+    }
+
+    @JsonProperty("next_token")
+    public void setNextToken(String nextToken) {
+        this.nextToken = nextToken;
     }
 }

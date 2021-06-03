@@ -1,34 +1,26 @@
 package com.thedariusz.warnme.twitter;
 
-import com.thedariusz.warnme.MeteoAlertCategoryMapper;
-import com.thedariusz.warnme.MeteoAlertDao;
-import com.thedariusz.warnme.MeteoAlertMapper;
-import com.thedariusz.warnme.MeteoAlertService;
-import com.thedariusz.warnme.twitter.client.FakeTwitterClient;
 import com.thedariusz.warnme.twitter.model.Entity;
 import com.thedariusz.warnme.twitter.model.Hashtag;
-import com.thedariusz.warnme.twitter.repository.InMemoryMeteoAlertDao;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class TweetServiceTest {
-    MeteoAlertDao meteoAlertDao = new InMemoryMeteoAlertDao();
-    MeteoAlertService meteoAlertService = new MeteoAlertService(meteoAlertDao);
-    TwitterClient twitterClient = new FakeTwitterClient();
-    MeteoAlertCategoryMapper meteoAlertCategoryMapper = new MeteoAlertCategoryMapper();
-    MeteoAlertMapper meteoAlertMapper = new MeteoAlertMapper(meteoAlertCategoryMapper);
-    TweetService tweetService = new TweetService(meteoAlertService, twitterClient, meteoAlertMapper);
+
+    TweetService tweetService = new TweetService(null, null, null);
 
     @Test
     void shouldReturnMeteoTweetType(){
         //given
-        final String[] exampleOfHashtags = {"burze", "prognoza", "imgw"};
-        Hashtag[] hashtags = Arrays.stream(exampleOfHashtags)
+        final List<String> exampleOfHashtags = List.of("burze", "prognoza", "imgw");
+        List<Hashtag> hashtags = exampleOfHashtags.stream()
                 .map(Hashtag::new)
-                .toArray(Hashtag[]::new);
+                .collect(Collectors.toList());
+
         //when
         TweetService.TweetType tweetTypeBasedOnHashTags = tweetService.getTweetTypeBasedOnHashTags(hashtags);
 
@@ -41,10 +33,10 @@ class TweetServiceTest {
     @Test
     void shouldReturnMeteoAlertTweetType(){
         //given
-        final String[] exampleOfHashtags = {"burza", "ostrzeżenie", "imgw"};
-        Hashtag[] hashtags = Arrays.stream(exampleOfHashtags)
+        final List<String> exampleOfHashtags = List.of("burza", "ostrzeżenie", "imgw");
+        List<Hashtag> hashtags = exampleOfHashtags.stream()
                 .map(Hashtag::new)
-                .toArray(Hashtag[]::new);
+                .collect(Collectors.toList());
         //when
         TweetService.TweetType tweetTypeBasedOnHashTags = tweetService.getTweetTypeBasedOnHashTags(hashtags);
 
@@ -56,10 +48,11 @@ class TweetServiceTest {
     @Test
     void shouldReturnOtherAlertTweetType(){
         //given
-        final String[] exampleOfHashtags = {"wiosna", "majówka", "imgw"};
-        Hashtag[] hashtags = Arrays.stream(exampleOfHashtags)
+        final List<String> exampleOfHashtags = List.of("wiosna", "majówka", "imgw");
+        List<Hashtag> hashtags = exampleOfHashtags.stream()
                 .map(Hashtag::new)
-                .toArray(Hashtag[]::new);
+                .collect(Collectors.toList());
+
         //when
         TweetService.TweetType tweetTypeBasedOnHashTags = tweetService.getTweetTypeBasedOnHashTags(hashtags);
 
@@ -71,10 +64,11 @@ class TweetServiceTest {
     @Test
     void tweetWithMeteoAlertShouldReturnTrue(){
         //given
-        final String[] exampleOfHashtags = {"burza", "ostrzeżenie", "imgw"};
-        Hashtag[] hashtags = Arrays.stream(exampleOfHashtags)
+        final List<String> exampleOfHashtags = List.of("burza", "ostrzeżenie", "imgw");
+        List<Hashtag> hashtags = exampleOfHashtags.stream()
                 .map(Hashtag::new)
-                .toArray(Hashtag[]::new);
+                .collect(Collectors.toList());
+
         Entity entity = new Entity();
         entity.setHashtags(hashtags);
 
@@ -96,11 +90,11 @@ class TweetServiceTest {
     @Test
     void tweetWithoutMeteoAlertShouldReturnFalse(){
         //given
-        //given
-        final String[] exampleOfHashtags = {"wiosna", "pogoda", "imgw"};
-        Hashtag[] hashtags = Arrays.stream(exampleOfHashtags)
+        final List<String> exampleOfHashtags = List.of("wiosna", "pogoda", "imgw");
+        List<Hashtag> hashtags = exampleOfHashtags.stream()
                 .map(Hashtag::new)
-                .toArray(Hashtag[]::new);
+                .collect(Collectors.toList());
+
         Entity entity = new Entity();
         entity.setHashtags(hashtags);
 

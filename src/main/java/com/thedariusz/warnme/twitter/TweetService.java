@@ -1,16 +1,18 @@
 package com.thedariusz.warnme.twitter;
 
-import com.thedariusz.warnme.MeteoAlertMapper;
+import com.thedariusz.warnme.TweetDtoMeteoAlertMapper;
 import com.thedariusz.warnme.MeteoAlertService;
 import com.thedariusz.warnme.twitter.model.Hashtag;
+import com.thedariusz.warnme.twitter.model.Media;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import static org.springframework.util.CollectionUtils.isEmpty;
 
 public class TweetService {
 
@@ -32,50 +34,74 @@ public class TweetService {
 
     private final MeteoAlertService meteoAlertService;
     private final TwitterClient twitterClient;
-    private final MeteoAlertMapper meteoAlertMapper;
+    private final TweetDtoMeteoAlertMapper tweetDtoMeteoAlertMapper;
 
-    public TweetService(MeteoAlertService meteoAlertService, TwitterClient twitterClient, MeteoAlertMapper meteoAlertMapper) {
+    public TweetService(MeteoAlertService meteoAlertService, TwitterClient twitterClient, TweetDtoMeteoAlertMapper tweetDtoMeteoAlertMapper) {
         this.meteoAlertService = meteoAlertService;
         this.twitterClient = twitterClient;
-        this.meteoAlertMapper = meteoAlertMapper;
+        this.tweetDtoMeteoAlertMapper = tweetDtoMeteoAlertMapper;
     }
 
     public void syncTweets(String twitterUserId) {
+        TweetDtoWrapper tweetDtoWrapper = twitterClient.fetchAllTweets(twitterUserId);
+        List<Media> media = tweetDtoWrapper.getMedia();
 
-        TweetDtoWrapper allTweetsStructure = twitterClient.fetchAllTweets(twitterUserId);
-        TweetDto[] allTweetsBody = allTweetsStructure.getData();
-        List<MeteoAlert> meteoAlerts = Arrays.asList(allTweetsBody).stream()
-                .peek(tweetDto -> logger.info("\n Analyzing tweet: ------------------------------\n{}", tweetDto))
+        List<TweetDto> allTweetsBody = tweetDtoWrapper.getData();
+
+        List<MeteoAlert> meteoAlerts = allTweetsBody.stream()
                 .filter(this::isMeteoAlert)
-                .map(meteoAlertMapper::mapToMeteoAlertFromTweet)
+                .map(tweetDto -> tweetDtoMeteoAlertMapper.mapToMeteoAlertFromTweet(tweetDto, media))
                 .collect(Collectors.toList());
 
         meteoAlertService.save(meteoAlerts);
     }
 
     boolean isMeteoAlert(TweetDto tweetDto) {
-        TweetType tweetType = getTweetTypeBasedOnHashTags(tweetDto.getEntities().getHashtags());
-        return tweetType.equals(TweetType.METEO_ALERT);
+        TweetType tweetTypeFromTags = getTweetTypeBasedOnHashTags(tweetDto.getHashtagsFromTweet());
+        TweetType tweetTypeFromText = getTweetTypeBasedOnTweetText(tweetDto.getText());
+
+        return tweetTypeFromTags.equals(TweetType.METEO_ALERT) ||
+                tweetTypeFromText.equals(TweetType.METEO_ALERT);
     }
 
-    TweetType getTweetTypeBasedOnHashTags(Hashtag[] hashTags) {
-        if (hashTags==null) {
+    TweetType getTweetTypeBasedOnHashTags(List<Hashtag> hashTags) {
+        if (isEmpty(hashTags)) {
             return TweetType.OTHER;
         }
 
-        TweetType tweetType = Arrays.asList(hashTags)
+        TweetType tweetType = hashTags
                 .stream()
-                .map(hashtag -> hashtag.getTag().toLowerCase())
+                .map(Hashtag::getTag)
+                .map(String::toLowerCase)
                 .anyMatch(getMeteoKeywords()::contains) ? TweetType.METEO : TweetType.OTHER;
 
-        boolean hasMeteoAlertKeywords = Arrays.asList(hashTags)
+        boolean hasMeteoAlertKeywords = hashTags
                 .stream()
-                .map(hashtag -> hashtag.getTag().toLowerCase())
+                .map(Hashtag::getTag)
+                .map(String::toLowerCase)
                 .anyMatch(getMeteoAlertKeywords()::contains);
 
         if (tweetType.equals(TweetType.METEO) && hasMeteoAlertKeywords) {
             tweetType = TweetType.METEO_ALERT;
         }
+        return tweetType;
+    }
+
+    private TweetType getTweetTypeBasedOnTweetText(String text) {
+        if (text.isBlank()) {
+            return TweetType.OTHER;
+        }
+
+        String lowerCaseText = text.toLowerCase();
+
+        TweetType tweetType = getMeteoKeywords().stream()
+                .anyMatch(lowerCaseText::contains) ? TweetType.METEO:TweetType.OTHER;
+
+        if (TweetType.METEO.equals(tweetType)) {
+            tweetType = getMeteoAlertKeywords().stream()
+                    .anyMatch(lowerCaseText::contains) ? TweetType.METEO_ALERT : tweetType;
+        }
+
         return tweetType;
     }
 

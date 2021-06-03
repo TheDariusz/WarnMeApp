@@ -1,17 +1,19 @@
 package com.thedariusz.warnme.twitter.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Media {
+
     private String type;
-    private int height;
-    private int width;
-    private String media_key;
+    private String mediaKey;
     private String url;
 
-    public Media(String type, int height, int width, String media_key, String url) {
+    public Media() {
+    }
+
+    public Media(String type, String mediaKey, String url) {
         this.type = type;
-        this.height = height;
-        this.width = width;
-        this.media_key = media_key;
+        this.mediaKey = mediaKey;
         this.url = url;
     }
 
@@ -23,28 +25,13 @@ public class Media {
         this.type = type;
     }
 
-    public int getHeight() {
-        return height;
+    public String getMediaKey() {
+        return mediaKey;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public String getMedia_key() {
-        return media_key;
-    }
-
-    public void setMedia_key(String media_key) {
-        this.media_key = media_key;
+    @JsonProperty("media_key")
+    public void setMediaKey(String mediaKey) {
+        this.mediaKey = mediaKey;
     }
 
     public String getUrl() {
@@ -53,8 +40,5 @@ public class Media {
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public Media() {
     }
 }

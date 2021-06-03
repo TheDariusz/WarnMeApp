@@ -2,7 +2,8 @@ package com.thedariusz.warnme;
 
 import com.thedariusz.warnme.twitter.model.Hashtag;
 
-import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -14,10 +15,16 @@ public class MeteoAlertCategoryMapper {
                     "oblodzenie", "opady marznące", "opady śniegu", "roztopy", "silny deszcze z burzami",
                     "gęsta mgła", "silny mróz", "silny wiatr", "zawieje", "zamiecie śnieżne");
 
-    public Set<String> getCategories(Hashtag[] hashTags) {
-        return Arrays.asList(hashTags)
+    private static final Map<String, Set<String>> METEO_ALERTS_CATEGORIES_MAP = Map.of (
+            "burza", Set.of("burz"), "upał", Set.of("upal", "upał")
+    );
+
+    public Set<String> getCategories(List<Hashtag> hashTags) {
+
+        return hashTags
                 .stream()
-                .map(hashtag -> hashtag.getTag().toLowerCase())
+                .map(Hashtag::getTag)
+                .map(String::toLowerCase)
                 .filter(METEO_ALERTS_CATEGORIES::contains)
                 .collect(Collectors.toSet());
     }
@@ -28,7 +35,15 @@ public class MeteoAlertCategoryMapper {
                 .stream()
                 .filter(text::contains)
                 .collect(Collectors.toSet());
-
     }
+
+//    public Set<String> getCategoriesFromTextUseMap(String text) {
+//        text = text.toLowerCase();
+//        METEO_ALERTS_CATEGORIES_MAP.forEach(
+//                (k, v) -> {
+//                    v.stream().anyMatch(keyword -> text.contains(keyword))
+//                }
+//        );
+//    }
 
 }

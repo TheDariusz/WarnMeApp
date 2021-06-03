@@ -3,6 +3,7 @@ package com.thedariusz.warnme;
 import com.thedariusz.warnme.twitter.MeteoAlert;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MeteoAlertService {
 
@@ -13,8 +14,9 @@ public class MeteoAlertService {
     }
 
     public void save(List<MeteoAlert> meteoAlerts) {
+        List<MeteoAlert> existing = meteoAlertDao.fetchExisting(meteoAlerts.stream().map(MeteoAlert::getExternalId).collect(Collectors.toList()));
         meteoAlerts.stream()
-                .filter(meteoAlert -> !meteoAlertDao.existsByExternalId(meteoAlert))
+//                .filter(meteoAlert -> !meteoAlertDao.existsByExternalId(meteoAlert))
                 .forEach(meteoAlertDao::save);
     }
 }

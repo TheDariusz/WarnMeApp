@@ -8,9 +8,7 @@ public interface MeteoAlertDao {
 
     void save(MeteoAlert meteoAlert);
 
-    boolean exists(MeteoAlert meteoAlert);
-
-    boolean existsByExternalId(MeteoAlert meteoAlert);
+    List<MeteoAlert> fetchExisting(List<String> externalIds);
 
     List<MeteoAlert> fetchAll();
 

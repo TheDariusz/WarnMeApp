@@ -1,40 +1,53 @@
 package com.thedariusz.warnme.twitter;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.thedariusz.warnme.twitter.model.Attachments;
 import com.thedariusz.warnme.twitter.model.Entity;
+import com.thedariusz.warnme.twitter.model.Hashtag;
 
-@JsonIgnoreProperties(ignoreUnknown=true)
+import java.util.List;
+
 public class TweetDto {
+
     private String id;
     private String text;
-    private String author_id;
-    private String created_at;
+    private String authorId;
+    private String createdAt;
     private Entity entities;
+    private Attachments attachments;
 
-    public TweetDto(String id,
-                    String text,
-                    String author_id,
-                    String created_at,
-                    Entity entity) {
-        this.id = id;
-        this.text = text;
-        this.author_id = author_id;
-        this.created_at = created_at;
-        this.entities = entity;
-    }
-
-    public TweetDto() {
-    }
     public static TweetDtoBuilder builder() {
         return new TweetDtoBuilder();
     }
 
+    public TweetDto(String id,
+                    String text,
+                    String authorId,
+                    String createdAt,
+                    Entity entities,
+                    Attachments attachments) {
+        this.id = id;
+        this.text = text;
+        this.authorId = authorId;
+        this.createdAt = createdAt;
+        this.entities = entities;
+        this.attachments = attachments;
+    }
+
+    public TweetDto() {
+    }
+
+   public List<String> getMediaKeys() {
+        return attachments == null ? List.of() : attachments.getMediaKeys();
+   }
+
     public static final class TweetDtoBuilder {
         private String id;
         private String text;
-        private String author_id;
-        private String created_at;
+        private String authorId;
+        private String createdAt;
         private Entity entity;
+        private List<String> mediaKeys;
 
         private TweetDtoBuilder() {
         }
@@ -50,12 +63,12 @@ public class TweetDto {
         }
 
         public TweetDtoBuilder withAuthorId(String authorId) {
-            this.author_id = authorId;
+            this.authorId = authorId;
             return this;
         }
 
         public TweetDtoBuilder withCreationDate(String creationDate) {
-            this.created_at = creationDate;
+            this.createdAt = creationDate;
             return this;
         }
 
@@ -64,24 +77,22 @@ public class TweetDto {
             return this;
         }
 
-        public TweetDto build() {
-            return new TweetDto(id, text, author_id, created_at, entity);
+        public TweetDtoBuilder withMediaKeys(List<String> mediaKeys) {
+            this.mediaKeys = mediaKeys;
+            return this;
         }
 
-        public TweetDto fakeTweet(String id, String creationDate, String twitterUserId, Entity entity, String text) {
-            return new TweetDto(id, text, twitterUserId, creationDate,  entity);
+        public TweetDto build() {
+            return new TweetDto(id, text, authorId, createdAt, entity, new Attachments(mediaKeys));
         }
     }
+
     public String getId() {
         return id;
     }
 
     public String getText() {
         return text;
-    }
-
-    public String getCreationDate() {
-        return created_at;
     }
 
     public void setId(String id) {
@@ -92,28 +103,42 @@ public class TweetDto {
         this.text = text;
     }
 
-    public String getAuthor_id() {
-        return author_id;
+    public String getAuthorId() {
+        return authorId;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+    @JsonProperty("created_at")
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public void setAuthor_id(String author_id) {
-        this.author_id = author_id;
+    @JsonProperty("author_id")
+    public void setAuthorId(String authorId) {
+        this.authorId = authorId;
     }
 
     public Entity getEntities() {
         return entities;
     }
 
+    public List<Hashtag> getHashtagsFromTweet() {
+        return entities.getHashtags();
+    }
+
     public void setEntities(Entity entities) {
         this.entities = entities;
+    }
+
+    public Attachments getAttachments() {
+        return attachments;
+    }
+
+    public void setAttachments(Attachments attachments) {
+        this.attachments = attachments;
     }
 
     @Override
@@ -121,9 +146,10 @@ public class TweetDto {
         return "TweetDto{" +
                 "id='" + id + '\'' +
                 ", text='" + text + '\'' +
-                ", author_id='" + author_id + '\'' +
-                ", created_at='" + created_at + '\'' +
+                ", authorId='" + authorId + '\'' +
+                ", createdAt='" + createdAt + '\'' +
                 ", entities=" + entities +
+                ", attachments=" + attachments +
                 '}';
     }
 }

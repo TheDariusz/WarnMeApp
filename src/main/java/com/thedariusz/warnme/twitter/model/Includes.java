@@ -1,22 +1,23 @@
 package com.thedariusz.warnme.twitter.model;
 
-import com.thedariusz.warnme.twitter.model.Media;
+import java.util.List;
 
 public class Includes {
-    Media[] media;
 
-    public Media[] getMedia() {
-        return media;
-    }
+    List<Media> media;
 
-    public void setMedia(Media[] media) {
-        this.media = media;
-    }
-
-    public Includes(Media[] media) {
+    public Includes(List<Media> media) {
         this.media = media;
     }
 
     public Includes() {
+    }
+
+    public List<Media> getMedia() {
+        return media;
+    }
+
+    public void setMedia(List<Media> media) {
+        this.media = media;
     }
 }

@@ -1,24 +1,31 @@
 package com.thedariusz.warnme.twitter.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Url {
-    private String expanded_url;
+
+    private String expandedUrl;
     private int status;
     private String title;
     private String description;
 
-    public Url(String expanded_url, int status, String title, String description) {
-        this.expanded_url = expanded_url;
+    public Url() {
+    }
+
+    public Url(String expandedUrl, int status, String title, String description) {
+        this.expandedUrl = expandedUrl;
         this.status = status;
         this.title = title;
         this.description = description;
     }
 
-    public String getExpanded_url() {
-        return expanded_url;
+    public String getExpandedUrl() {
+        return expandedUrl;
     }
 
-    public void setExpanded_url(String expanded_url) {
-        this.expanded_url = expanded_url;
+    @JsonProperty("expanded_url")
+    public void setExpandedUrl(String expandedUrl) {
+        this.expandedUrl = expandedUrl;
     }
 
     public int getStatus() {
@@ -43,8 +50,5 @@ public class Url {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Url() {
     }
 }

@@ -5,7 +5,6 @@ import com.thedariusz.warnme.twitter.TweetDtoWrapper;
 import com.thedariusz.warnme.twitter.TwitterClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.Disposable;
 import reactor.core.publisher.Mono;
 
 public class SpringTwitterClient implements TwitterClient {
@@ -18,7 +17,7 @@ public class SpringTwitterClient implements TwitterClient {
 
     public TweetDtoWrapper fetchAllTweets(String twitterUserId) {
         return webClient.get()
-                .uri("/users/" + twitterUserId + "/tweets?max_results=10&expansions=attachments.media_keys" +
+                .uri("/users/" + twitterUserId + "/tweets?max_results=40&expansions=attachments.media_keys" +
                         "&tweet.fields=author_id,created_at,entities,id,text" +
                         "&media.fields=type,url,width,height,media_key")
                 .retrieve()
@@ -42,7 +41,7 @@ public class SpringTwitterClient implements TwitterClient {
                         error -> Mono.error(new RuntimeException("Server is not responding")))
                 .bodyToMono(TweetDtoWrapper.class)
                 .block();
-        return tweetDtoWrapper.getData()[0];
+        return tweetDtoWrapper.getData().get(0);
     }
 
 }
