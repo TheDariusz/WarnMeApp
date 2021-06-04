@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/alerts")
-public class MeteoAlertController {
+public class MeteoAlertRestController {
 
     private final TweetService tweetService;
 
     @Autowired
-    public MeteoAlertController(TweetService tweetService) {
+    public MeteoAlertRestController(TweetService tweetService) {
         this.tweetService = tweetService;
     }
 
@@ -22,6 +22,5 @@ public class MeteoAlertController {
     public void fetchAllAlerts(@PathVariable("id") String twitterUserId) {
         tweetService.syncTweets(twitterUserId);
     }
-
 
 }

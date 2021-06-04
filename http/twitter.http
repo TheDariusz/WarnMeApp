@@ -26,3 +26,4 @@ Cookie: personalization_id="{{personalization_id}}"; guest_id={{guest_id}}
 ###
 
 
+POST http://localhost:8080/alerts/1139834822011084801

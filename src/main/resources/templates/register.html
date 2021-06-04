@@ -1,0 +1,64 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="pl"> <![endif]-->
+<!--[if IE 7]>
+<html  class="no-js lt-ie9 lt-ie8" lang="pl"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="pl"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="pl"> <!--<![endif]-->
+
+<div th:replace="fragments/header :: head"></div>
+    <body>
+    <div th:replace="fragments/header :: header"></div>
+
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="section-header col-md-12">
+                        <h2>Register Page</h2>
+                        <span>you will have account in WarnMe application</span>
+                    </div> <!-- /.section-header -->
+                </div> <!-- /.row -->
+                <div class="contact-form">
+                    <div class="box-content col-md-12">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <p>You have to complete all fields</p>
+                                <h3 class="contact-title">Please provide your data</h3>
+                                <div class="contact-form-inner">
+                                    <form method="post" th:action="@{/alerts/register}" id="registerform" autocomplete="off" action="#"
+                                          th:object="${userDto}" role="form">
+                                        <div class="alert-info">
+                                            <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+                                        </div>
+                                        <div class="alert-info">
+                                            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+                                        </div>
+                                        <p>
+                                            <label for="name">User name:</label>
+                                            <input name="username" type="text" id="name" th:field="*{username}">
+                                        </p>
+                                        <p>
+                                            <label for="password">Password:</label>
+                                            <input name="password" type="password" id="password" th:field="*{password}">
+                                        </p>
+                                        <input type="submit" class="mainBtn" id="submit" value="Register" />
+                                    </form>
+                                </div> <!-- /.contact-form-inner -->
+                                <div id="message">
+                                    <h2><span class="text-success" th:utext="${successMessage}"></span></h2>
+                                </div>
+                            </div> <!-- /.col-md-7 -->
+                            <div class="col-md-5">
+<!--                                wrapper -->
+                            </div> <!-- /.col-md-5 -->
+                        </div> <!-- /.row -->
+                    </div> <!-- /.box-content -->
+                </div> <!-- /.contact-form -->
+            </div> <!-- /.inner-content -->
+        </div> <!-- /.content-wrapper -->
+
+    </body>
+<div th:replace="fragments/footer :: footer"></div>
+</html>

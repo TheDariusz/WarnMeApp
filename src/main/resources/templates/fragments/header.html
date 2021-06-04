@@ -1,0 +1,79 @@
+<head th:fragment="head">
+  <meta charset="utf-8">
+  <title>WARNme aggregator</title>
+  <meta name="description" content="The aggregator of meteo warnings from Twitter and others sources">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100">
+  <link rel="stylesheet"
+        href="http://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,500,500italic,700,900">
+
+  <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+  <link rel="stylesheet" th:href="@{/css/font-awesome.css}">
+  <link rel="stylesheet" th:href="@{/css/animate.css}">
+  <link rel="stylesheet" th:href="@{/css/templatemo-misc.css}">
+  <link rel="stylesheet" th:href="@{/css/templatemo-style.css}">
+  <script th:src="@{|/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js|}"></script>
+</head>
+
+<div th:fragment="header" th:remove="tag">
+  <!--[if lt IE 7]>
+  <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
+    today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better
+    experience this site.</p>
+  <![endif]-->
+
+
+  <section id="pageloader">
+    <div class="loader-item fa fa-spin colored-border"></div>
+  </section> <!-- /#pageloader -->
+
+  <header class="site-header container-fluid">
+    <div class="top-header">
+      <div class="logo col-md-6 col-sm-6">
+        <h1><a th:href="@{/alerts}"><em>WARN</em>me</a></h1>
+        <span>meteo warnings aggregator</span>
+      </div> <!-- /.logo -->
+      <div class="social-top col-md-6 col-sm-6">
+      </div> <!-- /.social-top -->
+    </div> <!-- /.top-header -->
+    <div class="main-header">
+      <div class="row">
+        <div class="main-header-left col-md-3 col-sm-6 col-xs-8">
+          <h3 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h3>
+        </div> <!-- /.main-header-left -->
+        <div class="menu-wrapper col-md-9 col-sm-6 col-xs-4">
+          <a href="#" class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></a>
+          <ul class="sf-menu hidden-xs hidden-sm">
+            <li class="active"><a th:href="@{/alerts}">Home</a></li>
+            <li><a href="#">Meteo warning sources</a>
+              <ul>
+                <li><a href="#">Twitter (@Imgw)</a></li>
+                <li><a href="#">Burze.dzis.net</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+            <li><a th:href="@{/alerts/login}">Login</a>
+              <ul>
+                <li><a th:href="@{/alerts/register}">Register</a></li>
+                <li><a th:href="@{/alerts/logout}">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div> <!-- /.menu-wrapper -->
+      </div> <!-- /.row -->
+    </div> <!-- /.main-header -->
+    <div id="responsive-menu">
+      <ul>
+        <li><a th:href="@{/alerts}">Home</a></li>
+        <li><a href="#">Meteo warning sources</a>
+          <ul>
+            <li><a href="#">Twitter (@Imgw)</a></li>
+            <li><a href="#">Burze.dzis.net</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header> <!-- /.site-header -->
+</div>
