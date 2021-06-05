@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -36,9 +37,10 @@ public class MeteoAlertViewsController {
 
     @GetMapping
     public String getMainView(Model model) {
-//        tweetService.syncTweets("1139834822011084801");
         List<MeteoAlert> meteoAlertsFromDb = meteoAlertService.getMeteoAlertsFromDb();
-        model.addAttribute(meteoAlertsFromDb);
+        List<Post> posts = Post.preparePosts(meteoAlertsFromDb);
+
+        model.addAttribute("posts", posts);
         return "index";
     }
 
@@ -98,10 +100,10 @@ public class MeteoAlertViewsController {
         }
     }
 
-    @GetMapping("/twitter/refresh")
-    public String getNewTweets() {
-
-        return null;
+    @GetMapping("/refresh/{id}")
+    public String getNewTweets(@PathVariable("id") String twitterUserId) {
+        tweetService.syncTweets(twitterUserId);
+        return "redirect:/alerts";
     }
 
 }
