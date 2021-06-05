@@ -58,6 +58,7 @@ public class TweetService {
         meteoAlertService.save(meteoAlerts);
     }
 
+
     boolean isMeteoAlert(TweetDto tweetDto) {
         TweetType tweetType = TweetType.OTHER;
 

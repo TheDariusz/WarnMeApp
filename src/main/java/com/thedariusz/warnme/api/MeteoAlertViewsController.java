@@ -1,5 +1,7 @@
 package com.thedariusz.warnme.api;
 
+import com.thedariusz.warnme.MeteoAlertService;
+import com.thedariusz.warnme.twitter.MeteoAlert;
 import com.thedariusz.warnme.twitter.TweetService;
 import com.thedariusz.warnme.user.UserDto;
 import com.thedariusz.warnme.user.UserService;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping(value = "/alerts")
@@ -22,16 +25,20 @@ public class MeteoAlertViewsController {
 
     private final UserService userService;
     private final TweetService tweetService;
+    private final MeteoAlertService meteoAlertService;
 
     @Autowired
-    public MeteoAlertViewsController(UserService userService, TweetService tweetService) {
+    public MeteoAlertViewsController(UserService userService, TweetService tweetService, MeteoAlertService meteoAlertService) {
         this.userService = userService;
         this.tweetService = tweetService;
+        this.meteoAlertService = meteoAlertService;
     }
 
     @GetMapping
-    public String getMainView() {
-        tweetService.syncTweets("1139834822011084801");
+    public String getMainView(Model model) {
+//        tweetService.syncTweets("1139834822011084801");
+        List<MeteoAlert> meteoAlertsFromDb = meteoAlertService.getMeteoAlertsFromDb();
+        model.addAttribute(meteoAlertsFromDb);
         return "index";
     }
 
