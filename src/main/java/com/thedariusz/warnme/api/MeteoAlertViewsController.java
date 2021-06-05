@@ -1,5 +1,6 @@
 package com.thedariusz.warnme.api;
 
+import com.thedariusz.warnme.twitter.TweetService;
 import com.thedariusz.warnme.user.UserDto;
 import com.thedariusz.warnme.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +21,17 @@ import javax.validation.Valid;
 public class MeteoAlertViewsController {
 
     private final UserService userService;
+    private final TweetService tweetService;
 
     @Autowired
-    public MeteoAlertViewsController(UserService userService) {
+    public MeteoAlertViewsController(UserService userService, TweetService tweetService) {
         this.userService = userService;
+        this.tweetService = tweetService;
     }
 
     @GetMapping
     public String getMainView() {
+        tweetService.syncTweets("1139834822011084801");
         return "index";
     }
 
@@ -85,6 +89,12 @@ public class MeteoAlertViewsController {
             userService.saveUser(userDto);
             return "login";
         }
+    }
+
+    @GetMapping("/twitter/refresh")
+    public String getNewTweets() {
+
+        return null;
     }
 
 }

@@ -7,6 +7,8 @@ import com.thedariusz.warnme.twitter.model.Media;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -89,5 +91,6 @@ public class TweetService {
     private Set<String> getMeteoAlertKeywords() {
         return TWEET_TYPE_TO_KEYWORDS.get(TweetType.METEO_ALERT);
     }
+
 
 }
