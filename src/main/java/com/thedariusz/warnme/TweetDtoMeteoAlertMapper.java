@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 
 public class TweetDtoMeteoAlertMapper {
 
-    private static final String DIGIT_BEFORE_TEXT_OR_DEGREE_CHARACTER = "(\\d)\\s*(?=stopni|°)";
+    private static final String DIGIT_BEFORE_TEXT_OR_DEGREE_CHARACTER = "(\\d)\\s*(?=stopni|°|\\.)";
 
     private static final int LEVEL_NOT_FOUND = 0;
 

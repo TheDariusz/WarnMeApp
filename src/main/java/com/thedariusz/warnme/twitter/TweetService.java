@@ -47,10 +47,9 @@ public class TweetService {
     public void syncTweets(String twitterUserId) {
         TweetDtoWrapper tweetDtoWrapper = twitterClient.fetchAllTweets(twitterUserId);
         List<Media> media = tweetDtoWrapper.getMedia();
+        List<TweetDto> tweets = tweetDtoWrapper.getData();
 
-        List<TweetDto> allTweetsBody = tweetDtoWrapper.getData();
-
-        List<MeteoAlert> meteoAlerts = allTweetsBody.stream()
+        List<MeteoAlert> meteoAlerts = tweets.stream()
                 .filter(this::isMeteoAlert)
                 .map(tweetDto -> tweetDtoMeteoAlertMapper.mapToMeteoAlertFromTweet(tweetDto, media))
                 .collect(Collectors.toList());

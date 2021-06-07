@@ -65,7 +65,7 @@ class TweetDtoMeteoMeteoAlertMapperTest {
 
         TweetDto tweetDtoWithAllFields = TweetDto.builder()
                 .withId("1139834822011084801")
-                .withText("1 stopnia")
+                .withText("@IMGWmeteo wydał ostrzeżenia 1. i 2. stopnia przed")
                 .withAuthorId("1139834822011084801")
                 .withCreationDate("2021-05-06T10:13:17.000Z")
                 .withEntity(entity)
@@ -80,7 +80,7 @@ class TweetDtoMeteoMeteoAlertMapperTest {
         //then
         final MeteoAlertOrigin meteoAlertOrigin = MeteoAlertOrigin.twitter("1139834822011084801", "1139834822011084801");
         final MeteoAlert expectedAlertWithLevelOne = new MeteoAlert(1, Set.of("burze", "wichura"),
-                "2021-05-06T10:13:17.000Z", "1 stopnia", "1139834822011084801", List.of(), meteoAlertOrigin);
+                "2021-05-06T10:13:17.000Z", "@IMGWmeteo wydał ostrzeżenia 1. i 2. stopnia przed", "1139834822011084801", List.of(), meteoAlertOrigin);
 
         assertThat(meteoAlert)
                 .usingRecursiveComparison()
