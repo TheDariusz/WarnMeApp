@@ -2,6 +2,9 @@ package com.thedariusz.warnme;
 
 import com.thedariusz.warnme.twitter.MeteoAlert;
 
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,5 +39,10 @@ public class MeteoAlertService {
             }
         }
         return true;
+    }
+
+    public String getRefreshDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+        return formatter.format(meteoAlertDao.getLatestRecordDateTime());
     }
 }

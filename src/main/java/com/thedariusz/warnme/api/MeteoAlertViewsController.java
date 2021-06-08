@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @Controller
@@ -38,9 +39,11 @@ public class MeteoAlertViewsController {
     @GetMapping
     public String getMainView(Model model) {
         List<MeteoAlert> meteoAlertsFromDb = meteoAlertService.getMeteoAlertsFromDb();
+        String refreshDate = meteoAlertService.getRefreshDate();
         List<Post> posts = Post.preparePosts(meteoAlertsFromDb);
 
         model.addAttribute("posts", posts);
+        model.addAttribute("refreshDate", refreshDate);
         return "index";
     }
 

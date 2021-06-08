@@ -5,6 +5,7 @@ import com.thedariusz.warnme.twitter.MeteoAlert;
 import com.thedariusz.warnme.twitter.MeteoAlertEntity;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,9 +34,9 @@ public class PostgresMeteoAlertDao implements MeteoAlertDao {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<MeteoAlert> fetchAll() {
-        final List<MeteoAlertEntity> entities = repository.findAll();
+        final List<MeteoAlertEntity> entities = repository.findByOrderByCreationDateDesc();
         return entities.stream()
                 .map(meteoAlertMapper::toModel)
                 .collect(Collectors.toList());
@@ -43,8 +44,15 @@ public class PostgresMeteoAlertDao implements MeteoAlertDao {
     }
 
     @Override
+    public OffsetDateTime getLatestRecordDateTime() {
+        return repository.findFirstByOrderByRecordCreatedDateDesc().getRecordCreatedDate();
+    }
+
+    @Override
     public void deleteAll() {
         repository.deleteAll();
     }
+
+
 
 }

@@ -4,11 +4,14 @@ import com.thedariusz.warnme.twitter.MeteoAlertEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @Repository
 public interface MeteoAlertSpringDao extends JpaRepository<MeteoAlertEntity, Long> {
 
     List<MeteoAlertEntity> findByExternalIdIn(List<String> externalIds);
+    List<MeteoAlertEntity> findByOrderByCreationDateDesc();
+    MeteoAlertEntity findFirstByOrderByRecordCreatedDateDesc();
 
 }

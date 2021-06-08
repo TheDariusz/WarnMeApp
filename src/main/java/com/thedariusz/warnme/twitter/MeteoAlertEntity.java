@@ -1,14 +1,22 @@
 package com.thedariusz.warnme.twitter;
 
+import com.thedariusz.warnme.MeteoAlertCategoryEntity;
 import com.thedariusz.warnme.MeteoAlertOriginEntity;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import java.time.OffsetDateTime;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity(name = "meteo_alert")
 public class MeteoAlertEntity {
@@ -19,10 +27,15 @@ public class MeteoAlertEntity {
 
     private int level;
 
-    private String categories;
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST})
+    @JoinTable(name = "meteoalert_meteoalertcategory",
+            joinColumns = @JoinColumn(name="alert_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private Set<MeteoAlertCategoryEntity> categories;
 
     private String creationDate;
 
+    @Column(length = 999)
     private String description;
 
     private String externalId;
@@ -33,10 +46,15 @@ public class MeteoAlertEntity {
     @JoinColumn(name = "alert_origin_id", referencedColumnName = "id")
     private MeteoAlertOriginEntity meteoAlertOriginEntity;
 
+    @Column(name = "created_date")
+    private OffsetDateTime recordCreatedDate;
+
     public MeteoAlertEntity() {
     }
 
-    public MeteoAlertEntity(int level, String categories, String creationDate, String description, String externalId, String media, MeteoAlertOriginEntity meteoAlertOriginEntity) {
+    public MeteoAlertEntity(int level, Set<MeteoAlertCategoryEntity> categories,
+                            String creationDate, String description, String externalId, String media,
+                            MeteoAlertOriginEntity meteoAlertOriginEntity, OffsetDateTime recordCreatedDate) {
         this.level = level;
         this.categories = categories;
         this.creationDate = creationDate;
@@ -44,6 +62,15 @@ public class MeteoAlertEntity {
         this.externalId = externalId;
         this.media = media;
         this.meteoAlertOriginEntity = meteoAlertOriginEntity;
+        this.recordCreatedDate = recordCreatedDate;
+    }
+
+    public OffsetDateTime getRecordCreatedDate() {
+        return recordCreatedDate;
+    }
+
+    public void setRecordCreatedDate(OffsetDateTime createdDate) {
+        this.recordCreatedDate = createdDate;
     }
 
     public Long getId() {
@@ -86,11 +113,11 @@ public class MeteoAlertEntity {
         this.description = description;
     }
 
-    public String getCategories() {
+    public Set<MeteoAlertCategoryEntity> getCategories() {
         return categories;
     }
 
-    public void setCategories(String categories) {
+    public void setCategories(Set<MeteoAlertCategoryEntity> categories) {
         this.categories = categories;
     }
 
@@ -108,5 +135,20 @@ public class MeteoAlertEntity {
 
     public void setMeteoAlertOriginEntity(MeteoAlertOriginEntity meteoAlertOriginEntity) {
         this.meteoAlertOriginEntity = meteoAlertOriginEntity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this==o) return true;
+        if (!(o instanceof MeteoAlertEntity)) return false;
+
+        MeteoAlertEntity that = (MeteoAlertEntity) o;
+
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id!=null ? id.hashCode():0;
     }
 }

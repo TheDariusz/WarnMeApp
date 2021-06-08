@@ -16,6 +16,7 @@ CREATE TABLE meteo_alert
     external_id     TEXT    NOT NULL,
     media           TEXT,
     alert_origin_id BIGINT,
+    created_date    TIMESTAMPTZ,
 
     CONSTRAINT fk_meteoalerts_alertsorigin FOREIGN KEY (alert_origin_id) references meteo_alert_origin (id)
 );

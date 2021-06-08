@@ -18,10 +18,10 @@ public class TweetDtoMeteoAlertMapper {
 
     private static final int LEVEL_NOT_FOUND = 0;
 
-    private final MeteoAlertCategoryMapper meteoAlertCategoryMapper;
+    private final MeteoAlertCategoryAssigment meteoAlertCategoryAssigment;
 
-    public TweetDtoMeteoAlertMapper(MeteoAlertCategoryMapper meteoAlertCategoryMapper) {
-        this.meteoAlertCategoryMapper = meteoAlertCategoryMapper;
+    public TweetDtoMeteoAlertMapper(MeteoAlertCategoryAssigment meteoAlertCategoryAssigment) {
+        this.meteoAlertCategoryAssigment = meteoAlertCategoryAssigment;
     }
 
     public MeteoAlert mapToMeteoAlertFromTweet(TweetDto tweetDto, List<Media> media) {
@@ -61,8 +61,8 @@ public class TweetDtoMeteoAlertMapper {
     }
 
     private Set<String> getAlertCategories(TweetDto tweetDto) {
-        final Set<String> categoriesFromHashTags = meteoAlertCategoryMapper.getCategories(tweetDto.getHashtagsFromTweet());
-        final Set<String> categoriesFromText = meteoAlertCategoryMapper.getCategoriesFromText(tweetDto.getText());
+        final Set<String> categoriesFromHashTags = meteoAlertCategoryAssigment.getCategories(tweetDto.getHashtagsFromTweet());
+        final Set<String> categoriesFromText = meteoAlertCategoryAssigment.getCategoriesFromText(tweetDto.getText());
 
         return Stream.of(categoriesFromHashTags, categoriesFromText)
                 .flatMap(Collection::stream)
