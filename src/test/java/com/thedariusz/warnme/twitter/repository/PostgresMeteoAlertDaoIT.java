@@ -45,21 +45,4 @@ class PostgresMeteoAlertDaoIT {
                 .isEqualTo(MeteoAlertOrigin.twitter("a", "1"));
     }
 
-    @Test
-    void testingCategies() {
-        Set<String> category = Set.of("burze","deszcz");
-        final MeteoAlertOrigin twitter = MeteoAlertOrigin.twitter("1", "1");
-        final MeteoAlert meteoAlert1 = new MeteoAlert(1, category, "2021", "test1", "1", List.of("url1"), twitter);
-        final MeteoAlert meteoAlert2 = new MeteoAlert(2, category, "2021", "test2", "2", List.of("url1"), twitter);
-        dao.save(meteoAlert1);
-        dao.save(meteoAlert2);
-        List<MeteoAlert> meteoAlerts = dao.fetchAll();
-        final List<MeteoAlertCategoryEntity> categoryAll = daoCategory.findAll();
-
-        assertThat(categoryAll)
-                .hasSize(2);
-
-
-    }
-
 }
