@@ -1,6 +1,6 @@
 package com.thedariusz.warnme.api;
 
-import com.thedariusz.warnme.twitter.MeteoAlert;
+import com.thedariusz.warnme.MeteoAlert;
 
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
@@ -16,16 +16,18 @@ public class Post {
     private String description;
     private String level;
     private List<String> images;
+    private Set<String> categories;
 
     public Post() {
     }
 
-    public Post(String title, String date, String description, String level, List<String> images) {
+    public Post(String title, String date, String description, String level, List<String> images, Set<String> categories) {
         this.title = title;
         this.date = date;
         this.description = description;
         this.level = level;
         this.images = images;
+        this.categories = categories;
     }
 
     public String getTitle() {
@@ -68,6 +70,14 @@ public class Post {
         this.level = level;
     }
 
+    public Set<String> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<String> categories) {
+        this.categories = categories;
+    }
+
     public static List<Post> preparePosts(List<MeteoAlert> meteoAlerts) {
         List<Post> posts = new ArrayList<>();
         meteoAlerts
@@ -78,6 +88,7 @@ public class Post {
                     post.images=meteoAlert.getMedia();
                     post.title=prepareTitleBasedOnCategories(meteoAlert.getCategories());
                     post.level=Integer.toString(meteoAlert.getLevel());
+                    post.categories = meteoAlert.getCategories();
                     posts.add(post);
                 });
 

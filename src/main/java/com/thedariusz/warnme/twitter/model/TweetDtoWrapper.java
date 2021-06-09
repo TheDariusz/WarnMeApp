@@ -1,8 +1,4 @@
-package com.thedariusz.warnme.twitter;
-
-import com.thedariusz.warnme.twitter.model.Includes;
-import com.thedariusz.warnme.twitter.model.Media;
-import com.thedariusz.warnme.twitter.model.Meta;
+package com.thedariusz.warnme.twitter.model;
 
 import java.util.List;
 

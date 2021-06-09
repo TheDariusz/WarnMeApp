@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class SecuredControllerWebMvcIntegrationTest {
+class SecuredControllerWebMvcIntegrationTest {
 
     @Autowired
     private WebApplicationContext context;
@@ -37,7 +37,7 @@ public class SecuredControllerWebMvcIntegrationTest {
 
     @WithMockUser("admin")
     @Test
-    public void givenAuthRequestOnPrivateService_shouldSucceedWith200() throws Exception {
+    void givenAuthRequestOnPrivateService_shouldSucceedWith200() throws Exception {
         mockMvc.perform(get("/alerts/twitter")
                 .contentType(MediaType.TEXT_HTML))
                 .andExpect(status().isOk());

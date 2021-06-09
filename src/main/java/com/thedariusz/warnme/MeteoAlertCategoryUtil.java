@@ -1,12 +1,10 @@
 package com.thedariusz.warnme;
 
-import com.thedariusz.warnme.twitter.model.Hashtag;
-
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class MeteoAlertCategoryAssigment {
+public class MeteoAlertCategoryUtil {
 
     private static final Set<String> METEO_ALERTS_CATEGORIES =
             Set.of("burze", "burza", "upał", "mróz", "przymrozki", "hydro", "deszcz", "wichura", "grad", "ulewa", "śnieg",
@@ -15,11 +13,9 @@ public class MeteoAlertCategoryAssigment {
                     "gęsta mgła", "silny mróz", "silny wiatr", "zawieje", "zamiecie śnieżne");
 
 
-    public Set<String> getCategories(List<Hashtag> hashTags) {
-
+    public Set<String> getCategories(List<String> hashTags) {
         return hashTags
                 .stream()
-                .map(Hashtag::getTag)
                 .map(String::toLowerCase)
                 .filter(METEO_ALERTS_CATEGORIES::contains)
                 .collect(Collectors.toSet());

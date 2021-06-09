@@ -1,7 +1,6 @@
-package com.thedariusz.warnme.twitter.repository;
+package com.thedariusz.warnme.repository.entity;
 
 import com.thedariusz.warnme.MeteoAlertOrigin;
-import com.thedariusz.warnme.MeteoAlertOriginEntity;
 
 public class MeteoAlertOriginMapper {
 

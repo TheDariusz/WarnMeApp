@@ -1,9 +1,6 @@
-package com.thedariusz.warnme.twitter.repository;
+package com.thedariusz.warnme.repository.entity;
 
-import com.thedariusz.warnme.MeteoAlertCategory;
-import com.thedariusz.warnme.MeteoAlertCategoryEntity;
-import com.thedariusz.warnme.twitter.MeteoAlert;
-import com.thedariusz.warnme.twitter.MeteoAlertEntity;
+import com.thedariusz.warnme.MeteoAlert;
 
 import java.time.OffsetDateTime;
 import java.util.Arrays;

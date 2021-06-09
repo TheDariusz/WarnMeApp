@@ -1,8 +1,7 @@
 package com.thedariusz.warnme;
 
-import com.thedariusz.warnme.twitter.MeteoAlert;
-import com.thedariusz.warnme.twitter.TweetDto;
 import com.thedariusz.warnme.twitter.model.Media;
+import com.thedariusz.warnme.twitter.model.TweetDto;
 
 import java.util.Collection;
 import java.util.List;
@@ -12,16 +11,16 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class TweetDtoMeteoAlertMapper {
+public class MeteoAlertGenericMapper {
 
     private static final String DIGIT_BEFORE_TEXT_OR_DEGREE_CHARACTER = "(\\d)\\s*(?=stopni|°|\\.)";
 
     private static final int LEVEL_NOT_FOUND = 0;
 
-    private final MeteoAlertCategoryAssigment meteoAlertCategoryAssigment;
+    private final MeteoAlertCategoryUtil meteoAlertCategoryUtil;
 
-    public TweetDtoMeteoAlertMapper(MeteoAlertCategoryAssigment meteoAlertCategoryAssigment) {
-        this.meteoAlertCategoryAssigment = meteoAlertCategoryAssigment;
+    public MeteoAlertGenericMapper(MeteoAlertCategoryUtil meteoAlertCategoryUtil) {
+        this.meteoAlertCategoryUtil = meteoAlertCategoryUtil;
     }
 
     public MeteoAlert mapToMeteoAlertFromTweet(TweetDto tweetDto, List<Media> media) {
@@ -61,8 +60,8 @@ public class TweetDtoMeteoAlertMapper {
     }
 
     private Set<String> getAlertCategories(TweetDto tweetDto) {
-        final Set<String> categoriesFromHashTags = meteoAlertCategoryAssigment.getCategories(tweetDto.getHashtagsFromTweet());
-        final Set<String> categoriesFromText = meteoAlertCategoryAssigment.getCategoriesFromText(tweetDto.getText());
+        final Set<String> categoriesFromHashTags = meteoAlertCategoryUtil.getCategories(tweetDto.getHashtagsFromTweet());
+        final Set<String> categoriesFromText = meteoAlertCategoryUtil.getCategoriesFromText(tweetDto.getText());
 
         return Stream.of(categoriesFromHashTags, categoriesFromText)
                 .flatMap(Collection::stream)

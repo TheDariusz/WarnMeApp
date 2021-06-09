@@ -1,11 +1,9 @@
-package com.thedariusz.warnme.twitter;
+package com.thedariusz.warnme.twitter.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.thedariusz.warnme.twitter.model.Attachments;
-import com.thedariusz.warnme.twitter.model.Entity;
-import com.thedariusz.warnme.twitter.model.Hashtag;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TweetDto {
 
@@ -125,8 +123,10 @@ public class TweetDto {
         return entities;
     }
 
-    public List<Hashtag> getHashtagsFromTweet() {
-        return entities.getHashtags();
+    public List<String> getHashtagsFromTweet() {
+        return entities.getHashtags().stream()
+                .map(Hashtag::getTag)
+                .collect(Collectors.toList());
     }
 
     public void setEntities(Entity entities) {

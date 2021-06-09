@@ -2,10 +2,10 @@ package com.thedariusz.warnme.twitter;
 
 import com.thedariusz.warnme.twitter.model.Entity;
 import com.thedariusz.warnme.twitter.model.Hashtag;
+import com.thedariusz.warnme.twitter.model.TweetDto;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;

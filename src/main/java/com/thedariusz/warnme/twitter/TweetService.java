@@ -1,20 +1,18 @@
 package com.thedariusz.warnme.twitter;
 
-import com.thedariusz.warnme.TweetDtoMeteoAlertMapper;
+import com.thedariusz.warnme.MeteoAlert;
 import com.thedariusz.warnme.MeteoAlertService;
-import com.thedariusz.warnme.twitter.model.Hashtag;
+import com.thedariusz.warnme.MeteoAlertGenericMapper;
 import com.thedariusz.warnme.twitter.model.Media;
+import com.thedariusz.warnme.twitter.model.TweetDto;
+import com.thedariusz.warnme.twitter.model.TweetDtoWrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import static org.springframework.util.CollectionUtils.isEmpty;
 
 public class TweetService {
 
@@ -24,6 +22,7 @@ public class TweetService {
         OTHER
     }
     private static final Logger logger = LoggerFactory.getLogger(TweetService.class);
+
     private static final Map<TweetType, Set<String>> TWEET_TYPE_TO_KEYWORDS = Map.of(
             TweetType.METEO, Set.of("meteo", "weather", "pogoda", "burze", "burza",
                     "upał", "mróz", "meteoimgw", "przymrozki", "temperatura", "hydro",
@@ -36,12 +35,12 @@ public class TweetService {
 
     private final MeteoAlertService meteoAlertService;
     private final TwitterClient twitterClient;
-    private final TweetDtoMeteoAlertMapper tweetDtoMeteoAlertMapper;
+    private final MeteoAlertGenericMapper meteoAlertGenericMapper;
 
-    public TweetService(MeteoAlertService meteoAlertService, TwitterClient twitterClient, TweetDtoMeteoAlertMapper tweetDtoMeteoAlertMapper) {
+    public TweetService(MeteoAlertService meteoAlertService, TwitterClient twitterClient, MeteoAlertGenericMapper meteoAlertGenericMapper) {
         this.meteoAlertService = meteoAlertService;
         this.twitterClient = twitterClient;
-        this.tweetDtoMeteoAlertMapper = tweetDtoMeteoAlertMapper;
+        this.meteoAlertGenericMapper = meteoAlertGenericMapper;
     }
 
     public void syncTweets(String twitterUserId) {
@@ -51,30 +50,30 @@ public class TweetService {
 
         List<MeteoAlert> meteoAlerts = tweets.stream()
                 .filter(this::isMeteoAlert)
-                .map(tweetDto -> tweetDtoMeteoAlertMapper.mapToMeteoAlertFromTweet(tweetDto, media))
+                .map(tweetDto -> meteoAlertGenericMapper.mapToMeteoAlertFromTweet(tweetDto, media))
                 .collect(Collectors.toList());
 
+        logger.info("Fetched {} total alerts", meteoAlerts.size());
         meteoAlertService.save(meteoAlerts);
     }
 
 
     boolean isMeteoAlert(TweetDto tweetDto) {
         TweetType tweetType = TweetType.OTHER;
-
-        if (tweetHashtagsContainsKeywords(tweetDto.getHashtagsFromTweet(), getMeteoKeywords()) ||
+        final List<String> hashtags = tweetDto.getHashtagsFromTweet();
+        if (tweetHashtagsContainsKeywords(hashtags, getMeteoKeywords()) ||
                 tweetTextFieldContainsKeywords(tweetDto.getText(), getMeteoKeywords())) {
             tweetType=TweetType.METEO;
         }
 
         return tweetType.equals(TweetType.METEO) && (
-                tweetHashtagsContainsKeywords(tweetDto.getHashtagsFromTweet(), getMeteoAlertKeywords()) ||
+                tweetHashtagsContainsKeywords(hashtags, getMeteoAlertKeywords()) ||
                         tweetTextFieldContainsKeywords(tweetDto.getText(), getMeteoAlertKeywords()));
     }
 
-    private boolean tweetHashtagsContainsKeywords(List<Hashtag> hashtagsFromTweet, Set<String> keywords) {
+    private boolean tweetHashtagsContainsKeywords(List<String> hashtagsFromTweet, Set<String> keywords) {
         return hashtagsFromTweet
                 .stream()
-                .map(Hashtag::getTag)
                 .map(String::toLowerCase)
                 .anyMatch(keywords::contains);
     }

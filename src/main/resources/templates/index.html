@@ -35,11 +35,11 @@
       <div class="blog-masonry masonry-true">
                         <span th:each="post: ${posts}">
                         <div class="post-masonry col-md-4 col-sm-6">
-                            <div class="blog-thumb">
+                            <div class="project-thumb">
                                 <img th:src="${post.images.get(0)}">
                                 <div class="overlay-b">
                                     <div class="overlay-inner">
-                                        <a href="blog-single.html" class="fa fa-link"></a>
+                                        <a th:href="${post.images.get(0)}" class="fancybox fa fa-expand" title="Project Title Here"></a>
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +48,16 @@
                                   <h3 class="post-title"><span th:text="${post.title} + ' poziom: ' + ${post.level}">Storms warning</span></h3>
                                     <span class="blog-meta" th:text="${post.date}">date</span>
                                     <p th:text="${post.description}"></p>
+                                  <div class="blog-tags col-md-12">
+                                    <span>categories: </span>
+                                  <span th:each="category: ${post.categories}">
+                                    <span th:text="${category} + '&nbsp'"></span>
+                                    </span>
+                             </div>
                                 </div>
+
+
+
                             </div>
                         </div> <!-- /.post-masonry -->
                         </span>

@@ -23,5 +23,5 @@ CREATE TABLE user_role
     CONSTRAINT fk_userrole_role FOREIGN KEY (role_id) references role (id)
 );
 
-INSERT INTO role (name) VALUES ( 'ROLE_USER');
-INSERT INTO role (name) VALUES ( 'ROLE_ADMIN');
+INSERT INTO role (id, name) VALUES (101, 'ROLE_USER');
+INSERT INTO role (id, name) VALUES ( 102, 'ROLE_ADMIN');

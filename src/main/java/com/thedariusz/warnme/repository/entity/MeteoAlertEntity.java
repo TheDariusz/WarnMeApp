@@ -1,7 +1,4 @@
-package com.thedariusz.warnme.twitter;
-
-import com.thedariusz.warnme.MeteoAlertCategoryEntity;
-import com.thedariusz.warnme.MeteoAlertOriginEntity;
+package com.thedariusz.warnme.repository.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -35,7 +32,6 @@ public class MeteoAlertEntity {
 
     private String creationDate;
 
-    @Column(length = 999)
     private String description;
 
     private String externalId;
@@ -47,14 +43,14 @@ public class MeteoAlertEntity {
     private MeteoAlertOriginEntity meteoAlertOriginEntity;
 
     @Column(name = "created_date")
-    private OffsetDateTime recordCreatedDate;
+    private OffsetDateTime createdAt;
 
     public MeteoAlertEntity() {
     }
 
     public MeteoAlertEntity(int level, Set<MeteoAlertCategoryEntity> categories,
                             String creationDate, String description, String externalId, String media,
-                            MeteoAlertOriginEntity meteoAlertOriginEntity, OffsetDateTime recordCreatedDate) {
+                            MeteoAlertOriginEntity meteoAlertOriginEntity, OffsetDateTime createdAt) {
         this.level = level;
         this.categories = categories;
         this.creationDate = creationDate;
@@ -62,15 +58,15 @@ public class MeteoAlertEntity {
         this.externalId = externalId;
         this.media = media;
         this.meteoAlertOriginEntity = meteoAlertOriginEntity;
-        this.recordCreatedDate = recordCreatedDate;
+        this.createdAt = createdAt;
     }
 
-    public OffsetDateTime getRecordCreatedDate() {
-        return recordCreatedDate;
+    public OffsetDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setRecordCreatedDate(OffsetDateTime createdDate) {
-        this.recordCreatedDate = createdDate;
+    public void setCreatedAt(OffsetDateTime createdDate) {
+        this.createdAt = createdDate;
     }
 
     public Long getId() {

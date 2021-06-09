@@ -27,13 +27,15 @@
                                 <p>Access to the hide part of the service</p>
                                 <h3 class="contact-title">Please provide your login data</h3>
                                 <div class="contact-form-inner">
-                                    <div th:if="${param.logout}">
+                                    <div class="alert-info" th:if="${param.logout}">
                                         You have been logged out
                                     </div>
                                     <form method="post" th:action="@{/alerts/login}" id="loginform">
-                                        <div th:if="${param.error}">
+                                        <div class="alert-info" th:if="${param.error}">
                                             Invalid username and password
+                                            <p></p>
                                         </div>
+
                                         <p>
                                             <label for="name">User name:</label>
                                             <input name="username" type="text" id="name">

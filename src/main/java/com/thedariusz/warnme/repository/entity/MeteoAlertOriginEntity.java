@@ -1,4 +1,4 @@
-package com.thedariusz.warnme;
+package com.thedariusz.warnme.repository.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,23 +1,32 @@
 package com.thedariusz.warnme.user;
 
-import javax.validation.constraints.Min;
+import com.thedariusz.warnme.user.repository.entity.RoleEntity;
+
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Set;
 
 public class UserDto {
+
+    @NotEmpty(message = "Please enter a user name")
+    @Size(min = 4, message = "Name couldn't be empty and should have at least 4 letters")
     private String username;
+
+    @Size(min = 8, message = "Password couldn't be empty and should have at least 8 letters")
     private String password;
+
     private int enabled;
-    private Set<Role> roles;
+
+    private Set<RoleEntity> roleEntities;
 
     public UserDto() {
     }
 
-    public UserDto(String username, String password, int enabled, Set<Role> roles) {
+    public UserDto(String username, String password, int enabled, Set<RoleEntity> roleEntities) {
         this.username = username;
         this.password = password;
         this.enabled = enabled;
-        this.roles = roles;
+        this.roleEntities = roleEntities;
     }
 
     public String getUsername() {
@@ -44,11 +53,11 @@ public class UserDto {
         this.enabled = enabled;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Set<RoleEntity> getRoles() {
+        return roleEntities;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRoles(Set<RoleEntity> roleEntities) {
+        this.roleEntities = roleEntities;
     }
 }

@@ -1,6 +1,4 @@
-package com.thedariusz.warnme.twitter.repository;
-
-import com.thedariusz.warnme.MeteoAlertCategoryEntity;
+package com.thedariusz.warnme.repository.entity;
 
 import java.util.Set;
 import java.util.stream.Collectors;

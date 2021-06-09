@@ -1,7 +1,8 @@
-package com.thedariusz.warnme.user;
+package com.thedariusz.warnme.user.repository.entity;
+
+import com.thedariusz.warnme.user.UserDto;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -10,38 +11,33 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Size;
 import java.util.Set;
 
-@Entity
-public class User {
+@Entity(name = "user")
+public class UserEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(min = 5, max = 30)
-    @Column(nullable = false, unique = true)
     private String username;
 
-    @Min(8)
     private String password;
 
     private int enabled;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name="role_id"))
-    private Set<Role> roles;
+    private Set<RoleEntity> roleEntities;
 
-    public User() {
+    public UserEntity() {
     }
 
-    public User(Long id, String username, String password, int enabled, Set<Role> roles) {
-        this.id = id;
+    public UserEntity(String username, String password, int enabled, Set<RoleEntity> roleEntities) {
         this.username = username;
         this.password = password;
         this.enabled = enabled;
-        this.roles = roles;
+        this.roleEntities = roleEntities;
     }
 
     public Long getId() {
@@ -76,29 +72,29 @@ public class User {
         this.enabled = enabled;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Set<RoleEntity> getRoles() {
+        return roleEntities;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRoles(Set<RoleEntity> roleEntities) {
+        this.roleEntities = roleEntities;
     }
 
-    public static User toUser(UserDto userDto) {
-        User user = new User();
-        user.setUsername(userDto.getUsername());
-        user.setPassword(userDto.getPassword());
-        user.setEnabled(userDto.getEnabled());
-        user.setRoles(userDto.getRoles());
-        return user;
+    public static UserEntity toEntity(UserDto userDto) {
+        return new UserEntity(
+                userDto.getUsername(),
+                userDto.getPassword(),
+                userDto.getEnabled(),
+                userDto.getRoles()
+        );
     }
 
-    public static UserDto toUserDto(User user) {
-        UserDto userDto = new UserDto();
-        userDto.setUsername(user.getUsername());
-        userDto.setPassword(user.getPassword());
-        userDto.setEnabled(user.getEnabled());
-        userDto.setRoles(user.getRoles());
-        return userDto;
+    public static UserDto toUserDto(UserEntity user) {
+        return new UserDto(
+                user.getUsername(),
+                user.getPassword(),
+                user.getEnabled(),
+                user.getRoles()
+        );
     }
 }

@@ -1,7 +1,7 @@
 package com.thedariusz.warnme.api;
 
 import com.thedariusz.warnme.MeteoAlertService;
-import com.thedariusz.warnme.twitter.MeteoAlert;
+import com.thedariusz.warnme.MeteoAlert;
 import com.thedariusz.warnme.twitter.TweetService;
 import com.thedariusz.warnme.user.UserDto;
 import com.thedariusz.warnme.user.UserService;
@@ -18,12 +18,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
-import java.time.OffsetDateTime;
 import java.util.List;
 
 @Controller
 @RequestMapping(value = "/alerts")
 public class MeteoAlertViewsController {
+
+    private static final String HOME_VIEW = "index";
+    private static final String LOGIN_VIEW = "login";
+    private static final String LOGOUT_VIEW = "logout";
+    private static final String TWITTER_VIEW = "twitter";
+    private static final String ERROR_VIEW = "error";
+    private static final String REGISTER_VIEW = "register";
 
     private final UserService userService;
     private final TweetService tweetService;
@@ -44,14 +50,14 @@ public class MeteoAlertViewsController {
 
         model.addAttribute("posts", posts);
         model.addAttribute("refreshDate", refreshDate);
-        return "index";
+        return HOME_VIEW;
     }
 
     @GetMapping("/login")
     public String getLoginView() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
-            return "login";
+            return LOGIN_VIEW;
         }
 
         return "redirect:/alerts";
@@ -59,17 +65,17 @@ public class MeteoAlertViewsController {
 
     @GetMapping("/logout")
     public String getLogoutView() {
-        return "logout";
+        return LOGOUT_VIEW;
     }
 
     @GetMapping("/twitter")
     public String getTwitterView() {
-        return "twitter";
+        return TWITTER_VIEW;
     }
 
     @GetMapping("/error")
     public String getErrorView() {
-        return "error";
+        return ERROR_VIEW;
     }
 
 
@@ -77,29 +83,21 @@ public class MeteoAlertViewsController {
     public String getRegisterView(Model model) {
         UserDto userDto = new UserDto();
         model.addAttribute("userDto", userDto);
-        return "register";
+        return REGISTER_VIEW;
     }
     @PostMapping("/register")
     public String getRegisterForm(@Valid UserDto userDto, BindingResult bindingResult, Model model) {
-        String message = userService.validateUsername(userDto); //todo change to pro validation
-        if (!message.isBlank()) {
+        if (userService.existUser(userDto)) {
             bindingResult.rejectValue("username", "error.user",
-                    message);
-            return "register";
-        }
-
-        message = userService.validatePassword(userDto); //todo change to pro validation
-        if (!message.isBlank()) {
-            bindingResult.rejectValue("password", "error.password",
-                    message);
-            return "register";
+                    "User '"+userDto.getUsername()+"' is already register");
+            return REGISTER_VIEW;
         }
 
         if (bindingResult.hasErrors()) {
-            return "register";
+            return REGISTER_VIEW;
         } else {
             userService.saveUser(userDto);
-            return "login";
+            return LOGIN_VIEW;
         }
     }
 

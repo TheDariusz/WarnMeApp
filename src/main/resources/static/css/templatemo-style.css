@@ -1221,8 +1221,11 @@ div.load-more a.load-more:active {
 }
 
 .blog-tags {
-  margin-top: 30px;
+  margin-top: 0;
+  font-size: large;
+  padding-left: 0;
 }
+
 .blog-tags span {
   font-family: "Roboto Slab", serif;
 }

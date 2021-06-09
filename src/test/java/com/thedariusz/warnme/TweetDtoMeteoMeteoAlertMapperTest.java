@@ -1,9 +1,8 @@
 package com.thedariusz.warnme;
 
+import com.thedariusz.warnme.twitter.model.TweetDto;
 import com.thedariusz.warnme.twitter.model.Entity;
 import com.thedariusz.warnme.twitter.model.Hashtag;
-import com.thedariusz.warnme.twitter.MeteoAlert;
-import com.thedariusz.warnme.twitter.TweetDto;
 import com.thedariusz.warnme.twitter.model.Media;
 import org.junit.jupiter.api.Test;
 
@@ -15,8 +14,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class TweetDtoMeteoMeteoAlertMapperTest {
 
-    MeteoAlertCategoryAssigment meteoAlertCategoryAssigment = new MeteoAlertCategoryAssigment();
-    TweetDtoMeteoAlertMapper tweetDtoMeteoAlertMapper = new TweetDtoMeteoAlertMapper(meteoAlertCategoryAssigment);
+    MeteoAlertCategoryUtil meteoAlertCategoryUtil = new MeteoAlertCategoryUtil();
+    MeteoAlertGenericMapper meteoAlertGenericMapper = new MeteoAlertGenericMapper(meteoAlertCategoryUtil);
 
     @Test
     void shouldMapToMeteoAlertWithLevelNotFound() {
@@ -40,7 +39,7 @@ class TweetDtoMeteoMeteoAlertMapperTest {
         final Media media = new Media("photo", "123", "http://url.com");
 
         //when
-        final MeteoAlert meteoAlert = tweetDtoMeteoAlertMapper.mapToMeteoAlertFromTweet(tweetWithoutMeaningfulText, List.of(media));
+        final MeteoAlert meteoAlert = meteoAlertGenericMapper.mapToMeteoAlertFromTweet(tweetWithoutMeaningfulText, List.of(media));
 
         //then
         final MeteoAlertOrigin twitterOrigin = MeteoAlertOrigin.twitter("1139834822011084801", "1139834822011084801");
@@ -75,7 +74,7 @@ class TweetDtoMeteoMeteoAlertMapperTest {
         final Media media = new Media("photo", "321", "http://url.com");
 
         //when
-        final MeteoAlert meteoAlert = tweetDtoMeteoAlertMapper.mapToMeteoAlertFromTweet(tweetDtoWithAllFields, List.of(media));
+        final MeteoAlert meteoAlert = meteoAlertGenericMapper.mapToMeteoAlertFromTweet(tweetDtoWithAllFields, List.of(media));
 
         //then
         final MeteoAlertOrigin meteoAlertOrigin = MeteoAlertOrigin.twitter("1139834822011084801", "1139834822011084801");

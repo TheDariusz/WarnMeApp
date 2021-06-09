@@ -1,4 +1,4 @@
-package com.thedariusz.warnme.user;
+package com.thedariusz.warnme.user.repository.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,16 +6,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity(name = "role")
-public class Role {
+public class RoleEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
 
-    public Role() {
+    public RoleEntity() {
     }
 
-    public Role(int id, String name) {
+    public RoleEntity(int id, String name) {
         this.id = id;
         this.name = name;
     }

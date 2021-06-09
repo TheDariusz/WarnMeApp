@@ -2,9 +2,8 @@ package com.thedariusz.warnme.api;
 
 import com.google.common.net.HttpHeaders;
 import com.thedariusz.warnme.MeteoAlertDao;
-import com.thedariusz.warnme.twitter.MeteoAlert;
+import com.thedariusz.warnme.MeteoAlert;
 import org.assertj.core.api.recursive.comparison.RecursiveComparisonConfiguration;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -62,7 +61,6 @@ class MeteoAlertControllerMockMvcIT extends IntegrationTestBase {
     @BeforeAll
     public static void setup() {
         mockServer = ClientAndServer.startClientAndServer(8092);
-
     }
 
 

@@ -6,10 +6,9 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.thedariusz.warnme.twitter.TweetService;
 import com.thedariusz.warnme.twitter.TwitterClient;
-import com.thedariusz.warnme.twitter.client.FakeTwitterClient;
 import com.thedariusz.warnme.twitter.client.SpringTwitterClient;
-import com.thedariusz.warnme.twitter.repository.MeteoAlertSpringDao;
-import com.thedariusz.warnme.twitter.repository.PostgresMeteoAlertDao;
+import com.thedariusz.warnme.repository.MeteoAlertJpaRepository;
+import com.thedariusz.warnme.repository.MeteoAlertRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -38,8 +37,8 @@ public class WarnMeApplication {
 	}
 
 	@Bean
-	public MeteoAlertDao postgresMeteoAlertDao(MeteoAlertSpringDao meteoAlertSpringDao) {
-		return new PostgresMeteoAlertDao(meteoAlertSpringDao);
+	public MeteoAlertDao postgresMeteoAlertDao(MeteoAlertJpaRepository meteoAlertSpringDao) {
+		return new MeteoAlertRepository(meteoAlertSpringDao);
 	}
 
 	@Bean
@@ -48,19 +47,13 @@ public class WarnMeApplication {
 	}
 
 	@Bean
-	public TwitterClient fakeTwitterClient() {
-		return new FakeTwitterClient();
-	}
-
-	@Bean
-	@Primary
 	public TwitterClient springTwitterClient(WebClient webClient) {
 		return new SpringTwitterClient(webClient);
 	}
 
 	@Bean
 	public TweetService tweetService(MeteoAlertService meteoAlertService, TwitterClient twitterClient) {
-		return new TweetService(meteoAlertService, twitterClient, new TweetDtoMeteoAlertMapper(new MeteoAlertCategoryAssigment()));
+		return new TweetService(meteoAlertService, twitterClient, new MeteoAlertGenericMapper(new MeteoAlertCategoryUtil()));
 	}
 
 }
