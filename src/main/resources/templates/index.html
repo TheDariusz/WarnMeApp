@@ -18,7 +18,7 @@
     <div class="row">
       <div class="section-header col-md-12">
         <h2>Latest alerts</h2>
-        <span th:text="'update date: ' + ${refreshDate}">update date: 2021.06.01 13:13</span>
+        <span th:text="'update date: ' + ${refreshDate} ?: ' '"></span>
         <div align="left" sec:authorize="isAuthenticated()">
           <ul class="sf-menu hidden-xs hidden-sm">
             <li><div class="fa fa-twitter"> get fresh tweets</div>

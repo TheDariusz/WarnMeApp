@@ -30,6 +30,7 @@ public class MeteoAlertViewsController {
     private static final String TWITTER_VIEW = "twitter";
     private static final String ERROR_VIEW = "error";
     private static final String REGISTER_VIEW = "register";
+    private static final String CONTACT_VIEW = "contact";
 
     private final UserService userService;
     private final TweetService tweetService;
@@ -71,6 +72,11 @@ public class MeteoAlertViewsController {
     @GetMapping("/twitter")
     public String getTwitterView() {
         return TWITTER_VIEW;
+    }
+
+    @GetMapping("/contact")
+    public String getContactView() {
+        return CONTACT_VIEW;
     }
 
     @GetMapping("/error")

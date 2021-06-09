@@ -40,7 +40,13 @@
     <div class="main-header">
       <div class="row">
         <div class="main-header-left col-md-3 col-sm-6 col-xs-8">
-          <div sec:authorize="isAuthenticated()">Hello <span sec:authentication="name"></span>
+          <div class="logged-user" sec:authorize="isAuthenticated()">
+            Hello
+              <b><span sec:authentication="name"></span></b>,
+            now, you can refresh data sources to check new alerts
+          </div>
+          <div class="anonymous-user" sec:authorize="isAnonymous()">
+            Hello <b>guest</b>, please sign in if you want to refresh data sources to check new alerts
           </div>
 
         </div> <!-- /.main-header-left -->
@@ -54,7 +60,7 @@
                 <li><a href="#">Burze.dzis.net</a></li>
               </ul>
             </li>
-            <li><a href="#">Contact</a></li>
+            <li><a th:href="@{/alerts/contact}">Contact</a></li>
             <li sec:authorize="isAnonymous()"><a th:href="@{/alerts/login}">Login</a>
             <li sec:authorize="isAuthenticated()"><a th:href="@{/alerts/logout}">Logout</a></li>
             <ul>
@@ -74,7 +80,7 @@
             <li><a href="#">Burze.dzis.net</a></li>
           </ul>
         </li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a th:href="@{/alerts/contact}">Contact</a></li>
         <li sec:authorize="isAnonymous()"><a th:href="@{/alerts/login}">Login</a>
         <li sec:authorize="isAuthenticated()"><a th:href="@{/alerts/logout}">Logout</a></li>
         <ul>

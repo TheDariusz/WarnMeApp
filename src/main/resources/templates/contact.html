@@ -1,0 +1,60 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+
+<div th:replace="fragments/header :: head"></div>
+
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="section-header col-md-12">
+                        <h2>INFORMATION ABOUT AUTHOR</h2>
+                        <span>who is still working on this site</span>
+                    </div> <!-- /.section-header -->
+                </div> <!-- /.row -->
+                <div class="our-team row">
+                    <div class="team-member col-md-6 col-sm-6">
+                        <img th:src="@{/images/my.photo.jpg}" alt="my photo">
+                        <div class="box-content">
+                            <h4 class="member-name">Dariusz Szczepański</h4>
+                            <span>Java developer / Manager</span>
+                            <p>I'm at the beginning of programming path and I'm very exciting of my first project.
+                                Warnme is meteo warnings aggregator and the final project to pass the Coderslab school.
+                                The project is still under developing and I'm working on the next functionalities.
+                            </p>
+                            <ul class="social-network">
+                                <li><a th:href="@{https://www.linkedin.com/in/dariusz-szczepański}" target="_blank" class="fa fa-linkedin"></a></li>
+                                <li><a th:href="@{https://github.com/thedariusz}" target="_blank" class="fa fa-github"></a></li>
+                                <li><a th:href="@{https://www.facebook.com/TheDariusz}" target="_blank" class="fa fa-facebook"></a></li>
+                                <li><a th:href="@{https://twitter.com/thedariusz}" target="_blank" class="fa fa-twitter"></a></li>
+                            </ul>
+                        </div>
+                    </div> <!-- /.team-member -->
+                </div> <!-- /.our-team -->
+                <div class="our-staff row">
+                    <div class="intro-header col-md-3 col-sm-6">
+                        <h2>Special thanks to</h2>
+                        <p>entire Coderslab team, especially for the lecturers with whom I had each modules, and of course the biggest thanks to my mentor Anh</p>
+                    </div> <!-- /.intro-header -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="staff-member">
+                            <a th:href="@{https://coderslab.pl/}">
+                                <img th:src="@{https://coderslab.pl/static/media/logoCLpl.bfb2c6b6.svg}" alt="Coderslab logo">
+                            </a>
+
+                        </div> <!-- /.staff-member -->
+                    </div> <!-- /.col-md-3 -->
+                </div> <!-- /.our-staff -->
+            </div> <!-- /.inner-content -->
+        </div> <!-- /.content-wrapper -->
+    </body>
+<div th:replace="fragments/footer :: footer"></div>

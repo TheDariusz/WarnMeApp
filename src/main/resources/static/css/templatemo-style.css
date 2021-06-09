@@ -1480,3 +1480,19 @@ ul.archive-list li h3 a:hover {
   color: white;
   padding-left: 5px;
 }
+
+.logged-user {
+  font-size: medium;
+  color: #777777;
+  font-weight: inherit;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 5px;
+}
+
+.anonymous-user {
+  font-size: small;
+  color: #777777;
+  font-weight: inherit;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 5px;
+}
