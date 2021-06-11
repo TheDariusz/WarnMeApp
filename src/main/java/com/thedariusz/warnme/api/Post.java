@@ -2,15 +2,15 @@ package com.thedariusz.warnme.api;
 
 import com.thedariusz.warnme.MeteoAlert;
 
-import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 public class Post {
+    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
     private String title;
     private String date;
     private String description;
@@ -83,11 +83,11 @@ public class Post {
         meteoAlerts
                 .forEach(meteoAlert -> {
                     Post post = new Post();
-                    post.date=formatDate(meteoAlert.getCreationDate());
-                    post.description=meteoAlert.getDescription();
-                    post.images=meteoAlert.getMedia();
-                    post.title=prepareTitleBasedOnCategories(meteoAlert.getCategories());
-                    post.level=Integer.toString(meteoAlert.getLevel());
+                    post.date = "post date: " + formatDate(meteoAlert.getCreationDate());
+                    post.description = meteoAlert.getDescription();
+                    post.images = meteoAlert.getMedia();
+                    post.title = prepareTitleBasedOnCategories(meteoAlert.getCategories());
+                    post.level = Integer.toString(meteoAlert.getLevel());
                     post.categories = meteoAlert.getCategories();
                     posts.add(post);
                 });
@@ -105,7 +105,6 @@ public class Post {
 
     private static String formatDate(String creationDate) {
         TemporalAccessor dateParsed = DateTimeFormatter.ISO_OFFSET_DATE_TIME.parse(creationDate);
-        OffsetDateTime date = OffsetDateTime.from(dateParsed);
-        return date.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
+        return DATE_TIME_FORMATTER.format(dateParsed);
     }
 }

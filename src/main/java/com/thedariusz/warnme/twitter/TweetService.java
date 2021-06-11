@@ -21,6 +21,7 @@ public class TweetService {
         METEO_ALERT,
         OTHER
     }
+
     private static final Logger logger = LoggerFactory.getLogger(TweetService.class);
 
     private static final Map<TweetType, Set<String>> TWEET_TYPE_TO_KEYWORDS = Map.of(
@@ -57,18 +58,19 @@ public class TweetService {
         meteoAlertService.save(meteoAlerts);
     }
 
-
     boolean isMeteoAlert(TweetDto tweetDto) {
         TweetType tweetType = TweetType.OTHER;
         final List<String> hashtags = tweetDto.getHashtagsFromTweet();
-        if (tweetHashtagsContainsKeywords(hashtags, getMeteoKeywords()) ||
-                tweetTextFieldContainsKeywords(tweetDto.getText(), getMeteoKeywords())) {
-            tweetType=TweetType.METEO;
+        final String text = tweetDto.getText();
+
+        if (tweetHashtagsContainsKeywords(hashtags, getMeteoKeywords())
+                || tweetTextFieldContainsKeywords(text, getMeteoKeywords())) {
+            tweetType = TweetType.METEO;
         }
 
-        return tweetType.equals(TweetType.METEO) && (
-                tweetHashtagsContainsKeywords(hashtags, getMeteoAlertKeywords()) ||
-                        tweetTextFieldContainsKeywords(tweetDto.getText(), getMeteoAlertKeywords()));
+        return tweetType.equals(TweetType.METEO) &&
+                (tweetHashtagsContainsKeywords(hashtags, getMeteoAlertKeywords())
+                        || tweetTextFieldContainsKeywords(text, getMeteoAlertKeywords()));
     }
 
     private boolean tweetHashtagsContainsKeywords(List<String> hashtagsFromTweet, Set<String> keywords) {
@@ -83,6 +85,7 @@ public class TweetService {
         return keywords.stream()
                 .anyMatch(lowerCaseText::contains);
     }
+
     private Set<String> getMeteoKeywords() {
         return TWEET_TYPE_TO_KEYWORDS.get(TweetType.METEO);
     }

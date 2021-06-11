@@ -26,7 +26,7 @@ public class MeteoAlertEntity {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST})
     @JoinTable(name = "meteoalert_meteoalertcategory",
-            joinColumns = @JoinColumn(name="alert_id"),
+            joinColumns = @JoinColumn(name = "alert_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<MeteoAlertCategoryEntity> categories;
 

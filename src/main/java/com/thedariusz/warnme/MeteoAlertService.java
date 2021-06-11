@@ -25,10 +25,10 @@ public class MeteoAlertService {
                 map(MeteoAlert::getExternalId)
                 .collect(Collectors.toList());
 
-        List<MeteoAlert> existing = meteoAlertDao.fetchExisting(newIds);
+        List<MeteoAlert> existingMeteoAlerts = meteoAlertDao.fetchExisting(newIds);
 
         final List<MeteoAlert> alertsToSave = meteoAlerts.stream()
-                .filter(meteoAlert -> externalIdEquals(existing, meteoAlert))
+                .filter(meteoAlert -> externalIdEquals(existingMeteoAlerts, meteoAlert))
                 .collect(Collectors.toList());
 
         logger.info("Saving {} new alerts", alertsToSave.size());
@@ -39,8 +39,8 @@ public class MeteoAlertService {
         return meteoAlertDao.fetchAll();
     }
 
-    private boolean externalIdEquals(List<MeteoAlert> existing, MeteoAlert meteoAlert) {
-        for(MeteoAlert alert : existing) {
+    private boolean externalIdEquals(List<MeteoAlert> existingAlerts, MeteoAlert meteoAlert) {
+        for (MeteoAlert alert : existingAlerts) {
             if (alert.getExternalId().equals(meteoAlert.getExternalId())) {
                 return false;
             }

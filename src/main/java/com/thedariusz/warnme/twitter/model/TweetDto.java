@@ -35,9 +35,9 @@ public class TweetDto {
     public TweetDto() {
     }
 
-   public List<String> getMediaKeys() {
+    public List<String> getMediaKeys() {
         return attachments == null ? List.of() : attachments.getMediaKeys();
-   }
+    }
 
     public static final class TweetDtoBuilder {
         private String id;

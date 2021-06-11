@@ -1,14 +1,11 @@
 package com.thedariusz.warnme.api;
 
-import com.thedariusz.warnme.MeteoAlertService;
 import com.thedariusz.warnme.MeteoAlert;
+import com.thedariusz.warnme.MeteoAlertService;
 import com.thedariusz.warnme.twitter.TweetService;
 import com.thedariusz.warnme.user.UserDto;
 import com.thedariusz.warnme.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -56,12 +53,7 @@ public class MeteoAlertViewsController {
 
     @GetMapping("/login")
     public String getLoginView() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
-            return LOGIN_VIEW;
-        }
-
-        return "redirect:/alerts";
+        return LOGIN_VIEW;
     }
 
     @GetMapping("/logout")
@@ -91,11 +83,12 @@ public class MeteoAlertViewsController {
         model.addAttribute("userDto", userDto);
         return REGISTER_VIEW;
     }
+
     @PostMapping("/register")
-    public String getRegisterForm(@Valid UserDto userDto, BindingResult bindingResult, Model model) {
+    public String getRegisterForm(@Valid UserDto userDto, BindingResult bindingResult) {
         if (userService.existUser(userDto)) {
             bindingResult.rejectValue("username", "error.user",
-                    "User '"+userDto.getUsername()+"' is already register");
+                    "User '" + userDto.getUsername() + "' is already register");
             return REGISTER_VIEW;
         }
 

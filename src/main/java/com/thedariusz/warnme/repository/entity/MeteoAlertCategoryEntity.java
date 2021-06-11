@@ -17,7 +17,7 @@ public class MeteoAlertCategoryEntity {
     public MeteoAlertCategoryEntity() {
     }
 
-    public MeteoAlertCategoryEntity( String name) {
+    public MeteoAlertCategoryEntity(String name) {
         this.name = name;
     }
 

@@ -13,7 +13,7 @@ public class MeteoAlertCategoryUtil {
                     "gęsta mgła", "silny mróz", "silny wiatr", "zawieje", "zamiecie śnieżne");
 
 
-    public Set<String> getCategories(List<String> hashTags) {
+    public Set<String> getCategoriesFromTags(List<String> hashTags) {
         return hashTags
                 .stream()
                 .map(String::toLowerCase)

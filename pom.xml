@@ -17,6 +17,7 @@
         <java.version>11</java.version>
         <jackson.version>2.11.2</jackson.version>
         <hibernate.version>5.4.4.Final</hibernate.version>
+        <hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
         <postgresql.version>42.2.20</postgresql.version>
         <maven.plugins>3.0.0-M5</maven.plugins>
         <testcontainers.version>1.15.2</testcontainers.version>
@@ -63,6 +64,11 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
         </dependency>
         <dependency>
             <groupId>org.flywaydb</groupId>

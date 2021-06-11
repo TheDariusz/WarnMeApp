@@ -6,5 +6,4 @@ public interface TwitterClient {
 
     TweetDtoWrapper fetchAllTweets(String twitterUserId);
 
-
 }

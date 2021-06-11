@@ -14,23 +14,23 @@ import java.util.stream.Collectors;
 
 public class MeteoAlertRepository implements MeteoAlertDao {
 
-    private final MeteoAlertJpaRepository meteoAlertRepository;
+    private final MeteoAlertJpaRepository meteoAlertJpaRepository;
     private final MeteoAlertMapper meteoAlertMapper = new MeteoAlertMapper();
 
-    public MeteoAlertRepository(MeteoAlertJpaRepository meteoAlertRepository) {
-        this.meteoAlertRepository = meteoAlertRepository;
+    public MeteoAlertRepository(MeteoAlertJpaRepository meteoAlertJpaRepository) {
+        this.meteoAlertJpaRepository = meteoAlertJpaRepository;
     }
 
     @Override
     @Transactional
     public void save(MeteoAlert meteoAlert) {
-        meteoAlertRepository.save(meteoAlertMapper.toEntity(meteoAlert));
+        meteoAlertJpaRepository.save(meteoAlertMapper.toEntity(meteoAlert));
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<MeteoAlert> fetchExisting(List<String> externalIds) {
-        return meteoAlertRepository.findByExternalIdIn(externalIds).stream()
+        return meteoAlertJpaRepository.findByExternalIdIn(externalIds).stream()
                 .map(meteoAlertMapper::toModel)
                 .collect(Collectors.toList());
     }
@@ -38,7 +38,7 @@ public class MeteoAlertRepository implements MeteoAlertDao {
     @Override
     @Transactional(readOnly = true)
     public List<MeteoAlert> fetchAll() {
-        final List<MeteoAlertEntity> entities = meteoAlertRepository.findByOrderByCreationDateDesc();
+        final List<MeteoAlertEntity> entities = meteoAlertJpaRepository.findByOrderByCreationDateDesc();
         return entities.stream()
                 .map(meteoAlertMapper::toModel)
                 .collect(Collectors.toList());
@@ -46,16 +46,14 @@ public class MeteoAlertRepository implements MeteoAlertDao {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<OffsetDateTime> getLatestCreatedAt() {
-        return meteoAlertRepository.findFirstByOrderByCreatedAtDesc()
+        return meteoAlertJpaRepository.findFirstByOrderByCreatedAtDesc()
                 .map(MeteoAlertEntity::getCreatedAt);
     }
 
     @Override
     public void deleteAll() {
-        meteoAlertRepository.deleteAll();
+        meteoAlertJpaRepository.deleteAll();
     }
-
-
-
 }
