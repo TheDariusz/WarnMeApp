@@ -1,5 +1,5 @@
 # WarnMe
-the aggregator of meteo warnings from Twitter and others sources
+Agregator ostrzeżeń pogodowych z Twittera i innych źródeł
 
 ## Business requirements
 
@@ -19,13 +19,13 @@ Wszystkie informacje powinny być wyświetlane w formie postów ułożonych od n
 
 Aplikacja powinna umożliwiać logowanie dla użytkowników z możliwością ustawiania podstawowej konfiguracji aplikacji dla danego użytkownika (podstawową konfigurację  pozyskanych z zewnętrznych źródeł informacji w bazie danych do wykorzystania  
 
-Dodatkowe wymagania (cloud):
+Dodatkowe wymagania (could):
 - wysyłanie ostrzeżeń mailowo przez SMTP (aka newsletter)
 - wystawienie ostrzeżeń przez endpoint (api) zgodnie z architekturą REST 
 
 ## Technical requirements
 - apikacja musi być napisana z wykorzystaniem Spring/Spring Boot
-- musi mieć bazę danych MySQL
+- musi mieć bazę danych MySQL lub PostgreSQL
 - w bazie powinny znajdować się co najmniej 3 tabele i 2 relacje między tabelami
 - w aplikacji powinno znajdować się minimum 5 widoków
 - aplikacja powinna posiadać przynajmniej jeden formularz, obsługiwany metodą POST.
