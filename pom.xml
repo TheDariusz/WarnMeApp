@@ -22,14 +22,17 @@
         <maven.plugins>3.0.0-M5</maven.plugins>
         <testcontainers.version>1.15.2</testcontainers.version>
         <flyway.version>7.9.1</flyway.version>
+        <mockserver-client-version>5.11.2</mockserver-client-version>
+        <mockserver-netty-version>5.11.2</mockserver-netty-version>
+        <thymeleaf-version>3.0.4.RELEASE</thymeleaf-version>
     </properties>
 
     <packaging>war</packaging>
     <name>warn-me</name>
     <description>WarnMe web application</description>
 
-
     <dependencies>
+<!--Spring Boot-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -50,16 +53,24 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+<!--thymeleaf-->
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-springsecurity5</artifactId>
-            <version>3.0.4.RELEASE</version>
+            <version>${thymeleaf-version}</version>
         </dependency>
+<!--database-->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>${postgresql.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>${flyway.version}</version>
+        </dependency>
+<!--hibernate-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -70,21 +81,18 @@
             <artifactId>hibernate-validator</artifactId>
             <version>${hibernate-validator.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
-            <version>${flyway.version}</version>
-        </dependency>
+<!--mock server-->
         <dependency>
             <groupId>org.mock-server</groupId>
             <artifactId>mockserver-netty</artifactId>
-            <version>5.11.2</version>
+            <version>${mockserver-netty-version}</version>
         </dependency>
         <dependency>
             <groupId>org.mock-server</groupId>
             <artifactId>mockserver-client-java</artifactId>
-            <version>5.11.2</version>
+            <version>${mockserver-client-version}</version>
         </dependency>
+<!--jackson-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
@@ -95,7 +103,7 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
-
+<!--tests-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -127,7 +135,7 @@
                 <configuration>
                     <url>jdbc:postgresql://localhost:5432/warn_me</url>
                     <user>postgres</user>
-                    <password>password</password>
+                    <password>${POSTGRES_PASSWORD}</password>
                     <schemas>
                         <schema>warnme</schema>
                     </schemas>
@@ -153,6 +161,17 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.plugins}</version>
+            </plugin>
+            <plugin>
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <version>3.0.3</version>
+                <configuration>
+                    <appName>warn-me</appName>
+                    <processTypes>
+                        <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+                    </processTypes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
