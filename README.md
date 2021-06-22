@@ -1,7 +1,7 @@
 # WarnMe
 Agregator ostrzeżeń pogodowych z Twittera i innych źródeł
 
-## Business requirements
+## Wymagania biznesowe
 
 Aplikacja WarnMe ma agregować i publikować na dedykowanej stronie www informacje o ostrzeżeniach pogodowych oraz dodatkowe informacje o burzach.
 Głównym źródłem ostrzeżeń pogodowych powinien być:
@@ -23,7 +23,7 @@ Dodatkowe wymagania (could):
 - wysyłanie ostrzeżeń mailowo przez SMTP (aka newsletter)
 - wystawienie ostrzeżeń przez endpoint (api) zgodnie z architekturą REST 
 
-## Technical requirements
+## Wymagania techniczne
 - apikacja musi być napisana z wykorzystaniem Spring/Spring Boot
 - musi mieć bazę danych MySQL lub PostgreSQL
 - w bazie powinny znajdować się co najmniej 3 tabele i 2 relacje między tabelami
