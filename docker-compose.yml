@@ -9,4 +9,4 @@ services:
     environment:
       POSTGRES_DB: warn_me
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}

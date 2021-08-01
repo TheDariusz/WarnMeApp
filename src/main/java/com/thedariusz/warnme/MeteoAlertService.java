@@ -50,7 +50,7 @@ public class MeteoAlertService {
 
     public String getRefreshDate() {
         return meteoAlertDao.getLatestCreatedAt()
-                .map(DATE_TIME_FORMATTER::format)
+                .map(temporal -> DATE_TIME_FORMATTER.format(temporal))
                 .orElse(EMPTY_STRING);
     }
 }

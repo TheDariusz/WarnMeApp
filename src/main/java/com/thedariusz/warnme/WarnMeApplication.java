@@ -11,6 +11,7 @@ import com.thedariusz.warnme.twitter.TwitterClient;
 import com.thedariusz.warnme.twitter.client.SpringTwitterClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -19,7 +20,7 @@ import java.time.ZoneOffset;
 import java.util.TimeZone;
 
 @SpringBootApplication
-public class WarnMeApplication {
+public class WarnMeApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WarnMeApplication.class, args);
