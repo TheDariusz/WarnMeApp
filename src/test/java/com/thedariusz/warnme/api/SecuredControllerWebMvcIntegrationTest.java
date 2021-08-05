@@ -1,6 +1,7 @@
 package com.thedariusz.warnme.api;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@Ignore
 class SecuredControllerWebMvcIntegrationTest {
 
     @Autowired
@@ -34,6 +36,7 @@ class SecuredControllerWebMvcIntegrationTest {
                 .apply(springSecurity())
                 .build();
     }
+
 
     @WithMockUser("admin")
     @Test
