@@ -18,7 +18,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "/alerts")
+@RequestMapping(value = {"/alerts", "/"})
 public class MeteoAlertViewsController {
 
     private static final String HOME_VIEW = "index";
