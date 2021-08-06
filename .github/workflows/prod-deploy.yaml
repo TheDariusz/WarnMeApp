@@ -1,0 +1,20 @@
+name: Deploy to PROD and run e2e tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: deploy
+        run: |
+          ./mvnw -f pom.xml clean package tomcat7:deploy -Pprod -Dtomcat.password="${{ secrets.POSTGRES_PASSWORD }}  "

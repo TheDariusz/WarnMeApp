@@ -129,27 +129,12 @@
     </dependencies>
 
     <build>
-        <finalName>warn-me</finalName>
+        <finalName>adam</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-maven-plugin</artifactId>
-                <version>7.3.2</version>
-                <configuration>
-                    <url>jdbc:postgresql://localhost:5432/warn_me</url>
-                    <user>postgres</user>
-                    <password>${POSTGRES_PASSWORD}</password>
-                    <schemas>
-                        <schema>warnme</schema>
-                    </schemas>
-                    <locations>
-                        <location>classpath:db/migration</location>
-                    </locations>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -171,4 +156,29 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <skipTests>true</skipTests>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.tomcat.maven</groupId>
+                        <artifactId>tomcat7-maven-plugin</artifactId>
+                        <version>2.2</version>
+                        <configuration>
+                            <url>http://thedariusz.com/manager/text</url>
+                            <server>ionos</server>
+                            <username>deploy</username>
+                            <path>/adam</path>
+                            <update>true</update>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
