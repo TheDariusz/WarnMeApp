@@ -130,7 +130,6 @@
 
     <build>
         <finalName>warn-me</finalName>
-
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
