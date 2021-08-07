@@ -29,3 +29,10 @@ Dodatkowe wymagania (could):
 - w bazie powinny znajdować się co najmniej 3 tabele i 2 relacje między tabelami
 - w aplikacji powinno znajdować się minimum 5 widoków
 - aplikacja powinna posiadać przynajmniej jeden formularz, obsługiwany metodą POST.
+
+
+## Run locally
+./start-infra.sh - setup local architecture (tomcat and postgres)
+
+Tomcat will automatically pick up war file (warn-me.war) from target directory and deploy it into the webapps.
+Open browser: http://localhost:8080/warn-me

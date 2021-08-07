@@ -15,12 +15,14 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.time.ZoneOffset;
 import java.util.TimeZone;
 
 @SpringBootApplication
+@PropertySource(value = "file:${catalina.home}/conf/warnme-config.properties")
 public class WarnMeApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {

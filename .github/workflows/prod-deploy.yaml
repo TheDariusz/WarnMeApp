@@ -1,0 +1,19 @@
+name: Deploy to PROD
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Deploy tomcat
+        run: nohup mvn -f pom.xml clean package tomcat7:redeploy -Pprod -Dtomcat.password="${{ secrets.TOMCAT_PASSWORD }}" &

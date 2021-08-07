@@ -26,9 +26,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: compile
     name: Build Maven project
-    env: 
-      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-      TWITTER_TOKEN: ${{ secrets.TWITTER_TOKEN }}
     steps:
       - uses: actions/checkout@v1
       - uses: actions/cache@v1
