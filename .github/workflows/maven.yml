@@ -44,10 +44,7 @@ jobs:
       - name: Build and test project
         run: |
           TESTCONTAINERS_RYUK_DISABLED=true
-          mvn -f pom.xml clean package -DskipTests
-
-      - name: undeploy app
-        run: mvn -f pom.xml tomcat7:undeploy -Pprod -Dtomcat.password="${{ secrets.POSTGRES_PASSWORD }}"
+          mvn -f pom.xml clean package verify
 
       - name: deploy app
-        run: mvn -f pom.xml tomcat7:deploy -Pprod -Dtomcat.password="${{ secrets.POSTGRES_PASSWORD }}"
+        run: nohup mvn -f pom.xml tomcat7:redeploy -Pprod -Dtomcat.password="${{ secrets.TOMCAT_PASSWORD }}" &

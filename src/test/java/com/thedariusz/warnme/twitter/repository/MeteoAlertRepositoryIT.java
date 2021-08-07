@@ -1,19 +1,18 @@
 package com.thedariusz.warnme.twitter.repository;
 
+import com.thedariusz.IntegrationTestBase;
 import com.thedariusz.warnme.MeteoAlert;
 import com.thedariusz.warnme.MeteoAlertDao;
 import com.thedariusz.warnme.MeteoAlertOrigin;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest
-class MeteoAlertRepositoryIT {
+class MeteoAlertRepositoryIT extends IntegrationTestBase {
 
     @Autowired
     MeteoAlertDao dao;

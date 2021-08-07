@@ -17,4 +17,4 @@ jobs:
 
       - name: deploy
         run: |
-          ./mvnw -f pom.xml clean package tomcat7:deploy -Pprod -Dtomcat.password="${{ secrets.POSTGRES_PASSWORD }}  "
+          mvn -f pom.xml clean package tomcat7:redeploy -Pprod -Dtomcat.password="${{ secrets.POSTGRES_PASSWORD }}"
