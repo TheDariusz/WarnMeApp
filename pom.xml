@@ -25,6 +25,7 @@
         <mockserver-client-version>5.11.2</mockserver-client-version>
         <mockserver-netty-version>5.11.2</mockserver-netty-version>
         <thymeleaf-version>3.0.4.RELEASE</thymeleaf-version>
+        <git-commit.version>5.0.0</git-commit.version>
     </properties>
 
     <packaging>war</packaging>
@@ -129,7 +130,7 @@
     </dependencies>
 
     <build>
-        <finalName>adam</finalName>
+        <finalName>warn-me</finalName>
 
         <plugins>
             <plugin>
@@ -173,7 +174,7 @@
                             <url>http://thedariusz.com/manager/text</url>
                             <server>ionos</server>
                             <username>deploy</username>
-                            <path>/adam</path>
+                            <path>/warn-me</path>
                             <update>true</update>
                         </configuration>
                     </plugin>

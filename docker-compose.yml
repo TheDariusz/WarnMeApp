@@ -12,6 +12,7 @@ services:
       - ./tomcat/tomcat-context.xml:/tmp/context.xml
       - ./tomcat/logs/:/usr/local/tomcat/logs/
       - ./target/warn-me.war:/usr/local/tomcat/webapps/warn-me.war
+      - ./dist/conf/warnme-config.properties:/usr/local/tomcat/conf/warnme-config.properties
     environment:
       JPDA_ADDRESS: 9000
       JPDA_TRANSPORT: dt_socket

@@ -26,9 +26,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: compile
     name: Build Maven project
-    env: 
-      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-      TWITTER_TOKEN: ${{ secrets.TWITTER_TOKEN }}
     steps:
       - uses: actions/checkout@v1
       - uses: actions/cache@v1
@@ -44,7 +41,4 @@ jobs:
       - name: Build and test project
         run: |
           TESTCONTAINERS_RYUK_DISABLED=true
-          mvn -f pom.xml clean package verify
-
-      - name: deploy app
-        run: nohup mvn -f pom.xml tomcat7:redeploy -Pprod -Dtomcat.password="${{ secrets.TOMCAT_PASSWORD }}" &
+          mvn -f pom.xml clean verify
