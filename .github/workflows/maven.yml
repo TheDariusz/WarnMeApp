@@ -23,7 +23,7 @@ jobs:
       - run: mvn -f pom.xml clean compile
 
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     needs: compile
     name: Build Maven project
     env: 
