@@ -23,7 +23,7 @@ jobs:
       - run: mvn -f pom.xml clean compile
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: compile
     name: Build Maven project
     env: 
@@ -45,5 +45,3 @@ jobs:
         run: |
           TESTCONTAINERS_RYUK_DISABLED=true
           mvn -f pom.xml clean verify
-      - name: Build 
-        run: mvn -B package --file pom.xml -Dmaven.test.skip=true
