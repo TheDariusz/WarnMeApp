@@ -173,7 +173,7 @@
                         <configuration>
                             <url>http://thedariusz.com/manager/text</url>
                             <server>ionos</server>
-                            <username>deploy</username>
+                            <username>robot</username>
                             <path>/warn-me</path>
                             <update>true</update>
                         </configuration>
