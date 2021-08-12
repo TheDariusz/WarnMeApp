@@ -11,7 +11,7 @@ services:
       - ./tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
       - ./tomcat/tomcat-context.xml:/tmp/context.xml
       - ./tomcat/logs/:/usr/local/tomcat/logs/
-      - ./target/:/usr/local/tomcat/webapps/
+      - ./target/warn-me.war:/usr/local/tomcat/webapps/warn-me.war
       - ./dist/conf/warnme-config.properties:/usr/local/tomcat/conf/warnme-config.properties
     environment:
       JPDA_ADDRESS: 9000
