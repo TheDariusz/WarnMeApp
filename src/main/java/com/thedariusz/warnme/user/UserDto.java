@@ -2,14 +2,13 @@ package com.thedariusz.warnme.user;
 
 import com.thedariusz.warnme.user.repository.entity.RoleEntity;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.util.Set;
 
 public class UserDto {
 
-    @NotEmpty(message = "Please enter a user name")
-    @Size(min = 4, message = "Name couldn't be empty and should have at least 4 letters")
+    @Email(message = "Please enter a valid email")
     private String username;
 
     @Size(min = 8, message = "Password couldn't be empty and should have at least 8 letters")
