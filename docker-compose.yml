@@ -6,7 +6,7 @@ services:
     image: tomcat:9.0.50-jdk16
     ports:
       - "8080:8080"
-      - "9000:9000"
+      - "9000:8000"
     volumes:
       - ./tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
       - ./tomcat/tomcat-context.xml:/tmp/context.xml
@@ -14,12 +14,10 @@ services:
       - ./target/warn-me.war:/usr/local/tomcat/webapps/warn-me.war
       - ./dist/conf/warnme-config.properties:/usr/local/tomcat/conf/warnme-config.properties
     environment:
-      JPDA_ADDRESS: 9000
+      JPDA_ADDRESS: "*:8000"
       JPDA_TRANSPORT: dt_socket
     command:
       /usr/local/tomcat/bin/catalina.sh jpda run
-    networks:
-      - proxynet
     depends_on:
       - postgres_db
 
@@ -31,9 +29,3 @@ services:
       POSTGRES_DB: warn_me
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-    networks:
-      - proxynet
-
-networks:
-  proxynet:
-    name: proxynet
