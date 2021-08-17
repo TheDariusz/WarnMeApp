@@ -16,4 +16,4 @@ jobs:
           java-version: 11
 
       - name: Deploy tomcat
-        run: nohup mvn -f pom.xml clean package tomcat7:redeploy -Pprod -Dtomcat.password="${{ secrets.TOMCAT_PASSWORD }}"
+        run: nohup mvn -f pom.xml clean package tomcat7:redeploy -Pprod -Dtomcat.password="${{ secrets.TOMCAT_PASSWORD }}" &
