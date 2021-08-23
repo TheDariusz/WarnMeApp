@@ -1,15 +1,17 @@
 package com.thedariusz.warnme;
 
 import com.thedariusz.warnme.repository.MeteoAlertCategoryRepository;
+import com.thedariusz.warnme.repository.entity.MeteoAlertCategoryEntity;
 import com.thedariusz.warnme.twitter.model.TweetDto;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class MeteoAlertTwitterCategory implements MeteoAlertCategoryService {
+public class MeteoAlertTwitterCategoryService implements MeteoAlertCategoryService {
 
     private static final Set<String> METEO_ALERTS_CATEGORIES =
             Set.of("burze", "burza", "upał", "mróz", "przymrozki", "hydro", "deszcz", "wichura", "grad", "ulewa", "śnieg",
@@ -19,7 +21,7 @@ public class MeteoAlertTwitterCategory implements MeteoAlertCategoryService {
 
     private final MeteoAlertCategoryRepository categoryRepository;
 
-    public MeteoAlertTwitterCategory(MeteoAlertCategoryRepository categoryRepository) {
+    public MeteoAlertTwitterCategoryService(MeteoAlertCategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
 
@@ -46,5 +48,9 @@ public class MeteoAlertTwitterCategory implements MeteoAlertCategoryService {
         return Stream.of(categoriesFromHashTags, categoriesFromText)
                 .flatMap(Collection::stream)
                 .collect(Collectors.toSet());
+    }
+
+    public Set<MeteoAlertCategoryEntity> findCategories(Set<String> categories) {
+        return categoryRepository.findMeteoAlertCategoryEntitiesByNameIn(categories);
     }
 }

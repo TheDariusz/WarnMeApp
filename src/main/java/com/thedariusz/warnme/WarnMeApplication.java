@@ -48,7 +48,7 @@ public class WarnMeApplication extends SpringBootServletInitializer {
 
 	@Bean
 	public MeteoAlertCategoryService meteoAlertCategoryService(MeteoAlertCategoryRepository categoryRepository) {
-		return new MeteoAlertTwitterCategory(categoryRepository);
+		return new MeteoAlertTwitterCategoryService(categoryRepository);
 	}
 
 	@Bean

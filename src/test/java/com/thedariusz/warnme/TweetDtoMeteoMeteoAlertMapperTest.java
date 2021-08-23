@@ -16,8 +16,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 class TweetDtoMeteoMeteoAlertMapperTest {
 
     MeteoAlertCategoryRepository categoryRepository;
-    MeteoAlertTwitterCategory meteoAlertTwitterCategory = new MeteoAlertTwitterCategory(categoryRepository);
-    MeteoAlertGenericMapper meteoAlertGenericMapper = new MeteoAlertGenericMapper(meteoAlertTwitterCategory);
+    MeteoAlertTwitterCategoryService meteoAlertTwitterCategoryService = new MeteoAlertTwitterCategoryService(categoryRepository);
+    MeteoAlertGenericMapper meteoAlertGenericMapper = new MeteoAlertGenericMapper(meteoAlertTwitterCategoryService);
 
     @Test
     void shouldMapToMeteoAlertWithLevelNotFound() {

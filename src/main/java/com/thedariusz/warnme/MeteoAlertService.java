@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -45,7 +46,8 @@ public class MeteoAlertService {
 
         for (MeteoAlert meteoAlert : meteoAlerts) {
             final Set<String> categories = meteoAlert.getCategories();
-            final Set<MeteoAlertCategoryEntity> meteoAlertCategoryEntities = categoryMapper.toEntity(categories);
+            final Set<MeteoAlertCategoryEntity> meteoAlertCategoryEntities = twitterCategoryService.findCategories(categories);
+
 
             final MeteoAlertEntity meteoAlertEntity = meteoAlertMapper.toEntity(meteoAlert);
             meteoAlertEntity.setCategories(meteoAlertCategoryEntities);
