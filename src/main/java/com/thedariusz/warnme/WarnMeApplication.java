@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.thedariusz.warnme.repository.MeteoAlertCategoryRepository;
 import com.thedariusz.warnme.repository.MeteoAlertJpaRepository;
 import com.thedariusz.warnme.repository.MeteoAlertRepository;
 import com.thedariusz.warnme.twitter.TweetService;
@@ -46,13 +47,18 @@ public class WarnMeApplication extends SpringBootServletInitializer {
 	}
 
 	@Bean
+	public MeteoAlertCategoryService meteoAlertCategoryService(MeteoAlertCategoryRepository categoryRepository) {
+		return new MeteoAlertTwitterCategory(categoryRepository);
+	}
+
+	@Bean
 	public MeteoAlertDao postgresMeteoAlertDao(MeteoAlertJpaRepository meteoAlertSpringDao) {
 		return new MeteoAlertRepository(meteoAlertSpringDao);
 	}
 
 	@Bean
-	public MeteoAlertService meteoAlertService(MeteoAlertDao meteoAlertDao) {
-		return new MeteoAlertService(meteoAlertDao);
+	public MeteoAlertService meteoAlertService(MeteoAlertDao meteoAlertDao, MeteoAlertCategoryService categoryService) {
+		return new MeteoAlertService(meteoAlertDao, categoryService);
 	}
 
 	@Bean
@@ -61,8 +67,8 @@ public class WarnMeApplication extends SpringBootServletInitializer {
 	}
 
 	@Bean
-	public TweetService tweetService(MeteoAlertService meteoAlertService, TwitterClient twitterClient) {
-		return new TweetService(meteoAlertService, twitterClient, new MeteoAlertGenericMapper(new MeteoAlertCategoryUtil()));
+	public TweetService tweetService(MeteoAlertService meteoAlertService, TwitterClient twitterClient, MeteoAlertCategoryService categoryService) {
+		return new TweetService(meteoAlertService, twitterClient, new MeteoAlertGenericMapper(categoryService));
 	}
 
 }

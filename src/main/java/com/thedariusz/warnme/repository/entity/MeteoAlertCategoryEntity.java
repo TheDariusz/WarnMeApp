@@ -4,7 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity(name = "meteo_alert_category")
 public class MeteoAlertCategoryEntity {
@@ -13,6 +16,9 @@ public class MeteoAlertCategoryEntity {
     private Long id;
 
     private String name;
+
+    @ManyToMany(mappedBy = "categories")
+    private Set<MeteoAlertEntity> meteoAlertEntities = new HashSet<>();
 
     public MeteoAlertCategoryEntity() {
     }
@@ -35,6 +41,14 @@ public class MeteoAlertCategoryEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setMeteoAlertEntities(MeteoAlertEntity meteoAlertEntity) {
+        this.meteoAlertEntities.add(meteoAlertEntity);
+    }
+
+    public Set<MeteoAlertEntity> getMeteoAlertEntities() {
+        return meteoAlertEntities;
     }
 
     @Override
