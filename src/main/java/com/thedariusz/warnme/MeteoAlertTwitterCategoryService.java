@@ -6,7 +6,6 @@ import com.thedariusz.warnme.twitter.model.TweetDto;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -51,6 +50,7 @@ public class MeteoAlertTwitterCategoryService implements MeteoAlertCategoryServi
     }
 
     public Set<MeteoAlertCategoryEntity> findCategories(Set<String> categories) {
-        return categoryRepository.findMeteoAlertCategoryEntitiesByNameIn(categories);
+        final List<MeteoAlertCategoryEntity> repositoryAll = categoryRepository.findAll();
+        return categoryRepository.findByNameIn(categories);
     }
 }

@@ -4,6 +4,7 @@ import com.thedariusz.IntegrationTestBase;
 import com.thedariusz.warnme.MeteoAlert;
 import com.thedariusz.warnme.MeteoAlertDao;
 import com.thedariusz.warnme.MeteoAlertOrigin;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,6 +18,7 @@ class MeteoAlertRepositoryIT extends IntegrationTestBase {
     @Autowired
     MeteoAlertDao dao;
 
+    @Ignore
     @Test
     void saveAndFetch() {
         final MeteoAlertOrigin origin = MeteoAlertOrigin.twitter("a", "1");

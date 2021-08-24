@@ -44,28 +44,28 @@ public class MeteoAlertService {
 
         logger.info("Saving {} new alerts", alertsToSave.size());
 
-        for (MeteoAlert meteoAlert : meteoAlerts) {
-            final Set<String> categories = meteoAlert.getCategories();
-            final Set<MeteoAlertCategoryEntity> meteoAlertCategoryEntities = twitterCategoryService.findCategories(categories);
-
-
-            final MeteoAlertEntity meteoAlertEntity = meteoAlertMapper.toEntity(meteoAlert);
-            meteoAlertEntity.setCategories(meteoAlertCategoryEntities);
-
-
-            //tu są nowe kategorie a powinny byc wyciagniete z bazy te ktore są i dodane nowe ktorych nie ma
-            meteoAlertCategoryEntities.forEach(
-                    meteoAlertCategoryEntity -> meteoAlertCategoryEntity.setMeteoAlertEntities(meteoAlertEntity)
-            );
-
-        }
+//        for (MeteoAlert meteoAlert : meteoAlerts) {
+//            final Set<String> categories = meteoAlert.getCategories();
+//            final Set<MeteoAlertCategoryEntity> meteoAlertCategoryEntities = twitterCategoryService.findCategories(categories);
+//
+//
+//            final MeteoAlertEntity meteoAlertEntity = meteoAlertMapper.toEntity(meteoAlert);
+//            meteoAlertEntity.setCategories(meteoAlertCategoryEntities);
+//
+//
+//            //tu są nowe kategorie a powinny byc wyciagniete z bazy te ktore są i dodane nowe ktorych nie ma
+//            meteoAlertCategoryEntities.forEach(
+//                    meteoAlertCategoryEntity -> meteoAlertCategoryEntity.setMeteoAlertEntities(meteoAlertEntity)
+//            );
+//
+//        }
 
 
         //1. create set of meteo_alert_categories_entity
         //2. create meteoAlertEntity
         //3. add to meteoAlertEntity set of m_a_c_ent.
         //4. save meteoAlertEntity
-        alertsToSave.forEach(meteoAlertDao::save);
+//        alertsToSave.forEach(meteoAlertDao::save);
     }
 
     public List<MeteoAlert> getMeteoAlertsFromDb() {
