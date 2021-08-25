@@ -1,5 +1,6 @@
 package com.thedariusz.warnme;
 
+import com.thedariusz.warnme.repository.MeteoAlertJpaRepository;
 import com.thedariusz.warnme.repository.entity.MeteoAlertCategoryEntity;
 import com.thedariusz.warnme.repository.entity.MeteoAlertCategoryMapper;
 import com.thedariusz.warnme.repository.entity.MeteoAlertEntity;
@@ -8,8 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -22,10 +23,12 @@ public class MeteoAlertService {
 
     private final MeteoAlertDao meteoAlertDao;
     private final MeteoAlertCategoryService twitterCategoryService;
+    private final MeteoAlertJpaRepository meteoAlertJpaRepository;
 
-    public MeteoAlertService(MeteoAlertDao meteoAlertDao, MeteoAlertCategoryService twitterCategoryService) {
+    public MeteoAlertService(MeteoAlertDao meteoAlertDao, MeteoAlertCategoryService twitterCategoryService, MeteoAlertJpaRepository meteoAlertJpaRepository) {
         this.meteoAlertDao = meteoAlertDao;
         this.twitterCategoryService = twitterCategoryService;
+        this.meteoAlertJpaRepository = meteoAlertJpaRepository;
     }
 
     public void save(List<MeteoAlert> meteoAlerts) {
@@ -44,28 +47,18 @@ public class MeteoAlertService {
 
         logger.info("Saving {} new alerts", alertsToSave.size());
 
-//        for (MeteoAlert meteoAlert : meteoAlerts) {
-//            final Set<String> categories = meteoAlert.getCategories();
-//            final Set<MeteoAlertCategoryEntity> meteoAlertCategoryEntities = twitterCategoryService.findCategories(categories);
-//
-//
-//            final MeteoAlertEntity meteoAlertEntity = meteoAlertMapper.toEntity(meteoAlert);
-//            meteoAlertEntity.setCategories(meteoAlertCategoryEntities);
-//
-//
-//            //tu są nowe kategorie a powinny byc wyciagniete z bazy te ktore są i dodane nowe ktorych nie ma
-//            meteoAlertCategoryEntities.forEach(
-//                    meteoAlertCategoryEntity -> meteoAlertCategoryEntity.setMeteoAlertEntities(meteoAlertEntity)
-//            );
-//
-//        }
+        for (MeteoAlert meteoAlert : meteoAlerts) {
+            final Set<String> categories = meteoAlert.getCategories();
+            Set<MeteoAlertCategoryEntity> categoriesToAlert = new HashSet<>();
+            final Set<MeteoAlertCategoryEntity> meteoAlertCategoryEntities = twitterCategoryService.mapToEntities(categories);
 
+            meteoAlertCategoryEntities.forEach(categoryEntity -> categoriesToAlert.add(twitterCategoryService.saveCategory(categoryEntity)));
 
-        //1. create set of meteo_alert_categories_entity
-        //2. create meteoAlertEntity
-        //3. add to meteoAlertEntity set of m_a_c_ent.
-        //4. save meteoAlertEntity
-//        alertsToSave.forEach(meteoAlertDao::save);
+            final MeteoAlertEntity meteoAlertEntity = meteoAlertMapper.toEntity(meteoAlert);
+            meteoAlertEntity.setCategories(categoriesToAlert);
+            meteoAlertJpaRepository.save(meteoAlertEntity);
+
+        }
     }
 
     public List<MeteoAlert> getMeteoAlertsFromDb() {

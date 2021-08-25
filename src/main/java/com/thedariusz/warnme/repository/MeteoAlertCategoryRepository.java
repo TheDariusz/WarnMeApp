@@ -12,6 +12,6 @@ public interface MeteoAlertCategoryRepository extends JpaRepository<MeteoAlertCa
     List<MeteoAlertCategoryEntity> findMeteoAlertCategoryEntitiesByName(String name);
     Set<MeteoAlertCategoryEntity> findMeteoAlertCategoryEntitiesByNameIn(Set<String> names);
     Set<MeteoAlertCategoryEntity> findByNameIn(Set<String> names);
-    List<MeteoAlertCategoryEntity> findAll();
+    MeteoAlertCategoryEntity findMeteoAlertCategoryEntityByName(String name);
 
 }

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.thedariusz.warnme.repository.MeteoAlertCategoryRepository;
 import com.thedariusz.warnme.repository.MeteoAlertJpaRepository;
 import com.thedariusz.warnme.repository.MeteoAlertRepository;
+import com.thedariusz.warnme.repository.entity.MeteoAlertCategoryMapper;
 import com.thedariusz.warnme.twitter.TweetService;
 import com.thedariusz.warnme.twitter.TwitterClient;
 import com.thedariusz.warnme.twitter.client.SpringTwitterClient;
@@ -48,7 +49,7 @@ public class WarnMeApplication extends SpringBootServletInitializer {
 
 	@Bean
 	public MeteoAlertCategoryService meteoAlertCategoryService(MeteoAlertCategoryRepository categoryRepository) {
-		return new MeteoAlertTwitterCategoryService(categoryRepository);
+		return new MeteoAlertTwitterCategoryService(categoryRepository, new MeteoAlertCategoryMapper());
 	}
 
 	@Bean
@@ -57,8 +58,8 @@ public class WarnMeApplication extends SpringBootServletInitializer {
 	}
 
 	@Bean
-	public MeteoAlertService meteoAlertService(MeteoAlertDao meteoAlertDao, MeteoAlertCategoryService categoryService) {
-		return new MeteoAlertService(meteoAlertDao, categoryService);
+	public MeteoAlertService meteoAlertService(MeteoAlertDao meteoAlertDao, MeteoAlertCategoryService categoryService, MeteoAlertJpaRepository meteoAlertJpaRepository) {
+		return new MeteoAlertService(meteoAlertDao, categoryService, meteoAlertJpaRepository);
 	}
 
 	@Bean

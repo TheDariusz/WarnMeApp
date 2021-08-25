@@ -11,4 +11,6 @@ public interface MeteoAlertCategoryService {
     Set<String> getCategoriesFromText(String text);
     Set<String> getAlertCategories(TweetDto tweetDto);
     Set<MeteoAlertCategoryEntity> findCategories(Set<String> name);
+    MeteoAlertCategoryEntity saveCategory(MeteoAlertCategoryEntity categoryEntity);
+    Set<MeteoAlertCategoryEntity> mapToEntities(Set<String> categories);
 }

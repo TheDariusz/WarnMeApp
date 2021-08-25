@@ -11,6 +11,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import java.time.OffsetDateTime;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -29,7 +30,7 @@ public class MeteoAlertEntity {
             joinColumns = @JoinColumn(name = "alert_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
-    private Set<MeteoAlertCategoryEntity> categories;
+    private Set<MeteoAlertCategoryEntity> categories = new HashSet<>();
 
     private String creationDate;
 

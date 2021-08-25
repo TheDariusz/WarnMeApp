@@ -2,6 +2,7 @@ package com.thedariusz.warnme;
 
 import com.thedariusz.warnme.repository.MeteoAlertCategoryRepository;
 import com.thedariusz.warnme.repository.entity.MeteoAlertCategoryEntity;
+import com.thedariusz.warnme.repository.entity.MeteoAlertCategoryMapper;
 import com.thedariusz.warnme.twitter.model.TweetDto;
 
 import java.util.Collection;
@@ -19,9 +20,11 @@ public class MeteoAlertTwitterCategoryService implements MeteoAlertCategoryServi
                     "gęsta mgła", "silny mróz", "silny wiatr", "zawieje", "zamiecie śnieżne");
 
     private final MeteoAlertCategoryRepository categoryRepository;
+    private final MeteoAlertCategoryMapper categoryMapper;
 
-    public MeteoAlertTwitterCategoryService(MeteoAlertCategoryRepository categoryRepository) {
+    public MeteoAlertTwitterCategoryService(MeteoAlertCategoryRepository categoryRepository, MeteoAlertCategoryMapper categoryMapper) {
         this.categoryRepository = categoryRepository;
+        this.categoryMapper = categoryMapper;
     }
 
     public Set<String> getCategoriesFromTags(List<String> hashTags) {
@@ -52,5 +55,18 @@ public class MeteoAlertTwitterCategoryService implements MeteoAlertCategoryServi
     public Set<MeteoAlertCategoryEntity> findCategories(Set<String> categories) {
         final List<MeteoAlertCategoryEntity> repositoryAll = categoryRepository.findAll();
         return categoryRepository.findByNameIn(categories);
+    }
+
+    public Set<MeteoAlertCategoryEntity> mapToEntities(Set<String> categories) {
+        return categoryMapper.toEntity(categories);
+    }
+
+    public MeteoAlertCategoryEntity saveCategory(MeteoAlertCategoryEntity categoryEntity) {
+        final MeteoAlertCategoryEntity categoryEntityFromDb = categoryRepository.findMeteoAlertCategoryEntityByName(categoryEntity.getName());
+        if (categoryEntityFromDb==null) {
+            return categoryRepository.save(categoryEntity);
+        }
+        return categoryEntityFromDb;
+
     }
 }
