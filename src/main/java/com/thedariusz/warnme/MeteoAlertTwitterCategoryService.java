@@ -7,6 +7,7 @@ import com.thedariusz.warnme.twitter.model.TweetDto;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -52,21 +53,17 @@ public class MeteoAlertTwitterCategoryService implements MeteoAlertCategoryServi
                 .collect(Collectors.toSet());
     }
 
-    public Set<MeteoAlertCategoryEntity> findCategories(Set<String> categories) {
-        final List<MeteoAlertCategoryEntity> repositoryAll = categoryRepository.findAll();
-        return categoryRepository.findByNameIn(categories);
-    }
-
     public Set<MeteoAlertCategoryEntity> mapToEntities(Set<String> categories) {
-        return categoryMapper.toEntity(categories);
+        return categoryMapper.toEntitySet(categories);
     }
 
-    public MeteoAlertCategoryEntity saveCategory(MeteoAlertCategoryEntity categoryEntity) {
-        final MeteoAlertCategoryEntity categoryEntityFromDb = categoryRepository.findMeteoAlertCategoryEntityByName(categoryEntity.getName());
-        if (categoryEntityFromDb==null) {
-            return categoryRepository.save(categoryEntity);
-        }
-        return categoryEntityFromDb;
-
+    public MeteoAlertCategoryEntity saveNewAlertCategory(String categoryName) {
+        final MeteoAlertCategoryEntity categoryEntity = categoryMapper.toEntity(categoryName);
+        return categoryRepository.save(categoryEntity);
     }
+
+    public Optional<MeteoAlertCategoryEntity> getCategoryEntityByName(String categoryName) {
+        return categoryRepository.findMeteoAlertCategoryEntityByName(categoryName);
+    }
+
 }

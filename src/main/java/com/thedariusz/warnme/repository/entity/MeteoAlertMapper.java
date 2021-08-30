@@ -21,7 +21,7 @@ public class MeteoAlertMapper {
 
         return new MeteoAlert(
                 entity.getLevel(),
-                meteoAlertCategoryMapper.toModel(entityCategories),
+                meteoAlertCategoryMapper.toModelSet(entityCategories),
                 entity.getCreationDate(),
                 entity.getDescription(),
                 entity.getExternalId(),
