@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 public class Post {
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    public static final String FILE_IMAGE_EXTENSION_PATTERN = "(?i).+\\.(jpg|png|gif)$";
 
     private String title;
     private String date;
@@ -97,9 +98,8 @@ public class Post {
     }
 
     private static List<String> prepareImages(List<String> media) {
-        String pattern = "(?i).+\\.(jpg|png|gif)$";
         return media.stream()
-                .map(link -> link.matches(pattern) ? link : null)
+                .map(link -> link.matches(FILE_IMAGE_EXTENSION_PATTERN) ? link : null)
                 .collect(Collectors.toList());
     }
 
