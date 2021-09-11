@@ -1,5 +1,6 @@
 package com.thedariusz.warnme;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.thedariusz.warnme.twitter.model.Media;
 import com.thedariusz.warnme.twitter.model.TweetDto;
 
@@ -14,6 +15,7 @@ import java.util.stream.Stream;
 public class MeteoAlertGenericMapper {
 
     private static final String DIGIT_BEFORE_TEXT_OR_DEGREE_OR_DOT_CHARACTER = "(\\d)\\s*(?=stopni|°|\\.)";
+    private static final String DIGIT_AFTER_TEXT = "(?<=st.|stopień)\\s*(\\d)";
 
     private static final int LEVEL_NOT_FOUND = 0;
     private static final int ALERT_MIN_LEVEL = 0;
@@ -49,16 +51,25 @@ public class MeteoAlertGenericMapper {
         return MeteoAlertOrigin.twitter(tweetDto.getAuthorId(), tweetDto.getId());
     }
 
-    private int getAlertLevelFromTextField(String textField) {
-        Pattern pattern = Pattern.compile(DIGIT_BEFORE_TEXT_OR_DEGREE_OR_DOT_CHARACTER);
-        Matcher matcher = pattern.matcher(textField);
+    int getAlertLevelFromTextField(String textField) {
+        int alertLevel = LEVEL_NOT_FOUND;
+
+        Pattern pattern1 = Pattern.compile(DIGIT_BEFORE_TEXT_OR_DEGREE_OR_DOT_CHARACTER);
+        Pattern pattern2 = Pattern.compile(DIGIT_AFTER_TEXT);
+        Matcher matcher1 = pattern1.matcher(textField);
+        Matcher matcher2 = pattern2.matcher(textField);
+
         try {
-            int alertLevel = matcher.find()
-                    ? Integer.parseInt(matcher.group(1)):LEVEL_NOT_FOUND;
-            return alertLevel > ALERT_MIN_LEVEL && alertLevel <= ALERT_MAX_LEVEL ? alertLevel:LEVEL_NOT_FOUND;
+            if (matcher1.find()) {
+                alertLevel = Integer.parseInt(matcher1.group(1));
+            } else if (matcher2.find()){
+                alertLevel = Integer.parseInt(matcher2.group(1));
+            }
         } catch (NumberFormatException e) {
-            return LEVEL_NOT_FOUND;
+            return alertLevel;
         }
+
+        return alertLevel > ALERT_MIN_LEVEL && alertLevel <= ALERT_MAX_LEVEL ? alertLevel : LEVEL_NOT_FOUND;
     }
 
     private Set<String> getAlertCategories(TweetDto tweetDto) {
