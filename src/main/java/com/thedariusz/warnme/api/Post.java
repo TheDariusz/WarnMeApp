@@ -7,6 +7,7 @@ import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Post {
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -85,7 +86,7 @@ public class Post {
                     Post post = new Post();
                     post.date = "post date: " + formatDate(meteoAlert.getCreationDate());
                     post.description = meteoAlert.getDescription();
-                    post.images = meteoAlert.getMedia();
+                    post.images = prepareImages(meteoAlert.getMedia());
                     post.title = prepareTitleBasedOnCategories(meteoAlert.getCategories());
                     post.level = Integer.toString(meteoAlert.getLevel());
                     post.categories = meteoAlert.getCategories();
@@ -93,6 +94,13 @@ public class Post {
                 });
 
         return posts;
+    }
+
+    private static List<String> prepareImages(List<String> media) {
+        String pattern = "(?i).+\\.(jpg|png|gif)$";
+        return media.stream()
+                .map(link -> link.matches(pattern) ? link : null)
+                .collect(Collectors.toList());
     }
 
     private static String prepareTitleBasedOnCategories(Set<String> categories) {

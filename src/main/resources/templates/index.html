@@ -36,7 +36,7 @@
                         <span th:each="post: ${posts}">
                         <div class="post-masonry col-md-4 col-sm-6">
                             <div class="project-thumb">
-                                <img th:src="${post.images.get(0)}">
+                                <img th:src="${post.images.get(0)} ?: '/warn-me/images/WarnMeInformation.png'" src="." alt="image from the source of alerts">
                                 <div class="overlay-b">
                                     <div class="overlay-inner">
                                         <a th:href="${post.images.get(0)}" class="fancybox fa fa-expand" title="Project Title Here"></a>
