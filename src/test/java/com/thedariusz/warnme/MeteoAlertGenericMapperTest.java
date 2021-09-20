@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class MeteoAlertGenericMapperTest {
 
-    MeteoAlertCategoryUtil meteoAlertCategoryUtil;
+    MeteoAlertCategoryService meteoAlertCategoryUtil;
     MeteoAlertGenericMapper meteoAlertGenericMapper = new MeteoAlertGenericMapper(meteoAlertCategoryUtil);
 
     @Test
