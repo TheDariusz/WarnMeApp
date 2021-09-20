@@ -45,7 +45,7 @@
                             </div>
                             <div class="blog-body">
                                 <div class="box-content">
-                                  <h3 class="post-title"><span th:text="${post.title} + ' poziom: ' + ${post.level}">Storms warning</span></h3>
+                                  <h3 class="post-title"><span th:text="${post.level}==0 ? ${post.title} : ${post.title} + ' poziom: ' + ${post.level}">Storms warning</span></h3>
                                     <span class="blog-meta" th:text="${post.date}">date</span>
                                     <p th:text="${post.description}"></p>
                                   <div class="blog-tags col-md-12">

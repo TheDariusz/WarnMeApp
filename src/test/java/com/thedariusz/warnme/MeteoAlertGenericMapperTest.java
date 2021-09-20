@@ -13,9 +13,9 @@ public class MeteoAlertGenericMapperTest {
     @Test
     public void shouldReturnLevel1() {
         //given
-        String textToSearchFor = "⚠Ostrzeżenia meteorologiczne! ▶Burze z gradem - st. 1;⛈ " +
-                "(woj. zachodniopomorskie i lubuskie); Prognozowane są burze, którym miejscami będą towarzyszyć opady deszczu do 20 mm," +
-                " lokalnie do 30 mm oraz porywy wiatru do 70 km/h. Miejscami grad. https://t.co/nmQ8eyQUJA";
+        String textToSearchFor = "W związku z opadami dla zlewni rzek południowo-wschodniej Polski wydano ostrzeżenia hydrologiczne 1⁰." +
+                " Mogą zostać przekroczone stany ostrzegawcze a wzrosty mogą miejscami być gwałtowne." +
+                " Wzrostów spodziewamy się również na Podlasiu i Wybrzeżu RP. \uD83C\uDF0A #IMGW #hydro #rzeki #uwaga https://t.co/VPgqC20T62";
 
         //when
         int alertLevel = meteoAlertGenericMapper.getAlertLevelFromTextField(textToSearchFor);

@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class MeteoAlertGenericMapper {
 
-    private static final String DIGIT_BEFORE_TEXT_OR_DEGREE_OR_DOT_CHARACTER = "(\\d)\\s*(?=stopni|°|\\.)";
+    private static final String DIGIT_BEFORE_TEXT_OR_DEGREE_OR_DOT_CHARACTER = "(\\d)\\s*(?=stopni|°|⁰|\\.)";
     private static final String DIGIT_AFTER_TEXT = "(?<=st.|stopień)\\s*(\\d)";
 
     private static final int LEVEL_NOT_FOUND = 0;
