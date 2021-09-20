@@ -21,7 +21,7 @@ public class MeteoAlertMapper {
 
         return new MeteoAlert(
                 entity.getLevel(),
-                meteoAlertCategoryMapper.toModel(entityCategories),
+                meteoAlertCategoryMapper.toModelSet(entityCategories),
                 entity.getCreationDate(),
                 entity.getDescription(),
                 entity.getExternalId(),
@@ -32,11 +32,9 @@ public class MeteoAlertMapper {
 
     public MeteoAlertEntity toEntity(MeteoAlert model) {
         final List<String> media = model.getMedia();
-        final Set<String> categories = model.getCategories();
 
         return new MeteoAlertEntity(
                 model.getLevel(),
-                meteoAlertCategoryMapper.toEntity(categories),
                 model.getCreationDate(),
                 model.getDescription(),
                 model.getExternalId(),

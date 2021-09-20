@@ -3,15 +3,15 @@ package com.thedariusz.warnme.repository.entity;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import java.time.OffsetDateTime;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -24,11 +24,13 @@ public class MeteoAlertEntity {
 
     private int level;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST})
-    @JoinTable(name = "meteoalert_meteoalertcategory",
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(
+            name = "meteoalert_meteoalertcategory",
             joinColumns = @JoinColumn(name = "alert_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private Set<MeteoAlertCategoryEntity> categories;
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private Set<MeteoAlertCategoryEntity> categories = new HashSet<>();
 
     private String creationDate;
 
@@ -53,6 +55,18 @@ public class MeteoAlertEntity {
                             MeteoAlertOriginEntity meteoAlertOriginEntity, OffsetDateTime createdAt) {
         this.level = level;
         this.categories = categories;
+        this.creationDate = creationDate;
+        this.description = description;
+        this.externalId = externalId;
+        this.media = media;
+        this.meteoAlertOriginEntity = meteoAlertOriginEntity;
+        this.createdAt = createdAt;
+    }
+
+    public MeteoAlertEntity(int level, String creationDate, String description,
+                            String externalId, String media, MeteoAlertOriginEntity meteoAlertOriginEntity,
+                            OffsetDateTime createdAt) {
+        this.level = level;
         this.creationDate = creationDate;
         this.description = description;
         this.externalId = externalId;

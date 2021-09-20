@@ -5,9 +5,10 @@ import com.thedariusz.IntegrationTestBase;
 import com.thedariusz.warnme.MeteoAlert;
 import com.thedariusz.warnme.MeteoAlertDao;
 import org.assertj.core.api.recursive.comparison.RecursiveComparisonConfiguration;
+import org.junit.Ignore;
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.mockserver.integration.ClientAndServer;
 import org.mockserver.model.HttpRequest;
 import org.mockserver.model.HttpResponse;
@@ -45,7 +46,7 @@ class MeteoAlertControllerMockMvcIT extends IntegrationTestBase {
         mockServer = ClientAndServer.startClientAndServer(8092);
     }
 
-
+    @Ignore
     @Test
     @WithMockUser("admin")
     void fetchAllShouldSaveSingleAlertInMemory() throws Exception {

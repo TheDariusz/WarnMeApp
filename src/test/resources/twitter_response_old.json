@@ -1,0 +1,519 @@
+{
+  "data": [
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 268,
+            "end": 273,
+            "tag": "IMGW"
+          }
+        ],
+        "urls": [
+          {
+            "start": 243,
+            "end": 266,
+            "url": "https://t.co/aWvCAHd6wM",
+            "expanded_url": "https://obserwator.imgw.pl/czy-w-europie-wystepuja-huragany-czyli-roznica-pomiedzy-cyklonem-tropikalnym-a-sztormem-zwiazanym-z-nizami-srednich-szerokosci-geograficznych/",
+            "display_url": "obserwator.imgw.pl/czy-w-europie-…"
+          }
+        ]
+      },
+      "text": "🌬️W ekstremalnych sytuacjach ostrzeżenia 1 poziom siła wiatru może przekraczać 117 km/h (12 stopni w skali Beauforta) i wówczas w opisach stosuje się termin burza. \n😕Niestety słowo to wprowadza sporo zamieszania...\n\nCzy zatem w Europie występują „huragany”❔\n➡️https://t.co/aWvCAHd6wM\n\n#IMGW",
+      "created_at": "2021-05-31T20:50:14.000Z",
+      "author_id": "1139834822011084801",
+      "id": "1399468283145895941"
+    },
+    {
+      "text": "Prognoza burz na noc ⚡️\n\n⛈️W drugiej połowie nocy burze mogą rozwinąć się na Pomorzu (głównie Wschodnim). \n💧Prognozowane są tam opady deszczu do 10-15 mm oraz porywy wiatru do 60-65 km/h (punktowo mogą wystąpić porywy około 70 km/h).\n\nWięcej informacji:\n➡️https://t.co/D3Mfu5eI6p https://t.co/roqYkAymP3",
+      "entities": {
+        "urls": [
+          {
+            "start": 256,
+            "end": 279,
+            "url": "https://t.co/D3Mfu5eI6p",
+            "expanded_url": "https://www.facebook.com/burzaalertimgw/",
+            "display_url": "facebook.com/burzaalertimgw/"
+          },
+          {
+            "start": 280,
+            "end": 303,
+            "url": "https://t.co/roqYkAymP3",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399450871637893122/photo/1",
+            "display_url": "pic.twitter.com/roqYkAymP3"
+          },
+          {
+            "start": 280,
+            "end": 303,
+            "url": "https://t.co/roqYkAymP3",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399450871637893122/photo/1",
+            "display_url": "pic.twitter.com/roqYkAymP3"
+          }
+        ]
+      },
+      "attachments": {
+        "media_keys": [
+          "3_1399450680511901701",
+          "3_1399450743573258240"
+        ]
+      },
+      "created_at": "2021-05-31T19:41:02.000Z",
+      "author_id": "1139834822011084801",
+      "id": "1399450871637893122"
+    },
+    {
+      "text": "🌫️W nocy burze ostrzeżenie 1 stopnia zachmurzenie umiarkowane i duże. \n🌧️Na północny i na krańcach południowych przelotny deszcz, w Tatrach śnieg. \n⛈️Na Pomorzu możliwe burze. \n🌡️Temp. od 5°C na wschodzie do 12°C na północnym zachodzie, w dolinach od 0°C do 4°C. \n💨Wiatr słaby, zmienny, w burzach porywisty. https://t.co/78MydQJ91n",
+      "entities": {
+        "urls": [
+          {
+            "start": 280,
+            "end": 303,
+            "url": "https://t.co/78MydQJ91n",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399446698158665731/photo/1",
+            "display_url": "pic.twitter.com/78MydQJ91n"
+          }
+        ]
+      },
+      "attachments": {
+        "media_keys": [
+          "3_1399446643624325121"
+        ]
+      },
+      "created_at": "2021-05-31T19:24:27.000Z",
+      "author_id": "1139834822011084801",
+      "id": "1399446698158665731"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 267,
+            "end": 272,
+            "tag": "alert"
+          }
+        ],
+        "urls": [
+          {
+            "start": 242,
+            "end": 265,
+            "url": "https://t.co/Z8s3H8Yfj4",
+            "expanded_url": "https://imgw.pl/wydarzenia/imgw-pib-prognoza-synoptyczna-dla-polski-21-tydzien-2021-r-0",
+            "display_url": "imgw.pl/wydarzenia/img…"
+          },
+          {
+            "start": 273,
+            "end": 296,
+            "url": "https://t.co/AIsmU6c9lG",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399435532053196802/photo/1",
+            "display_url": "pic.twitter.com/AIsmU6c9lG"
+          }
+        ]
+      },
+      "text": "💡Przypominamy, że jest już dostępna prognoza synoptyczna dla Polski na najbliższy tydzień📆\n\n📈Początek tygodnia jeszcze dość chłodny, ale z dnia na dzień temperatura będzie stopniowo rosła. \n🧐Do końca tego tygodnia upałów jednak nie widać.\n\n➡️https://t.co/Z8s3H8Yfj4\n\n#IMGW https://t.co/AIsmU6c9lG",
+      "attachments": {
+        "media_keys": [
+          "3_1399435337135493121"
+        ]
+      },
+      "created_at": "2021-05-31T18:40:05.000Z",
+      "author_id": "1139834822011084801",
+      "id": "1399435532053196802"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 251,
+            "end": 261,
+            "tag": "alert"
+          },
+          {
+            "start": 262,
+            "end": 268,
+            "tag": "opady"
+          },
+          {
+            "start": 269,
+            "end": 275,
+            "tag": "burze"
+          }
+        ],
+        "urls": [
+          {
+            "start": 201,
+            "end": 224,
+            "url": "https://t.co/D3Mfu5eI6p",
+            "expanded_url": "https://www.facebook.com/burzaalertimgw/",
+            "display_url": "facebook.com/burzaalertimgw/",
+            "images": [
+              {
+                "url": "https://pbs.twimg.com/news_img/1397918671444471809/Dru7aMll?format=jpg&name=orig",
+                "width": 1600,
+                "height": 1600
+              },
+              {
+                "url": "https://pbs.twimg.com/news_img/1397918671444471809/Dru7aMll?format=jpg&name=150x150",
+                "width": 150,
+                "height": 150
+              }
+            ],
+            "status": 200,
+            "title": "Burza-Alert-IMGW",
+            "description": "Burza-Alert-IMGW, Warszawa. 14,448 likes · 273 talking about this. Witamy na oficjalnym profilu IMGW-PIB dedykowanemu informacjom o burzach - wyładowaniach atmosferycznych na terenie Polski.",
+            "unwound_url": "https://www.facebook.com/burzaalertimgw/"
+          },
+          {
+            "start": 226,
+            "end": 249,
+            "url": "https://t.co/BpAVrizjFF",
+            "expanded_url": "https://meteo.imgw.pl/?page=burze",
+            "display_url": "meteo.imgw.pl/?page=burze"
+          },
+          {
+            "start": 276,
+            "end": 299,
+            "url": "https://t.co/MxXEf1O0z6",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399408696384499718/photo/1",
+            "display_url": "pic.twitter.com/MxXEf1O0z6"
+          },
+          {
+            "start": 276,
+            "end": 299,
+            "url": "https://t.co/MxXEf1O0z6",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399408696384499718/photo/1",
+            "display_url": "pic.twitter.com/MxXEf1O0z6"
+          }
+        ]
+      },
+      "text": "Monitoring burz w kraju ⛈️\n\n❌Aktualnie burze w Polsce nie występują i do końca dnia nie są prognozowane.\n💧Do tej pory najwyższą sumę opadu (15,0 mm) zarejestrowano na stacji Szczawne na Podkarpaciu.\n\n✅https://t.co/D3Mfu5eI6p\n✅https://t.co/BpAVrizjFF\n\n#IMGWmeteo #opady #burze https://t.co/MxXEf1O0z6",
+      "attachments": {
+        "media_keys": [
+          "3_1399408655188045833",
+          "3_1399408655192178700"
+        ]
+      },
+      "created_at": "2021-05-31T16:53:27.000Z",
+      "author_id": "1139834822011084801",
+      "id": "1399408696384499718"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 254,
+            "end": 264,
+            "tag": "IMGWhydro"
+          },
+          {
+            "start": 265,
+            "end": 271,
+            "tag": "rzeki"
+          }
+        ],
+        "urls": [
+          {
+            "start": 272,
+            "end": 295,
+            "url": "https://t.co/9uEz9ZjZDk",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399401738474594305/photo/1",
+            "display_url": "pic.twitter.com/9uEz9ZjZDk"
+          },
+          {
+            "start": 272,
+            "end": 295,
+            "url": "https://t.co/9uEz9ZjZDk",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399401738474594305/photo/1",
+            "display_url": "pic.twitter.com/9uEz9ZjZDk"
+          }
+        ]
+      },
+      "text": "🌊Dziś sytuacja hydrologiczna na rzekach w kraju jest stabilna. \n🔵W dorzeczach Wisły i Odry przeważają stany wody średniej, a lokalnie obserwujemy strefę wody niskiej i wysokiej.\n❌Brak wydanych ostrzeżeń hydrologicznych oraz przekroczeń stanów umownych.\n\n#IMGWhydro #rzeki https://t.co/9uEz9ZjZDk",
+      "attachments": {
+        "media_keys": [
+          "3_1399401246696644616",
+          "3_1399401430662975497"
+        ]
+      },
+      "created_at": "2021-05-31T16:25:48.000Z",
+      "author_id": "1139834822011084801",
+      "id": "1399401738474594305"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 247,
+            "end": 257,
+            "tag": "IMGWmeteo"
+          },
+          {
+            "start": 258,
+            "end": 269,
+            "tag": "Obserwator"
+          }
+        ],
+        "urls": [
+          {
+            "start": 222,
+            "end": 245,
+            "url": "https://t.co/SSd5qEG5On",
+            "expanded_url": "https://obserwator.imgw.pl/do-zobaczenia-na-spitsbergenie/",
+            "display_url": "obserwator.imgw.pl/do-zobaczenia-…",
+            "images": [
+              {
+                "url": "https://pbs.twimg.com/news_img/1399383070453768195/Q6WJuq-x?format=jpg&name=orig",
+                "width": 1200,
+                "height": 1600
+              },
+              {
+                "url": "https://pbs.twimg.com/news_img/1399383070453768195/Q6WJuq-x?format=jpg&name=150x150",
+                "width": 150,
+                "height": 150
+              }
+            ],
+            "status": 200,
+            "title": "Do zobaczenia na Spitsbergenie!",
+            "description": "Z Anią Nadolną, hydrologiem w IMGW-PIB, o jej pobycie w Arktyce i stacji polarnej Hornsund, zorzach polarnych, niedźwiedziach i burzach śnieżnych rozmawia Rafał Stepnowski.",
+            "unwound_url": "https://obserwator.imgw.pl/do-zobaczenia-na-spitsbergenie/"
+          },
+          {
+            "start": 270,
+            "end": 293,
+            "url": "https://t.co/eoCUGaY9hl",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399383050602037253/photo/1",
+            "display_url": "pic.twitter.com/eoCUGaY9hl"
+          }
+        ]
+      },
+      "text": "Spitsbergen. Bajkowa kraina lodu ❄️\n\n🔵Z Anią Nadolną, hydrologiem w IMGW-PIB, o jej pobycie w Arktyce i stacji polarnej Hornsund, zorzach polarnych, niedźwiedziach i burzach śnieżnych rozmawia Rafał Stepnowski.\n\nWywiad:\n➡️https://t.co/SSd5qEG5On\n\n#IMGWmeteo #Obserwator https://t.co/eoCUGaY9hl",
+      "attachments": {
+        "media_keys": [
+          "3_1399382973624029185"
+        ]
+      },
+      "created_at": "2021-05-31T15:11:33.000Z",
+      "author_id": "1139834822011084801",
+      "id": "1399383050602037253"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 183,
+            "end": 193,
+            "tag": "IMGWmeteo"
+          }
+        ]
+      },
+      "text": "🌧️Przelotne opady deszczu nadal występują na południu i południowym wschodzie kraju. \n💧Sumy godzinowe wynoszą zwykle około 5 mm, tylko miejscami (głównie w górach) sięgają 10-15 mm.\n\n#IMGWmeteo",
+      "created_at": "2021-05-31T13:24:54.000Z",
+      "author_id": "1139834822011084801",
+      "id": "1399356210726453250"
+    },
+    {
+      "text": "⚡️Wyładowania atmosferyczne są obserwowane tylko na krańcach południowych, punktowo pada mały grad. Komórki powoli przemieszczają się na południe i południowy zachód.\n⛈️Burze przez najbliższe 2-4 godziny nadal mogą występować, ale ze zmniejszającą się stopniowo\nintensywnością. https://t.co/XeJIZQ9481",
+      "entities": {
+        "urls": [
+          {
+            "start": 278,
+            "end": 301,
+            "url": "https://t.co/XeJIZQ9481",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399355792550150148/photo/1",
+            "display_url": "pic.twitter.com/XeJIZQ9481"
+          },
+          {
+            "start": 278,
+            "end": 301,
+            "url": "https://t.co/XeJIZQ9481",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399355792550150148/photo/1",
+            "display_url": "pic.twitter.com/XeJIZQ9481"
+          }
+        ]
+      },
+      "attachments": {
+        "media_keys": [
+          "3_1399355684186214407",
+          "3_1399355778461483011"
+        ]
+      },
+      "created_at": "2021-05-31T13:23:14.000Z",
+      "author_id": "1139834822011084801",
+      "id": "1399355792550150148"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 271,
+            "end": 276,
+            "tag": "IMGW"
+          }
+        ],
+        "urls": [
+          {
+            "start": 247,
+            "end": 270,
+            "url": "https://t.co/krD4yHenpa",
+            "expanded_url": "https://klimat.imgw.pl",
+            "display_url": "klimat.imgw.pl"
+          },
+          {
+            "start": 277,
+            "end": 300,
+            "url": "https://t.co/8iQWxXzK2o",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399331508448600064/photo/1",
+            "display_url": "pic.twitter.com/8iQWxXzK2o"
+          },
+          {
+            "start": 277,
+            "end": 300,
+            "url": "https://t.co/8iQWxXzK2o",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399331508448600064/photo/1",
+            "display_url": "pic.twitter.com/8iQWxXzK2o"
+          },
+          {
+            "start": 277,
+            "end": 300,
+            "url": "https://t.co/8iQWxXzK2o",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399331508448600064/photo/1",
+            "display_url": "pic.twitter.com/8iQWxXzK2o"
+          },
+          {
+            "start": 277,
+            "end": 300,
+            "url": "https://t.co/8iQWxXzK2o",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399331508448600064/photo/1",
+            "display_url": "pic.twitter.com/8iQWxXzK2o"
+          }
+        ]
+      },
+      "text": "➡️Maj żegnamy chłodno z temperaturami poniżej normy\n➡️Jest to 3 chłodny maj z rzędu\n➡️Po zimnym kwietniu kolejny miesiąc wiosenny okazał się chłodny a to oznacza, że kończymy chłodną wiosnę\n➡️Ostatni chłodny sezon wiosenny notowaliśmy w 2013 roku\nhttps://t.co/krD4yHenpa\n#IMGW https://t.co/8iQWxXzK2o",
+      "attachments": {
+        "media_keys": [
+          "3_1399330822851858432",
+          "3_1399330851901644801",
+          "3_1399330881643368448",
+          "3_1399330950501355522"
+        ]
+      },
+      "created_at": "2021-05-31T11:46:44.000Z",
+      "author_id": "1139834822011084801",
+      "id": "1399331508448600064"
+    }
+  ],
+  "includes": {
+    "media": [
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/E2vY-rSXMAUZrSC.jpg",
+        "width": 566,
+        "height": 426,
+        "media_key": "3_1399450680511901701"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/E2vZCWNXIAAGNut.jpg",
+        "width": 1600,
+        "height": 1600,
+        "media_key": "3_1399450743573258240"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/E2vVTstXMAE0s79.jpg",
+        "width": 586,
+        "height": 498,
+        "media_key": "3_1399446643624325121"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/E2vLBkwXEAETdeM.jpg",
+        "width": 3024,
+        "height": 4032,
+        "media_key": "3_1399435337135493121"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/E2uywewXMAkYc-v.jpg",
+        "width": 565,
+        "height": 426,
+        "media_key": "3_1399408655188045833"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/E2uywexWQAw5AVM.jpg",
+        "width": 730,
+        "height": 684,
+        "media_key": "3_1399408655192178700"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/E2usBP-XoAgTBnK.jpg",
+        "width": 4000,
+        "height": 2250,
+        "media_key": "3_1399401246696644616"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/E2usL9TXEAkCfKT.png",
+        "width": 617,
+        "height": 574,
+        "media_key": "3_1399401430662975497"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/E2ubZneXEAERROB.jpg",
+        "width": 1918,
+        "height": 1279,
+        "media_key": "3_1399382973624029185"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/E2uClKZX0Ack7yI.jpg",
+        "width": 1080,
+        "height": 1080,
+        "media_key": "3_1399355684186214407"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/E2uCqpmWQAMi-Wu.jpg",
+        "width": 563,
+        "height": 423,
+        "media_key": "3_1399355778461483011"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/E2tr-CtXEAAKNWB.jpg",
+        "width": 1600,
+        "height": 1200,
+        "media_key": "3_1399330822851858432"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/E2tr_u7XoAEoMNw.png",
+        "width": 600,
+        "height": 564,
+        "media_key": "3_1399330851901644801"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/E2tsBduWUAAPBrv.png",
+        "width": 489,
+        "height": 649,
+        "media_key": "3_1399330881643368448"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/E2tsFePX0AIvfT1.png",
+        "width": 565,
+        "height": 746,
+        "media_key": "3_1399330950501355522"
+      }
+    ]
+  },
+  "meta": {
+    "oldest_id": "1399331508448600064",
+    "newest_id": "1399468283145895941",
+    "result_count": 10,
+    "next_token": "7140dibdnow9c7btw3w4sp2kgzw21ptc48xm7hnf2osvo"
+  }
+}

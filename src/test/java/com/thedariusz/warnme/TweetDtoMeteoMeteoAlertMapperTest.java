@@ -1,5 +1,7 @@
 package com.thedariusz.warnme;
 
+import com.thedariusz.warnme.repository.MeteoAlertCategoryRepository;
+import com.thedariusz.warnme.repository.entity.MeteoAlertCategoryMapper;
 import com.thedariusz.warnme.twitter.model.TweetDto;
 import com.thedariusz.warnme.twitter.model.Entity;
 import com.thedariusz.warnme.twitter.model.Hashtag;
@@ -14,8 +16,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class TweetDtoMeteoMeteoAlertMapperTest {
 
-    MeteoAlertCategoryUtil meteoAlertCategoryUtil = new MeteoAlertCategoryUtil();
-    MeteoAlertGenericMapper meteoAlertGenericMapper = new MeteoAlertGenericMapper(meteoAlertCategoryUtil);
+    MeteoAlertCategoryRepository categoryRepository;
+    MeteoAlertCategoryMapper categoryMapper;
+    MeteoAlertTwitterCategoryService meteoAlertTwitterCategoryService = new MeteoAlertTwitterCategoryService(categoryRepository, categoryMapper);
+    MeteoAlertGenericMapper meteoAlertGenericMapper = new MeteoAlertGenericMapper(meteoAlertTwitterCategoryService);
 
     @Test
     void shouldMapToMeteoAlertWithLevelNotFound() {

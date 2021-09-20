@@ -4,516 +4,1192 @@
       "entities": {
         "hashtags": [
           {
-            "start": 268,
-            "end": 273,
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
+          },
+          {
+            "start": 224,
+            "end": 229,
             "tag": "IMGW"
           }
         ],
         "urls": [
           {
-            "start": 243,
-            "end": 266,
-            "url": "https://t.co/aWvCAHd6wM",
-            "expanded_url": "https://obserwator.imgw.pl/czy-w-europie-wystepuja-huragany-czyli-roznica-pomiedzy-cyklonem-tropikalnym-a-sztormem-zwiazanym-z-nizami-srednich-szerokosci-geograficznych/",
-            "display_url": "obserwator.imgw.pl/czy-w-europie-…"
+            "start": 230,
+            "end": 253,
+            "url": "https://t.co/FxNSaDEcqc",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427365759177666562/photo/1",
+            "display_url": "pic.twitter.com/FxNSaDEcqc"
           }
         ]
       },
-      "text": "🌬️W ekstremalnych sytuacjach ostrzeżenia 1 poziom siła wiatru może przekraczać 117 km/h (12 stopni w skali Beauforta) i wówczas w opisach stosuje się termin burza. \n😕Niestety słowo to wprowadza sporo zamieszania...\n\nCzy zatem w Europie występują „huragany”❔\n➡️https://t.co/aWvCAHd6wM\n\n#IMGW",
-      "created_at": "2021-05-31T20:50:14.000Z",
       "author_id": "1139834822011084801",
-      "id": "1399468283145895941"
-    },
-    {
-      "text": "Prognoza burz na noc ⚡️\n\n⛈️W drugiej połowie nocy burze mogą rozwinąć się na Pomorzu (głównie Wschodnim). \n💧Prognozowane są tam opady deszczu do 10-15 mm oraz porywy wiatru do 60-65 km/h (punktowo mogą wystąpić porywy około 70 km/h).\n\nWięcej informacji:\n➡️https://t.co/D3Mfu5eI6p https://t.co/roqYkAymP3",
-      "entities": {
-        "urls": [
-          {
-            "start": 256,
-            "end": 279,
-            "url": "https://t.co/D3Mfu5eI6p",
-            "expanded_url": "https://www.facebook.com/burzaalertimgw/",
-            "display_url": "facebook.com/burzaalertimgw/"
-          },
-          {
-            "start": 280,
-            "end": 303,
-            "url": "https://t.co/roqYkAymP3",
-            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399450871637893122/photo/1",
-            "display_url": "pic.twitter.com/roqYkAymP3"
-          },
-          {
-            "start": 280,
-            "end": 303,
-            "url": "https://t.co/roqYkAymP3",
-            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399450871637893122/photo/1",
-            "display_url": "pic.twitter.com/roqYkAymP3"
-          }
-        ]
-      },
       "attachments": {
         "media_keys": [
-          "3_1399450680511901701",
-          "3_1399450743573258240"
+          "3_1427365363969298432"
         ]
       },
-      "created_at": "2021-05-31T19:41:02.000Z",
-      "author_id": "1139834822011084801",
-      "id": "1399450871637893122"
-    },
-    {
-      "text": "🌫️W nocy burze ostrzeżenie 1 stopnia zachmurzenie umiarkowane i duże. \n🌧️Na północny i na krańcach południowych przelotny deszcz, w Tatrach śnieg. \n⛈️Na Pomorzu możliwe burze. \n🌡️Temp. od 5°C na wschodzie do 12°C na północnym zachodzie, w dolinach od 0°C do 4°C. \n💨Wiatr słaby, zmienny, w burzach porywisty. https://t.co/78MydQJ91n",
-      "entities": {
-        "urls": [
-          {
-            "start": 280,
-            "end": 303,
-            "url": "https://t.co/78MydQJ91n",
-            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399446698158665731/photo/1",
-            "display_url": "pic.twitter.com/78MydQJ91n"
-          }
-        ]
-      },
-      "attachments": {
-        "media_keys": [
-          "3_1399446643624325121"
-        ]
-      },
-      "created_at": "2021-05-31T19:24:27.000Z",
-      "author_id": "1139834822011084801",
-      "id": "1399446698158665731"
+      "created_at": "2021-08-16T20:24:50.000Z",
+      "text": "22:20 #IMGWlive \nNadal najwyższa suma opadu zanotowana jest w Wysowej: 39,1 mm.\n\nPo burzach, które przeszły przez Mazowsze wysokie sumy opadów zanotowano na warszawskich stacjach, na Okęciu 29,4 mm, a na Bielanach 24,7 mm.\n\n#IMGW https://t.co/FxNSaDEcqc",
+      "id": "1427365759177666562"
     },
     {
       "entities": {
         "hashtags": [
           {
-            "start": 267,
-            "end": 272,
-            "tag": "alert"
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
           }
         ],
         "urls": [
           {
-            "start": 242,
-            "end": 265,
-            "url": "https://t.co/Z8s3H8Yfj4",
-            "expanded_url": "https://imgw.pl/wydarzenia/imgw-pib-prognoza-synoptyczna-dla-polski-21-tydzien-2021-r-0",
-            "display_url": "imgw.pl/wydarzenia/img…"
+            "start": 281,
+            "end": 304,
+            "url": "https://t.co/DJGUCeVp0s",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427355074972602375/photo/1",
+            "display_url": "pic.twitter.com/DJGUCeVp0s"
+          },
+          {
+            "start": 281,
+            "end": 304,
+            "url": "https://t.co/DJGUCeVp0s",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427355074972602375/photo/1",
+            "display_url": "pic.twitter.com/DJGUCeVp0s"
+          }
+        ]
+      },
+      "author_id": "1139834822011084801",
+      "attachments": {
+        "media_keys": [
+          "3_1427354618749759488",
+          "3_1427354745317044225"
+        ]
+      },
+      "created_at": "2021-08-16T19:42:23.000Z",
+      "text": "21:40 #IMGWlive \nBurza, która przeszła przez Warszawę odsunęła się już na północny zachód i w najbliższym czasie nasunie się nad Podlasie.\n\nBurze występują także na południu woj. małopolskiego. \n\nOkoło północy, prognozowane jest nasunięcie się od południa wielokomórkowego układu. https://t.co/DJGUCeVp0s",
+      "id": "1427355074972602375"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
+          },
+          {
+            "start": 153,
+            "end": 158,
+            "tag": "IMGW"
+          }
+        ],
+        "urls": [
+          {
+            "start": 159,
+            "end": 182,
+            "url": "https://t.co/3VLBgVZfHX",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427342097342947329/photo/1",
+            "display_url": "pic.twitter.com/3VLBgVZfHX"
+          },
+          {
+            "start": 159,
+            "end": 182,
+            "url": "https://t.co/3VLBgVZfHX",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427342097342947329/photo/1",
+            "display_url": "pic.twitter.com/3VLBgVZfHX"
+          }
+        ]
+      },
+      "author_id": "1139834822011084801",
+      "attachments": {
+        "media_keys": [
+          "3_1427341672430583814",
+          "3_1427342088677597195"
+        ]
+      },
+      "created_at": "2021-08-16T18:50:49.000Z",
+      "text": "20:50 #IMGWlive \n\nObecnie burze występują na wschodzie Mazowsza oraz na granicy Górnego Śląska i Małopolski. Pada również na północnym zachodzie kraju.\n\n#IMGW https://t.co/3VLBgVZfHX",
+      "id": "1427342097342947329"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 272,
+            "end": 277,
+            "tag": "IMGW"
+          }
+        ],
+        "urls": [
+          {
+            "start": 278,
+            "end": 301,
+            "url": "https://t.co/CoAVV9GnNg",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427335231829331968/photo/1",
+            "display_url": "pic.twitter.com/CoAVV9GnNg"
+          },
+          {
+            "start": 278,
+            "end": 301,
+            "url": "https://t.co/CoAVV9GnNg",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427335231829331968/photo/1",
+            "display_url": "pic.twitter.com/CoAVV9GnNg"
+          }
+        ]
+      },
+      "author_id": "1139834822011084801",
+      "attachments": {
+        "media_keys": [
+          "3_1427335145221152769",
+          "3_1427335224661315584"
+        ]
+      },
+      "created_at": "2021-08-16T18:23:32.000Z",
+      "text": "W nocy pochmurnie i deszczowo. Od Górnego Śląska po Podlasie burze z ulewami do 40-50mm i porywami do 90km/h. Na Podkarpaciu możliwe 100km/h i grad. Temperatura min. od 11°C na Pomorzu do 19°C na wschodzie. Wiatr stopniowo wzmagający się, nad morzem w porywach do 65km/h.\n#IMGW https://t.co/CoAVV9GnNg",
+      "id": "1427335231829331968"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
+          },
+          {
+            "start": 163,
+            "end": 168,
+            "tag": "IMGW"
+          }
+        ],
+        "urls": [
+          {
+            "start": 169,
+            "end": 192,
+            "url": "https://t.co/ra9Gq1WlzZ",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427334759391367171/photo/1",
+            "display_url": "pic.twitter.com/ra9Gq1WlzZ"
+          }
+        ]
+      },
+      "author_id": "1139834822011084801",
+      "attachments": {
+        "media_keys": [
+          "3_1427334392461111311"
+        ]
+      },
+      "created_at": "2021-08-16T18:21:39.000Z",
+      "text": "20:20 #IMGWlive \n\nDziś temperatura maksymalna na stacjach synoptycznych wynosiła od 21,6°C w Kołobrzegu-Dźwirzyno do 31,3°C we Wrocławiu. \n\nOd jutra ochłodzenie.\n\n#IMGW https://t.co/ra9Gq1WlzZ",
+      "id": "1427334759391367171"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
+          },
+          {
+            "start": 166,
+            "end": 171,
+            "tag": "IMGW"
+          }
+        ],
+        "urls": [
+          {
+            "start": 172,
+            "end": 195,
+            "url": "https://t.co/8aiySwkXuT",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427319756110114816/photo/1",
+            "display_url": "pic.twitter.com/8aiySwkXuT"
+          },
+          {
+            "start": 172,
+            "end": 195,
+            "url": "https://t.co/8aiySwkXuT",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427319756110114816/photo/1",
+            "display_url": "pic.twitter.com/8aiySwkXuT"
+          }
+        ]
+      },
+      "author_id": "1139834822011084801",
+      "attachments": {
+        "media_keys": [
+          "3_1427319287186866180",
+          "3_1427319397857873926"
+        ]
+      },
+      "created_at": "2021-08-16T17:22:02.000Z",
+      "text": "19:20 #IMGWlive \n\nJak dotąd najwyższą sumę opadu zanotowano na stacji Wysowa: 37,3 mm.  A w ostatniej godzinie najwyższą sumę opadu zanotowano w Warszawie: 12,2 mm.\n\n#IMGW https://t.co/8aiySwkXuT",
+      "id": "1427319756110114816"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
+          },
+          {
+            "start": 24,
+            "end": 32,
+            "tag": "łódzkie"
+          }
+        ],
+        "urls": [
+          {
+            "start": 279,
+            "end": 302,
+            "url": "https://t.co/qa3XsW28j0",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427309377481056270/photo/1",
+            "display_url": "pic.twitter.com/qa3XsW28j0"
+          },
+          {
+            "start": 279,
+            "end": 302,
+            "url": "https://t.co/qa3XsW28j0",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427309377481056270/photo/1",
+            "display_url": "pic.twitter.com/qa3XsW28j0"
+          }
+        ]
+      },
+      "author_id": "1139834822011084801",
+      "attachments": {
+        "media_keys": [
+          "3_1427308782762201091",
+          "3_1427308968267894791"
+        ]
+      },
+      "created_at": "2021-08-16T16:40:48.000Z",
+      "text": "18:40 #IMGWlive \nW woj. #łódzkie pojawiły się pojedyncze komórki burzowe i przemieszczają się na NE. Do 18:00 nie zanotowano znaczących opadów. Wystąpiły porywy wiatru: 65km/h w Sieradzu i 81km/h w Łodzi. Burzom mogą towarzyszyć opady deszczu o natężeniu do 10-15mm/h oraz grad. https://t.co/qa3XsW28j0",
+      "id": "1427309377481056270"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
+          },
+          {
+            "start": 101,
+            "end": 110,
+            "tag": "Warszawa"
+          },
+          {
+            "start": 239,
+            "end": 244,
+            "tag": "IMGW"
+          },
+          {
+            "start": 245,
+            "end": 251,
+            "tag": "burza"
+          },
+          {
+            "start": 252,
+            "end": 262,
+            "tag": "meteoimgw"
+          }
+        ],
+        "urls": [
+          {
+            "start": 263,
+            "end": 286,
+            "url": "https://t.co/4YBovvtScd",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427307620327698437/photo/1",
+            "display_url": "pic.twitter.com/4YBovvtScd"
+          },
+          {
+            "start": 263,
+            "end": 286,
+            "url": "https://t.co/4YBovvtScd",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427307620327698437/photo/1",
+            "display_url": "pic.twitter.com/4YBovvtScd"
+          }
+        ]
+      },
+      "author_id": "1139834822011084801",
+      "attachments": {
+        "media_keys": [
+          "3_1427306959695396866",
+          "3_1427307066377572355"
+        ]
+      },
+      "created_at": "2021-08-16T16:33:49.000Z",
+      "text": "18:30 #IMGWlive \n\nBardzo aktywna elektrycznie i wydajna opadowo burza przemieszcza się obecnie przez #Warszawa i jej południowe okolice.\n\nBardzo wydajna opadowo też jest burza na granicy powiatów nowosądeckiego i gorlickiego ze Słowacją.\n\n#IMGW #burza #meteoimgw https://t.co/4YBovvtScd",
+      "id": "1427307620327698437"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
+          },
+          {
+            "start": 207,
+            "end": 212,
+            "tag": "IMGW"
+          }
+        ],
+        "urls": [
+          {
+            "start": 213,
+            "end": 236,
+            "url": "https://t.co/CXa41u0YEy",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427306056787668993/photo/1",
+            "display_url": "pic.twitter.com/CXa41u0YEy"
+          },
+          {
+            "start": 213,
+            "end": 236,
+            "url": "https://t.co/CXa41u0YEy",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427306056787668993/photo/1",
+            "display_url": "pic.twitter.com/CXa41u0YEy"
+          },
+          {
+            "start": 213,
+            "end": 236,
+            "url": "https://t.co/CXa41u0YEy",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427306056787668993/photo/1",
+            "display_url": "pic.twitter.com/CXa41u0YEy"
+          }
+        ]
+      },
+      "author_id": "1139834822011084801",
+      "attachments": {
+        "media_keys": [
+          "3_1427305167846793221",
+          "3_1427305553475350536",
+          "3_1427305851853942784"
+        ]
+      },
+      "created_at": "2021-08-16T16:27:36.000Z",
+      "text": "18:20 #IMGWlive \n\nW poprzedniej godzinie najwyższą godzinową sumę opadu zanotowano na stacji Wysowa: 28,9 mm. \n  Natomiast w poprzedniej godzinie najwyższą sumę opadu zanotowano w Gdańsku-Rębiechowo: 5 mm.\n\n#IMGW https://t.co/CXa41u0YEy",
+      "id": "1427306056787668993"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
+          },
+          {
+            "start": 25,
+            "end": 44,
+            "tag": "zachodniopomorskie"
+          },
+          {
+            "start": 267,
+            "end": 272,
+            "tag": "IMGW"
+          }
+        ],
+        "urls": [
+          {
+            "start": 273,
+            "end": 296,
+            "url": "https://t.co/S727Dc7Elp",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427302160082128902/photo/1",
+            "display_url": "pic.twitter.com/S727Dc7Elp"
+          }
+        ]
+      },
+      "author_id": "1139834822011084801",
+      "attachments": {
+        "media_keys": [
+          "3_1427301875192369159"
+        ]
+      },
+      "created_at": "2021-08-16T16:12:07.000Z",
+      "text": "18:10 #IMGWlive \n\nW woj. #zachodniopomorskie w strefie nadmorskiej obserwowane są chmury Cumulonimbus, którym towarzyszą przelotne opady deszczu i silniejsze porywy wiatru. W Dziwnowie o godz.17.30 podczas przechodzenia chmury Cb odnotowano poryw wynoszący 75 km/h.\n\n#IMGW https://t.co/S727Dc7Elp",
+      "id": "1427302160082128902"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
+          },
+          {
+            "start": 121,
+            "end": 133,
+            "tag": "Świnoujście"
+          },
+          {
+            "start": 185,
+            "end": 192,
+            "tag": "Tarnów"
+          },
+          {
+            "start": 207,
+            "end": 212,
+            "tag": "IMGW"
+          }
+        ],
+        "urls": [
+          {
+            "start": 213,
+            "end": 236,
+            "url": "https://t.co/EvQSVjiAMO",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427287975726092289/photo/1",
+            "display_url": "pic.twitter.com/EvQSVjiAMO"
+          }
+        ]
+      },
+      "author_id": "1139834822011084801",
+      "attachments": {
+        "media_keys": [
+          "3_1427287329853648899"
+        ]
+      },
+      "created_at": "2021-08-16T15:15:45.000Z",
+      "text": "17:10 #IMGWlive \n\nNa stacjach synoptycznych zanotowano bardzo duży gradient termiczny między północnym zachodem, gdzie w #Świnoujście zanotowano tylko 17,6°C, a południowym wschodem, w #Tarnów było 30,3°C.\n\n#IMGW https://t.co/EvQSVjiAMO",
+      "id": "1427287975726092289"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
+          },
+          {
+            "start": 203,
+            "end": 208,
+            "tag": "IMGW"
+          },
+          {
+            "start": 209,
+            "end": 219,
+            "tag": "meteoimgw"
+          }
+        ],
+        "urls": [
+          {
+            "start": 220,
+            "end": 243,
+            "url": "https://t.co/8JfaZM0cdb",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427273434128654340/photo/1",
+            "display_url": "pic.twitter.com/8JfaZM0cdb"
+          },
+          {
+            "start": 220,
+            "end": 243,
+            "url": "https://t.co/8JfaZM0cdb",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427273434128654340/photo/1",
+            "display_url": "pic.twitter.com/8JfaZM0cdb"
+          }
+        ]
+      },
+      "author_id": "1139834822011084801",
+      "attachments": {
+        "media_keys": [
+          "3_1427273257875607558",
+          "3_1427273388997943296"
+        ]
+      },
+      "created_at": "2021-08-16T14:17:58.000Z",
+      "text": "16:15 #IMGWlive \n\nKonwekcja coraz silniej rozwija się na linii zbieżności dolnego pola wiatru na obszarze od Zatoki Gdańskiej po Dolny Śląsk i Opolszczyznę. Cała ta strefa przemieszczają się na wschód.\n\n#IMGW #meteoimgw https://t.co/8JfaZM0cdb",
+      "id": "1427273434128654340"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
+          },
+          {
+            "start": 255,
+            "end": 260,
+            "tag": "IMGW"
+          }
+        ],
+        "urls": [
+          {
+            "start": 261,
+            "end": 284,
+            "url": "https://t.co/tOMl716501",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427270053775482880/photo/1",
+            "display_url": "pic.twitter.com/tOMl716501"
+          },
+          {
+            "start": 261,
+            "end": 284,
+            "url": "https://t.co/tOMl716501",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427270053775482880/photo/1",
+            "display_url": "pic.twitter.com/tOMl716501"
+          }
+        ]
+      },
+      "author_id": "1139834822011084801",
+      "attachments": {
+        "media_keys": [
+          "3_1427269727374696454",
+          "3_1427269859625349128"
+        ]
+      },
+      "created_at": "2021-08-16T14:04:32.000Z",
+      "text": "16:04 #IMGWlive \nNad woj. śląskie znad zachodniej Polski oraz znad Czech nadciągają burze, a także zaczynają rozwijać\nsię nowe komórki burzowe. Obecnie porywy wiatru nie przekraczają 70 km/h, natężenie opadów\ndochodzi do 25 mm/h, możliwe są opady gradu. \n#IMGW https://t.co/tOMl716501",
+      "id": "1427270053775482880"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
+          }
+        ],
+        "urls": [
+          {
+            "start": 273,
+            "end": 296,
+            "url": "https://t.co/kHEgsRVf19",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427269581777813505/photo/1",
+            "display_url": "pic.twitter.com/kHEgsRVf19"
           },
           {
             "start": 273,
             "end": 296,
-            "url": "https://t.co/AIsmU6c9lG",
-            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399435532053196802/photo/1",
-            "display_url": "pic.twitter.com/AIsmU6c9lG"
+            "url": "https://t.co/kHEgsRVf19",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427269581777813505/photo/1",
+            "display_url": "pic.twitter.com/kHEgsRVf19"
+          },
+          {
+            "start": 273,
+            "end": 296,
+            "url": "https://t.co/kHEgsRVf19",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427269581777813505/photo/1",
+            "display_url": "pic.twitter.com/kHEgsRVf19"
           }
         ]
       },
-      "text": "💡Przypominamy, że jest już dostępna prognoza synoptyczna dla Polski na najbliższy tydzień📆\n\n📈Początek tygodnia jeszcze dość chłodny, ale z dnia na dzień temperatura będzie stopniowo rosła. \n🧐Do końca tego tygodnia upałów jednak nie widać.\n\n➡️https://t.co/Z8s3H8Yfj4\n\n#IMGW https://t.co/AIsmU6c9lG",
+      "author_id": "1139834822011084801",
       "attachments": {
         "media_keys": [
-          "3_1399435337135493121"
+          "3_1427269143145877504",
+          "3_1427269197051179011",
+          "3_1427269312583188482"
         ]
       },
-      "created_at": "2021-05-31T18:40:05.000Z",
-      "author_id": "1139834822011084801",
-      "id": "1399435532053196802"
+      "created_at": "2021-08-16T14:02:40.000Z",
+      "text": "16:00 #IMGWlive \nW rejonie woj. małopolskiego i podkarpackiego zaczynają występować burze. Obecnie porywy wiatru nie przekraczają70 km/h, natężenie opadów dochodzi do 25mm/h, możliwe są opady gradu. Komórki burzowe dość szybko przemieszczają w kierunku północno-wschodnim. https://t.co/kHEgsRVf19",
+      "id": "1427269581777813505"
     },
     {
       "entities": {
         "hashtags": [
           {
-            "start": 251,
-            "end": 261,
-            "tag": "alert"
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
           },
           {
-            "start": 262,
-            "end": 268,
-            "tag": "opady"
+            "start": 177,
+            "end": 182,
+            "tag": "IMGW"
           },
-          {
-            "start": 269,
-            "end": 275,
-            "tag": "burze"
-          }
-        ],
-        "urls": [
-          {
-            "start": 201,
-            "end": 224,
-            "url": "https://t.co/D3Mfu5eI6p",
-            "expanded_url": "https://www.facebook.com/burzaalertimgw/",
-            "display_url": "facebook.com/burzaalertimgw/",
-            "images": [
-              {
-                "url": "https://pbs.twimg.com/news_img/1397918671444471809/Dru7aMll?format=jpg&name=orig",
-                "width": 1600,
-                "height": 1600
-              },
-              {
-                "url": "https://pbs.twimg.com/news_img/1397918671444471809/Dru7aMll?format=jpg&name=150x150",
-                "width": 150,
-                "height": 150
-              }
-            ],
-            "status": 200,
-            "title": "Burza-Alert-IMGW",
-            "description": "Burza-Alert-IMGW, Warszawa. 14,448 likes · 273 talking about this. Witamy na oficjalnym profilu IMGW-PIB dedykowanemu informacjom o burzach - wyładowaniach atmosferycznych na terenie Polski.",
-            "unwound_url": "https://www.facebook.com/burzaalertimgw/"
-          },
-          {
-            "start": 226,
-            "end": 249,
-            "url": "https://t.co/BpAVrizjFF",
-            "expanded_url": "https://meteo.imgw.pl/?page=burze",
-            "display_url": "meteo.imgw.pl/?page=burze"
-          },
-          {
-            "start": 276,
-            "end": 299,
-            "url": "https://t.co/MxXEf1O0z6",
-            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399408696384499718/photo/1",
-            "display_url": "pic.twitter.com/MxXEf1O0z6"
-          },
-          {
-            "start": 276,
-            "end": 299,
-            "url": "https://t.co/MxXEf1O0z6",
-            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399408696384499718/photo/1",
-            "display_url": "pic.twitter.com/MxXEf1O0z6"
-          }
-        ]
-      },
-      "text": "Monitoring burz w kraju ⛈️\n\n❌Aktualnie burze w Polsce nie występują i do końca dnia nie są prognozowane.\n💧Do tej pory najwyższą sumę opadu (15,0 mm) zarejestrowano na stacji Szczawne na Podkarpaciu.\n\n✅https://t.co/D3Mfu5eI6p\n✅https://t.co/BpAVrizjFF\n\n#IMGWmeteo #opady #burze https://t.co/MxXEf1O0z6",
-      "attachments": {
-        "media_keys": [
-          "3_1399408655188045833",
-          "3_1399408655192178700"
-        ]
-      },
-      "created_at": "2021-05-31T16:53:27.000Z",
-      "author_id": "1139834822011084801",
-      "id": "1399408696384499718"
-    },
-    {
-      "entities": {
-        "hashtags": [
-          {
-            "start": 254,
-            "end": 264,
-            "tag": "IMGWhydro"
-          },
-          {
-            "start": 265,
-            "end": 271,
-            "tag": "rzeki"
-          }
-        ],
-        "urls": [
-          {
-            "start": 272,
-            "end": 295,
-            "url": "https://t.co/9uEz9ZjZDk",
-            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399401738474594305/photo/1",
-            "display_url": "pic.twitter.com/9uEz9ZjZDk"
-          },
-          {
-            "start": 272,
-            "end": 295,
-            "url": "https://t.co/9uEz9ZjZDk",
-            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399401738474594305/photo/1",
-            "display_url": "pic.twitter.com/9uEz9ZjZDk"
-          }
-        ]
-      },
-      "text": "🌊Dziś sytuacja hydrologiczna na rzekach w kraju jest stabilna. \n🔵W dorzeczach Wisły i Odry przeważają stany wody średniej, a lokalnie obserwujemy strefę wody niskiej i wysokiej.\n❌Brak wydanych ostrzeżeń hydrologicznych oraz przekroczeń stanów umownych.\n\n#IMGWhydro #rzeki https://t.co/9uEz9ZjZDk",
-      "attachments": {
-        "media_keys": [
-          "3_1399401246696644616",
-          "3_1399401430662975497"
-        ]
-      },
-      "created_at": "2021-05-31T16:25:48.000Z",
-      "author_id": "1139834822011084801",
-      "id": "1399401738474594305"
-    },
-    {
-      "entities": {
-        "hashtags": [
-          {
-            "start": 247,
-            "end": 257,
-            "tag": "IMGWmeteo"
-          },
-          {
-            "start": 258,
-            "end": 269,
-            "tag": "Obserwator"
-          }
-        ],
-        "urls": [
-          {
-            "start": 222,
-            "end": 245,
-            "url": "https://t.co/SSd5qEG5On",
-            "expanded_url": "https://obserwator.imgw.pl/do-zobaczenia-na-spitsbergenie/",
-            "display_url": "obserwator.imgw.pl/do-zobaczenia-…",
-            "images": [
-              {
-                "url": "https://pbs.twimg.com/news_img/1399383070453768195/Q6WJuq-x?format=jpg&name=orig",
-                "width": 1200,
-                "height": 1600
-              },
-              {
-                "url": "https://pbs.twimg.com/news_img/1399383070453768195/Q6WJuq-x?format=jpg&name=150x150",
-                "width": 150,
-                "height": 150
-              }
-            ],
-            "status": 200,
-            "title": "Do zobaczenia na Spitsbergenie!",
-            "description": "Z Anią Nadolną, hydrologiem w IMGW-PIB, o jej pobycie w Arktyce i stacji polarnej Hornsund, zorzach polarnych, niedźwiedziach i burzach śnieżnych rozmawia Rafał Stepnowski.",
-            "unwound_url": "https://obserwator.imgw.pl/do-zobaczenia-na-spitsbergenie/"
-          },
-          {
-            "start": 270,
-            "end": 293,
-            "url": "https://t.co/eoCUGaY9hl",
-            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399383050602037253/photo/1",
-            "display_url": "pic.twitter.com/eoCUGaY9hl"
-          }
-        ]
-      },
-      "text": "Spitsbergen. Bajkowa kraina lodu ❄️\n\n🔵Z Anią Nadolną, hydrologiem w IMGW-PIB, o jej pobycie w Arktyce i stacji polarnej Hornsund, zorzach polarnych, niedźwiedziach i burzach śnieżnych rozmawia Rafał Stepnowski.\n\nWywiad:\n➡️https://t.co/SSd5qEG5On\n\n#IMGWmeteo #Obserwator https://t.co/eoCUGaY9hl",
-      "attachments": {
-        "media_keys": [
-          "3_1399382973624029185"
-        ]
-      },
-      "created_at": "2021-05-31T15:11:33.000Z",
-      "author_id": "1139834822011084801",
-      "id": "1399383050602037253"
-    },
-    {
-      "entities": {
-        "hashtags": [
           {
             "start": 183,
             "end": 193,
-            "tag": "IMGWmeteo"
+            "tag": "meteoimgw"
           }
-        ]
-      },
-      "text": "🌧️Przelotne opady deszczu nadal występują na południu i południowym wschodzie kraju. \n💧Sumy godzinowe wynoszą zwykle około 5 mm, tylko miejscami (głównie w górach) sięgają 10-15 mm.\n\n#IMGWmeteo",
-      "created_at": "2021-05-31T13:24:54.000Z",
-      "author_id": "1139834822011084801",
-      "id": "1399356210726453250"
-    },
-    {
-      "text": "⚡️Wyładowania atmosferyczne są obserwowane tylko na krańcach południowych, punktowo pada mały grad. Komórki powoli przemieszczają się na południe i południowy zachód.\n⛈️Burze przez najbliższe 2-4 godziny nadal mogą występować, ale ze zmniejszającą się stopniowo\nintensywnością. https://t.co/XeJIZQ9481",
-      "entities": {
+        ],
         "urls": [
           {
-            "start": 278,
-            "end": 301,
-            "url": "https://t.co/XeJIZQ9481",
-            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399355792550150148/photo/1",
-            "display_url": "pic.twitter.com/XeJIZQ9481"
+            "start": 194,
+            "end": 217,
+            "url": "https://t.co/14jYwm4uJE",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427259365766148101/photo/1",
+            "display_url": "pic.twitter.com/14jYwm4uJE"
           },
           {
-            "start": 278,
-            "end": 301,
-            "url": "https://t.co/XeJIZQ9481",
-            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399355792550150148/photo/1",
-            "display_url": "pic.twitter.com/XeJIZQ9481"
+            "start": 194,
+            "end": 217,
+            "url": "https://t.co/14jYwm4uJE",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427259365766148101/photo/1",
+            "display_url": "pic.twitter.com/14jYwm4uJE"
           }
         ]
       },
+      "author_id": "1139834822011084801",
       "attachments": {
         "media_keys": [
-          "3_1399355684186214407",
-          "3_1399355778461483011"
+          "3_1427257516476575744",
+          "3_1427258636796108800"
         ]
       },
-      "created_at": "2021-05-31T13:23:14.000Z",
-      "author_id": "1139834822011084801",
-      "id": "1399355792550150148"
+      "created_at": "2021-08-16T13:22:04.000Z",
+      "text": "15:20 #IMGWlive \n\nObecnie najwyższą sumę opadów zanotowano na stacji Suchedniów: 12,9 mm. \n\nAle bure wciąż się rozwijają, więc należy się spodziewać znacznie większych opadów.\n\n#IMGW #meteoimgw https://t.co/14jYwm4uJE",
+      "id": "1427259365766148101"
     },
     {
       "entities": {
         "hashtags": [
           {
-            "start": 271,
-            "end": 276,
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
+          },
+          {
+            "start": 74,
+            "end": 82,
+            "tag": "śląskie"
+          },
+          {
+            "start": 85,
+            "end": 97,
+            "tag": "małopolskie"
+          },
+          {
+            "start": 273,
+            "end": 278,
             "tag": "IMGW"
           }
         ],
         "urls": [
           {
-            "start": 247,
-            "end": 270,
-            "url": "https://t.co/krD4yHenpa",
-            "expanded_url": "https://klimat.imgw.pl",
-            "display_url": "klimat.imgw.pl"
+            "start": 279,
+            "end": 302,
+            "url": "https://t.co/frLnThqBQz",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427237056980324353/photo/1",
+            "display_url": "pic.twitter.com/frLnThqBQz"
           },
           {
-            "start": 277,
-            "end": 300,
-            "url": "https://t.co/8iQWxXzK2o",
-            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399331508448600064/photo/1",
-            "display_url": "pic.twitter.com/8iQWxXzK2o"
-          },
-          {
-            "start": 277,
-            "end": 300,
-            "url": "https://t.co/8iQWxXzK2o",
-            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399331508448600064/photo/1",
-            "display_url": "pic.twitter.com/8iQWxXzK2o"
-          },
-          {
-            "start": 277,
-            "end": 300,
-            "url": "https://t.co/8iQWxXzK2o",
-            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399331508448600064/photo/1",
-            "display_url": "pic.twitter.com/8iQWxXzK2o"
-          },
-          {
-            "start": 277,
-            "end": 300,
-            "url": "https://t.co/8iQWxXzK2o",
-            "expanded_url": "https://twitter.com/IMGWmeteo/status/1399331508448600064/photo/1",
-            "display_url": "pic.twitter.com/8iQWxXzK2o"
+            "start": 279,
+            "end": 302,
+            "url": "https://t.co/frLnThqBQz",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427237056980324353/photo/1",
+            "display_url": "pic.twitter.com/frLnThqBQz"
           }
         ]
       },
-      "text": "➡️Maj żegnamy chłodno z temperaturami poniżej normy\n➡️Jest to 3 chłodny maj z rzędu\n➡️Po zimnym kwietniu kolejny miesiąc wiosenny okazał się chłodny a to oznacza, że kończymy chłodną wiosnę\n➡️Ostatni chłodny sezon wiosenny notowaliśmy w 2013 roku\nhttps://t.co/krD4yHenpa\n#IMGW https://t.co/8iQWxXzK2o",
+      "author_id": "1139834822011084801",
       "attachments": {
         "media_keys": [
-          "3_1399330822851858432",
-          "3_1399330851901644801",
-          "3_1399330881643368448",
-          "3_1399330950501355522"
+          "3_1427236265213284356",
+          "3_1427236348289822726"
         ]
       },
-      "created_at": "2021-05-31T11:46:44.000Z",
+      "created_at": "2021-08-16T11:53:25.000Z",
+      "text": "13:50 #IMGWlive \n\nWydane zostały ostrzeżenia hydrologiczne 1°, a dla woj. #śląskie i #małopolskie 2°.\n\nMożliwe są gwałtowne wzrosty stanów wody i lokalne podtopienia. Lokalnie mogą zostać przekroczone stany ostrzegawcze, a punktowo alarmowe - zwłaszcza na południu kraju.\n\n#IMGW https://t.co/frLnThqBQz",
+      "id": "1427237056980324353"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
+          }
+        ],
+        "urls": [
+          {
+            "start": 278,
+            "end": 301,
+            "url": "https://t.co/BGktWZH9jL",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427230050051624962/photo/1",
+            "display_url": "pic.twitter.com/BGktWZH9jL"
+          }
+        ]
+      },
       "author_id": "1139834822011084801",
-      "id": "1399331508448600064"
+      "attachments": {
+        "media_keys": [
+          "3_1427229579320733708"
+        ]
+      },
+      "created_at": "2021-08-16T11:25:35.000Z",
+      "text": "13:25 #IMGWlive \nBurze obecnie występują od Zgorzelca po Bolesławiec i Lubin, a kolejne wkroczą nad Kotlinę Kłodzką. Pada tam silny deszcz oraz grad, możliwe są porywy do 70km/h. Przemieszczają się na północny wschód. Burz będzie przybywać szczególnie na południowym zachodzie. https://t.co/BGktWZH9jL",
+      "id": "1427230050051624962"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
+          },
+          {
+            "start": 248,
+            "end": 253,
+            "tag": "IMGW"
+          },
+          {
+            "start": 254,
+            "end": 260,
+            "tag": "burza"
+          }
+        ],
+        "urls": [
+          {
+            "start": 261,
+            "end": 284,
+            "url": "https://t.co/Vz6a2cJfwf",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427226911760166916/photo/1",
+            "display_url": "pic.twitter.com/Vz6a2cJfwf"
+          },
+          {
+            "start": 261,
+            "end": 284,
+            "url": "https://t.co/Vz6a2cJfwf",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427226911760166916/photo/1",
+            "display_url": "pic.twitter.com/Vz6a2cJfwf"
+          }
+        ]
+      },
+      "author_id": "1139834822011084801",
+      "attachments": {
+        "media_keys": [
+          "3_1427226417587236869",
+          "3_1427226879816253443"
+        ]
+      },
+      "created_at": "2021-08-16T11:13:07.000Z",
+      "text": "13:10 #IMGWlive \n\nNad południowy zachód woj. dolnośląskiego nasunęły się burze. Generują opady do 15 mm/h. Towarzyszy im również grad.\nKolejne burze tworzą się nad Czechami w przeciągu kilkudziesięciu minut mogą dotrzeć w rejon Kotliny Kłodzkiej.\n\n#IMGW #burza https://t.co/Vz6a2cJfwf",
+      "id": "1427226911760166916"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
+          },
+          {
+            "start": 105,
+            "end": 118,
+            "tag": "podkarpackie"
+          },
+          {
+            "start": 251,
+            "end": 256,
+            "tag": "IMGW"
+          }
+        ],
+        "urls": [
+          {
+            "start": 257,
+            "end": 280,
+            "url": "https://t.co/tBq6AJFvlF",
+            "expanded_url": "http://meteo.imgw.pl",
+            "display_url": "meteo.imgw.pl",
+            "status": 200,
+            "title": "METEO IMGW-PIB | Serwis pogodowy",
+            "description": "Serwis pogodowy IMGW. Prognoza pogody na nadchodzące dni, ostrzeżenia meteorologiczne, temperatura, zachmurzenie, opady. Zdjęcia satelitarne",
+            "unwound_url": "http://meteo.imgw.pl"
+          },
+          {
+            "start": 281,
+            "end": 304,
+            "url": "https://t.co/MhbMeA7JTF",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427223100748406784/photo/1",
+            "display_url": "pic.twitter.com/MhbMeA7JTF"
+          },
+          {
+            "start": 281,
+            "end": 304,
+            "url": "https://t.co/MhbMeA7JTF",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427223100748406784/photo/1",
+            "display_url": "pic.twitter.com/MhbMeA7JTF"
+          },
+          {
+            "start": 281,
+            "end": 304,
+            "url": "https://t.co/MhbMeA7JTF",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427223100748406784/photo/1",
+            "display_url": "pic.twitter.com/MhbMeA7JTF"
+          },
+          {
+            "start": 281,
+            "end": 304,
+            "url": "https://t.co/MhbMeA7JTF",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427223100748406784/photo/1",
+            "display_url": "pic.twitter.com/MhbMeA7JTF"
+          }
+        ]
+      },
+      "author_id": "1139834822011084801",
+      "attachments": {
+        "media_keys": [
+          "3_1427222066592456708",
+          "3_1427222176441278472",
+          "3_1427222311598534661",
+          "3_1427222408612753409"
+        ]
+      },
+      "created_at": "2021-08-16T10:57:58.000Z",
+      "text": "12:55 #IMGWlive\n \n⚠️Aktualizacja ostrzeżeń\n\nWydane zostały ostrzeżenia o burzach z gradem 1°, a dla woj. #podkarpackie podniesiono stopień na 2.\n\nW nocy na wschodzie i południowym wschodzie obowiązywać będą ostrzeżenia o silnym deszczu z burzami 1°.\n\n#IMGW\nhttps://t.co/tBq6AJFvlF https://t.co/MhbMeA7JTF",
+      "id": "1427223100748406784"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 6,
+            "end": 15,
+            "tag": "IMGWlive"
+          },
+          {
+            "start": 86,
+            "end": 98,
+            "tag": "Świnoujście"
+          },
+          {
+            "start": 111,
+            "end": 119,
+            "tag": "Legnica"
+          },
+          {
+            "start": 208,
+            "end": 213,
+            "tag": "IMGW"
+          }
+        ],
+        "urls": [
+          {
+            "start": 214,
+            "end": 237,
+            "url": "https://t.co/WV0XAxih7N",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427212748103032832/photo/1",
+            "display_url": "pic.twitter.com/WV0XAxih7N"
+          },
+          {
+            "start": 214,
+            "end": 237,
+            "url": "https://t.co/WV0XAxih7N",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427212748103032832/photo/1",
+            "display_url": "pic.twitter.com/WV0XAxih7N"
+          },
+          {
+            "start": 214,
+            "end": 237,
+            "url": "https://t.co/WV0XAxih7N",
+            "expanded_url": "https://twitter.com/IMGWmeteo/status/1427212748103032832/photo/1",
+            "display_url": "pic.twitter.com/WV0XAxih7N"
+          }
+        ]
+      },
+      "author_id": "1139834822011084801",
+      "attachments": {
+        "media_keys": [
+          "3_1427212143573803009",
+          "3_1427212264373948419",
+          "3_1427212371655806976"
+        ]
+      },
+      "created_at": "2021-08-16T10:16:50.000Z",
+      "text": "12:10 #IMGWlive \nW południe temperatura na stacjach synoptycznych wynosiła od 2,5°C w #Świnoujście do 28,9°C w #Legnica.\n\nLokalnie występują opady deszczu, ale w znacznej części kraju jest jeszcze pogodnie.\n\n#IMGW https://t.co/WV0XAxih7N",
+      "id": "1427212748103032832"
     }
   ],
   "includes": {
     "media": [
       {
+        "width": 949,
+        "media_key": "3_1427365363969298432",
         "type": "photo",
-        "url": "https://pbs.twimg.com/media/E2vY-rSXMAUZrSC.jpg",
-        "width": 566,
-        "height": 426,
-        "media_key": "3_1399450680511901701"
+        "height": 686,
+        "url": "https://pbs.twimg.com/media/E88FPGwWEAAT2w2.jpg"
       },
       {
+        "width": 1088,
+        "media_key": "3_1427354618749759488",
         "type": "photo",
-        "url": "https://pbs.twimg.com/media/E2vZCWNXIAAGNut.jpg",
-        "width": 1600,
-        "height": 1600,
-        "media_key": "3_1399450743573258240"
+        "height": 816,
+        "url": "https://pbs.twimg.com/media/E877dpsXsAAlo5F.jpg"
       },
       {
+        "width": 910,
+        "media_key": "3_1427354745317044225",
         "type": "photo",
-        "url": "https://pbs.twimg.com/media/E2vVTstXMAE0s79.jpg",
-        "width": 586,
-        "height": 498,
-        "media_key": "3_1399446643624325121"
+        "height": 233,
+        "url": "https://pbs.twimg.com/media/E877lBMXMAERJg4.png"
       },
       {
+        "width": 846,
+        "media_key": "3_1427341672430583814",
         "type": "photo",
-        "url": "https://pbs.twimg.com/media/E2vLBkwXEAETdeM.jpg",
-        "width": 3024,
-        "height": 4032,
-        "media_key": "3_1399435337135493121"
+        "height": 760,
+        "url": "https://pbs.twimg.com/media/E87vsE5WQAYuCSj.png"
       },
       {
+        "width": 906,
+        "media_key": "3_1427342088677597195",
         "type": "photo",
-        "url": "https://pbs.twimg.com/media/E2uywewXMAkYc-v.jpg",
-        "width": 565,
-        "height": 426,
-        "media_key": "3_1399408655188045833"
+        "height": 789,
+        "url": "https://pbs.twimg.com/media/E87wETiXoAsB6ln.jpg"
       },
       {
+        "width": 488,
+        "media_key": "3_1427335145221152769",
         "type": "photo",
-        "url": "https://pbs.twimg.com/media/E2uywexWQAw5AVM.jpg",
-        "width": 730,
+        "height": 399,
+        "url": "https://pbs.twimg.com/media/E87pwJJWYAEwLQR.png"
+      },
+      {
+        "width": 471,
+        "media_key": "3_1427335224661315584",
+        "type": "photo",
+        "height": 362,
+        "url": "https://pbs.twimg.com/media/E87p0xFXEAAcnj3.png"
+      },
+      {
+        "width": 841,
+        "media_key": "3_1427334392461111311",
+        "type": "photo",
+        "height": 682,
+        "url": "https://pbs.twimg.com/media/E87pEU5XsA8xLh-.png"
+      },
+      {
+        "width": 847,
+        "media_key": "3_1427319287186866180",
+        "type": "photo",
+        "height": 685,
+        "url": "https://pbs.twimg.com/media/E87bVFXWQAQDyAw.png"
+      },
+      {
+        "width": 827,
+        "media_key": "3_1427319397857873926",
+        "type": "photo",
+        "height": 726,
+        "url": "https://pbs.twimg.com/media/E87bbhpX0AYB-tC.png"
+      },
+      {
+        "width": 792,
+        "media_key": "3_1427308782762201091",
+        "type": "photo",
+        "height": 769,
+        "url": "https://pbs.twimg.com/media/E87RxpVWEAMhbmt.png"
+      },
+      {
+        "width": 609,
+        "media_key": "3_1427308968267894791",
+        "type": "photo",
+        "height": 559,
+        "url": "https://pbs.twimg.com/media/E87R8cZWUAcm0Nl.png"
+      },
+      {
+        "width": 1088,
+        "media_key": "3_1427306959695396866",
+        "type": "photo",
+        "height": 816,
+        "url": "https://pbs.twimg.com/media/E87QHh4WQAI7L19.jpg"
+      },
+      {
+        "width": 919,
+        "media_key": "3_1427307066377572355",
+        "type": "photo",
+        "height": 303,
+        "url": "https://pbs.twimg.com/media/E87QNvTXEAM2V-3.png"
+      },
+      {
+        "width": 889,
+        "media_key": "3_1427305167846793221",
+        "type": "photo",
+        "height": 686,
+        "url": "https://pbs.twimg.com/media/E87OfOuWYAU1doS.png"
+      },
+      {
+        "width": 857,
+        "media_key": "3_1427305553475350536",
+        "type": "photo",
         "height": 684,
-        "media_key": "3_1399408655192178700"
+        "url": "https://pbs.twimg.com/media/E87O1rTXMAgJYwx.png"
       },
       {
+        "width": 863,
+        "media_key": "3_1427305851853942784",
         "type": "photo",
-        "url": "https://pbs.twimg.com/media/E2usBP-XoAgTBnK.jpg",
-        "width": 4000,
-        "height": 2250,
-        "media_key": "3_1399401246696644616"
+        "height": 749,
+        "url": "https://pbs.twimg.com/media/E87PHC2XMAAQjsF.png"
       },
       {
+        "width": 792,
+        "media_key": "3_1427301875192369159",
         "type": "photo",
-        "url": "https://pbs.twimg.com/media/E2usL9TXEAkCfKT.png",
-        "width": 617,
-        "height": 574,
-        "media_key": "3_1399401430662975497"
+        "height": 769,
+        "url": "https://pbs.twimg.com/media/E87LfkoXEAcMqVg.png"
       },
       {
+        "width": 825,
+        "media_key": "3_1427287329853648899",
         "type": "photo",
-        "url": "https://pbs.twimg.com/media/E2ubZneXEAERROB.jpg",
-        "width": 1918,
-        "height": 1279,
-        "media_key": "3_1399382973624029185"
+        "height": 683,
+        "url": "https://pbs.twimg.com/media/E86-Q7BXsAMakBI.png"
       },
       {
+        "width": 1088,
+        "media_key": "3_1427273257875607558",
         "type": "photo",
-        "url": "https://pbs.twimg.com/media/E2uClKZX0Ack7yI.jpg",
+        "height": 816,
+        "url": "https://pbs.twimg.com/media/E86xd00XEAYgz7f.jpg"
+      },
+      {
+        "width": 905,
+        "media_key": "3_1427273388997943296",
+        "type": "photo",
+        "height": 224,
+        "url": "https://pbs.twimg.com/media/E86xldSXIAAmAET.png"
+      },
+      {
+        "width": 792,
+        "media_key": "3_1427269727374696454",
+        "type": "photo",
+        "height": 769,
+        "url": "https://pbs.twimg.com/media/E86uQUrWYAYC63E.png"
+      },
+      {
+        "width": 438,
+        "media_key": "3_1427269859625349128",
+        "type": "photo",
+        "height": 550,
+        "url": "https://pbs.twimg.com/media/E86uYBWXMAgHxxw.png"
+      },
+      {
+        "width": 880,
+        "media_key": "3_1427269143145877504",
+        "type": "photo",
+        "height": 520,
+        "url": "https://pbs.twimg.com/media/E86tuUQWEAA44Jp.png"
+      },
+      {
+        "width": 792,
+        "media_key": "3_1427269197051179011",
+        "type": "photo",
+        "height": 769,
+        "url": "https://pbs.twimg.com/media/E86txdEXsAM6WWV.png"
+      },
+      {
+        "width": 792,
+        "media_key": "3_1427269312583188482",
+        "type": "photo",
+        "height": 769,
+        "url": "https://pbs.twimg.com/media/E86t4LdWQAIGhBk.png"
+      },
+      {
+        "width": 896,
+        "media_key": "3_1427257516476575744",
+        "type": "photo",
+        "height": 687,
+        "url": "https://pbs.twimg.com/media/E86jJjiXsAAKLIL.png"
+      },
+      {
+        "width": 850,
+        "media_key": "3_1427258636796108800",
+        "type": "photo",
+        "height": 774,
+        "url": "https://pbs.twimg.com/media/E86kKxDXIAAyWXc.png"
+      },
+      {
+        "width": 947,
+        "media_key": "3_1427236265213284356",
+        "type": "photo",
+        "height": 808,
+        "url": "https://pbs.twimg.com/media/E86P0kaX0AQS-Aw.jpg"
+      },
+      {
         "width": 1080,
+        "media_key": "3_1427236348289822726",
+        "type": "photo",
         "height": 1080,
-        "media_key": "3_1399355684186214407"
+        "url": "https://pbs.twimg.com/media/E86P5Z5XMAY2ann.jpg"
       },
       {
+        "width": 726,
+        "media_key": "3_1427229579320733708",
         "type": "photo",
-        "url": "https://pbs.twimg.com/media/E2uCqpmWQAMi-Wu.jpg",
-        "width": 563,
-        "height": 423,
-        "media_key": "3_1399355778461483011"
+        "height": 778,
+        "url": "https://pbs.twimg.com/media/E86JvZhXsAwk7yd.png"
       },
       {
+        "width": 1088,
+        "media_key": "3_1427226417587236869",
         "type": "photo",
-        "url": "https://pbs.twimg.com/media/E2tr-CtXEAAKNWB.jpg",
-        "width": 1600,
-        "height": 1200,
-        "media_key": "3_1399330822851858432"
+        "height": 816,
+        "url": "https://pbs.twimg.com/media/E86G3XJXMAURwis.jpg"
       },
       {
+        "width": 919,
+        "media_key": "3_1427226879816253443",
         "type": "photo",
-        "url": "https://pbs.twimg.com/media/E2tr_u7XoAEoMNw.png",
-        "width": 600,
-        "height": 564,
-        "media_key": "3_1399330851901644801"
+        "height": 240,
+        "url": "https://pbs.twimg.com/media/E86HSRFWQAMqSKE.png"
       },
       {
+        "width": 1080,
+        "media_key": "3_1427222066592456708",
         "type": "photo",
-        "url": "https://pbs.twimg.com/media/E2tsBduWUAAPBrv.png",
-        "width": 489,
-        "height": 649,
-        "media_key": "3_1399330881643368448"
+        "height": 1080,
+        "url": "https://pbs.twimg.com/media/E86C6GbXoAQFf2K.jpg"
       },
       {
+        "width": 839,
+        "media_key": "3_1427222176441278472",
         "type": "photo",
-        "url": "https://pbs.twimg.com/media/E2tsFePX0AIvfT1.png",
-        "width": 565,
-        "height": 746,
-        "media_key": "3_1399330950501355522"
+        "height": 489,
+        "url": "https://pbs.twimg.com/media/E86DAfpXoAg35ty.png"
+      },
+      {
+        "width": 1080,
+        "media_key": "3_1427222311598534661",
+        "type": "photo",
+        "height": 1080,
+        "url": "https://pbs.twimg.com/media/E86DIXJXsAUWRhQ.jpg"
+      },
+      {
+        "width": 789,
+        "media_key": "3_1427222408612753409",
+        "type": "photo",
+        "height": 509,
+        "url": "https://pbs.twimg.com/media/E86DOAjXMAEtL6i.png"
+      },
+      {
+        "width": 449,
+        "media_key": "3_1427212143573803009",
+        "type": "photo",
+        "height": 404,
+        "url": "https://pbs.twimg.com/media/E8554gTXIAETP2g.png"
+      },
+      {
+        "width": 475,
+        "media_key": "3_1427212264373948419",
+        "type": "photo",
+        "height": 403,
+        "url": "https://pbs.twimg.com/media/E855_iUXEAMMuww.png"
+      },
+      {
+        "width": 784,
+        "media_key": "3_1427212371655806976",
+        "type": "photo",
+        "height": 678,
+        "url": "https://pbs.twimg.com/media/E856Fx-WUAAYK2b.png"
       }
     ]
   },
   "meta": {
-    "oldest_id": "1399331508448600064",
-    "newest_id": "1399468283145895941",
-    "result_count": 10,
-    "next_token": "7140dibdnow9c7btw3w4sp2kgzw21ptc48xm7hnf2osvo"
+    "oldest_id": "1427212748103032832",
+    "newest_id": "1427365759177666562",
+    "result_count": 20,
+    "next_token": "7140dibdnow9c7btw3z1mdkexpeh1r1ldjmqmo5deaw4y"
   }
 }
