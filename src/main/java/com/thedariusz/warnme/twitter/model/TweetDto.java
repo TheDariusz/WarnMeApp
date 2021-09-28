@@ -3,6 +3,7 @@ package com.thedariusz.warnme.twitter.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class TweetDto {
@@ -124,9 +125,10 @@ public class TweetDto {
     }
 
     public List<String> getHashtagsFromTweet() {
-        return entities.getHashtags().stream()
+        return Optional.ofNullable(entities).map(entity -> entity.getHashtags().stream()
                 .map(Hashtag::getTag)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()))
+                .orElse(List.of());
     }
 
     public void setEntities(Entity entities) {
