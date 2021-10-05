@@ -1,14 +1,16 @@
 package com.thedariusz.warnme.api;
 
 import com.google.common.net.HttpHeaders;
-import com.thedariusz.IntegrationTestBase;
+import com.thedariusz.warnme.IntegrationTestBase;
 import com.thedariusz.warnme.MeteoAlert;
 import com.thedariusz.warnme.MeteoAlertDao;
+import com.thedariusz.warnme.MeteoAlertOrigin;
+import com.thedariusz.warnme.repository.MeteoAlertCategoryJpaRepository;
+import com.thedariusz.warnme.repository.entity.MeteoAlertCategoryEntity;
 import org.assertj.core.api.recursive.comparison.RecursiveComparisonConfiguration;
-import org.junit.Ignore;
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockserver.integration.ClientAndServer;
 import org.mockserver.model.HttpRequest;
 import org.mockserver.model.HttpResponse;
@@ -21,6 +23,8 @@ import org.springframework.security.test.context.support.WithMockUser;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -34,44 +38,51 @@ class MeteoAlertControllerMockMvcIT extends IntegrationTestBase {
 
     @Autowired
     MeteoAlertDao meteoAlertDao;
+    
+    @Autowired
+    MeteoAlertCategoryJpaRepository categoryJpaRepository;
 
     @BeforeEach
     public void init() {
         meteoAlertDao.deleteAll();
         mockServer.reset();
     }
-
+    
     @BeforeAll
     public static void setup() {
         mockServer = ClientAndServer.startClientAndServer(8092);
     }
 
-    @Ignore
     @Test
     @WithMockUser("admin")
-    void fetchAllShouldSaveSingleAlertInMemory() throws Exception {
+    public void syncTweetsShouldSaveMeteoAlertsAndCategories() throws Exception {
         //given
+        meteoAlertDao.save(new MeteoAlert(
+                1, Set.of("hydro"), "", "", "1427237056980324353", Collections.emptyList(), MeteoAlertOrigin.twitter("1","2")
+        ));
+        
         String userId = "1";
         mockTwitterResponse(userId);
 
         mockMvc.perform(post(ALERTS_PATH + "/1"))
                 .andExpect(status().isOk());
 
-
         final List<MeteoAlert> meteoAlerts = meteoAlertDao.fetchAll();
 
         assertThat(meteoAlerts)
-                .hasSize(4)
+                .hasSize(2)
                 .usingRecursiveFieldByFieldElementComparator(RecursiveComparisonConfiguration.builder()
                         .withIgnoredFields("creationDate", "description", "media", "meteoAlertOrigin", "externalId")
                         .build())
                 .contains(
-                        meteoAlert(0, Set.of("burze")),
-                        meteoAlert(1, Set.of("burza", "deszcz", "śnieg", "burze")),
-                        meteoAlert(2, Set.of("burza")),
-                        meteoAlert(0, Set.of("upał"))
+                        meteoAlert(1, Set.of("hydro")),
+                        meteoAlert(1, Set.of("burza", "deszcz", "grad"))
                 );
 
+    }
+
+    private MeteoAlertCategoryEntity category(String name) {
+        return new MeteoAlertCategoryEntity(name);
     }
 
     private void mockTwitterResponse(String userId) {

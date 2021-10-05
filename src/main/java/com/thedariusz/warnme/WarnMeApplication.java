@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.thedariusz.warnme.repository.MeteoAlertCategoryRepository;
+import com.thedariusz.warnme.repository.MeteoAlertCategoryJpaRepository;
 import com.thedariusz.warnme.repository.MeteoAlertJpaRepository;
 import com.thedariusz.warnme.repository.MeteoAlertRepository;
 import com.thedariusz.warnme.repository.entity.MeteoAlertCategoryMapper;
@@ -48,18 +48,18 @@ public class WarnMeApplication extends SpringBootServletInitializer {
 	}
 
 	@Bean
-	public MeteoAlertCategoryService meteoAlertCategoryService(MeteoAlertCategoryRepository categoryRepository) {
+	public MeteoAlertCategoryService meteoAlertCategoryService(MeteoAlertCategoryJpaRepository categoryRepository) {
 		return new MeteoAlertTwitterCategoryService(categoryRepository, new MeteoAlertCategoryMapper());
 	}
 
 	@Bean
-	public MeteoAlertDao postgresMeteoAlertDao(MeteoAlertJpaRepository meteoAlertSpringDao) {
-		return new MeteoAlertRepository(meteoAlertSpringDao);
+	public MeteoAlertDao postgresMeteoAlertDao(MeteoAlertJpaRepository meteoAlertSpringDao, MeteoAlertCategoryJpaRepository categoryRepository) {
+		return new MeteoAlertRepository(meteoAlertSpringDao, categoryRepository);
 	}
 
 	@Bean
-	public MeteoAlertService meteoAlertService(MeteoAlertDao meteoAlertDao, MeteoAlertCategoryService categoryService, MeteoAlertJpaRepository meteoAlertJpaRepository) {
-		return new MeteoAlertService(meteoAlertDao, categoryService, meteoAlertJpaRepository);
+	public MeteoAlertService meteoAlertService(MeteoAlertDao meteoAlertDao) {
+		return new MeteoAlertService(meteoAlertDao);
 	}
 
 	@Bean

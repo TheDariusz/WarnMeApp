@@ -1,6 +1,6 @@
 package com.thedariusz.warnme.twitter.repository;
 
-import com.thedariusz.IntegrationTestBase;
+import com.thedariusz.warnme.IntegrationTestBase;
 import com.thedariusz.warnme.MeteoAlert;
 import com.thedariusz.warnme.MeteoAlertDao;
 import com.thedariusz.warnme.MeteoAlertOrigin;

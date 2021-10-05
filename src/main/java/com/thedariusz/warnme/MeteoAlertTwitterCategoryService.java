@@ -1,6 +1,6 @@
 package com.thedariusz.warnme;
 
-import com.thedariusz.warnme.repository.MeteoAlertCategoryRepository;
+import com.thedariusz.warnme.repository.MeteoAlertCategoryJpaRepository;
 import com.thedariusz.warnme.repository.entity.MeteoAlertCategoryEntity;
 import com.thedariusz.warnme.repository.entity.MeteoAlertCategoryMapper;
 import com.thedariusz.warnme.twitter.model.TweetDto;
@@ -20,10 +20,10 @@ public class MeteoAlertTwitterCategoryService implements MeteoAlertCategoryServi
                     "oblodzenie", "opady marznące", "opady śniegu", "roztopy", "silny deszcze z burzami",
                     "gęsta mgła", "silny mróz", "silny wiatr", "zawieje", "zamiecie śnieżne");
 
-    private final MeteoAlertCategoryRepository categoryRepository;
+    private final MeteoAlertCategoryJpaRepository categoryRepository;
     private final MeteoAlertCategoryMapper categoryMapper;
 
-    public MeteoAlertTwitterCategoryService(MeteoAlertCategoryRepository categoryRepository, MeteoAlertCategoryMapper categoryMapper) {
+    public MeteoAlertTwitterCategoryService(MeteoAlertCategoryJpaRepository categoryRepository, MeteoAlertCategoryMapper categoryMapper) {
         this.categoryRepository = categoryRepository;
         this.categoryMapper = categoryMapper;
     }
@@ -66,4 +66,7 @@ public class MeteoAlertTwitterCategoryService implements MeteoAlertCategoryServi
         return categoryRepository.findMeteoAlertCategoryEntityByName(categoryName);
     }
 
+    public Set<MeteoAlertCategoryEntity> fetchCategories(Set<String> names) {
+        return categoryRepository.findAllByNameIn(names);
+    }
 }

@@ -7,7 +7,9 @@ import java.util.Optional;
 public interface MeteoAlertDao {
 
     void save(MeteoAlert meteoAlert);
-
+    
+    void saveAllWithCategories(List<MeteoAlert> meteoAlerts);
+    
     List<MeteoAlert> fetchExisting(List<String> externalIds);
 
     List<MeteoAlert> fetchAll();

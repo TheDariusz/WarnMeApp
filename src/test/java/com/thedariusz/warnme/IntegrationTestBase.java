@@ -1,4 +1,4 @@
-package com.thedariusz;
+package com.thedariusz.warnme;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -21,6 +21,10 @@ public class IntegrationTestBase {
 
     @Autowired
     protected MockMvc mockMvc;
+
+    @Autowired
+    MeteoAlertDao meteoAlertDao;
+
 
 }
 

@@ -1,6 +1,6 @@
 package com.thedariusz.warnme;
 
-import com.thedariusz.warnme.repository.MeteoAlertCategoryRepository;
+import com.thedariusz.warnme.repository.MeteoAlertCategoryJpaRepository;
 import com.thedariusz.warnme.repository.entity.MeteoAlertCategoryMapper;
 import com.thedariusz.warnme.twitter.model.TweetDto;
 import com.thedariusz.warnme.twitter.model.Entity;
@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class TweetDtoMeteoMeteoAlertMapperTest {
 
-    MeteoAlertCategoryRepository categoryRepository;
+    MeteoAlertCategoryJpaRepository categoryRepository;
     MeteoAlertCategoryMapper categoryMapper;
     MeteoAlertTwitterCategoryService meteoAlertTwitterCategoryService = new MeteoAlertTwitterCategoryService(categoryRepository, categoryMapper);
     MeteoAlertGenericMapper meteoAlertGenericMapper = new MeteoAlertGenericMapper(meteoAlertTwitterCategoryService);
