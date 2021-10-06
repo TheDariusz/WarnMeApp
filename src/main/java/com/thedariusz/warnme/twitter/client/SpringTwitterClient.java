@@ -28,4 +28,20 @@ public class SpringTwitterClient implements TwitterClient {
                 .block();
     }
 
+    public TweetDtoWrapper fetchTweetsForUserAndSpecificTimePeriod(String twitterUserId, String startTime, String endTime, String paginationToken) {
+        String paginationTokenString = paginationToken==null ? "" : "&pagination_token="+paginationToken;
+
+        return webClient.get()
+                .uri("/users/" + twitterUserId + "/tweets?start_time="+startTime+"&end_time="+endTime+"&expansions=attachments.media_keys" +
+                        "&tweet.fields=author_id,created_at,entities,id,text" +
+                        "&media.fields=type,url,width,height,media_key&max_results=100"+paginationTokenString)
+                .retrieve()
+                .onStatus(HttpStatus::is4xxClientError,
+                        error -> Mono.error(new RuntimeException("API not found")))
+                .onStatus(HttpStatus::is5xxServerError,
+                        error -> Mono.error(new RuntimeException("Server is not responding")))
+                .bodyToMono(TweetDtoWrapper.class)
+                .block();
+    }
+
 }
