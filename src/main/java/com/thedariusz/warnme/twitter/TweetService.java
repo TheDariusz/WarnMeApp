@@ -52,7 +52,6 @@ public class TweetService {
         //todo get last record date from DB as api start_date
         String startTime = "2021-09-01T00:00:00.00Z";
 
-        //todo set end_date as now
         ZonedDateTime dateTime = ZonedDateTime.now();
         String endTime=dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSXXX"));
 
