@@ -9,4 +9,6 @@ public interface UserDao {
     Optional<UserDto> findByUserName(String name);
 
     void saveUser(UserEntity userEntity);
+
+    Long getUserId(String userName);
 }

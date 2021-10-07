@@ -12,6 +12,7 @@ import java.util.Optional;
 
 public class UserRepository implements UserDao {
 
+    private static final Long USERID_NOT_FOUND_VALUE = -1L; //
     private final UserJpaRepository userDao;
     private final RoleJpaRepository roleDao;
     private final BCryptPasswordEncoder encoder;
@@ -36,4 +37,13 @@ public class UserRepository implements UserDao {
         userEntity.setRoles(new HashSet<>(Arrays.asList(userRoleEntity)));
         userDao.save(userEntity);
     }
+
+    @Override
+    public Long getUserId(String userName) {
+        Optional<UserEntity> user = userDao.findByUsername(userName);
+        return user.map(UserEntity::getId)
+                .orElse(USERID_NOT_FOUND_VALUE);
+    }
+
+
 }

@@ -1,6 +1,5 @@
 package com.thedariusz.warnme.twitter;
 
-import com.thedariusz.warnme.MeteoAlert;
 import com.thedariusz.warnme.MeteoAlertService;
 import com.thedariusz.warnme.MeteoAlertGenericMapper;
 import com.thedariusz.warnme.twitter.model.Media;
@@ -14,7 +13,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class TweetService {
 
@@ -48,7 +46,7 @@ public class TweetService {
         this.meteoAlertGenericMapper = meteoAlertGenericMapper;
     }
 
-    public void syncTweets(String twitterUserId) {
+    public void syncTweets(String twitterUserId, Long loggedUserId) {
         //todo get last record date from DB as api start_date
         String startTime = "2021-09-01T00:00:00.00Z";
 

@@ -3,6 +3,8 @@ package com.thedariusz.warnme.user;
 
 import com.thedariusz.warnme.user.repository.entity.UserEntity;
 
+import java.util.Optional;
+
 public class UserService {
 
     private final UserDao dao;
@@ -17,5 +19,9 @@ public class UserService {
 
     public void saveUser(UserDto userDto) {
         dao.saveUser(UserEntity.toEntity(userDto));
+    }
+
+    public Long getUserId(String userName) {
+        return dao.getUserId(userName);
     }
 }
