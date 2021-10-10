@@ -11,6 +11,7 @@ import com.thedariusz.warnme.repository.entity.MeteoAlertCategoryMapper;
 import com.thedariusz.warnme.twitter.TweetService;
 import com.thedariusz.warnme.twitter.TwitterClient;
 import com.thedariusz.warnme.twitter.client.SpringTwitterClient;
+import com.thedariusz.warnme.user.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -68,8 +69,8 @@ public class WarnMeApplication extends SpringBootServletInitializer {
 	}
 
 	@Bean
-	public TweetService tweetService(MeteoAlertService meteoAlertService, TwitterClient twitterClient, MeteoAlertCategoryService categoryService) {
-		return new TweetService(meteoAlertService, twitterClient, new MeteoAlertGenericMapper(categoryService));
+	public TweetService tweetService(MeteoAlertService meteoAlertService, TwitterClient twitterClient, MeteoAlertCategoryService categoryService, UserService userService) {
+		return new TweetService(meteoAlertService, twitterClient, new MeteoAlertGenericMapper(categoryService), userService);
 	}
 
 }

@@ -45,5 +45,10 @@ public class UserRepository implements UserDao {
                 .orElse(USERID_NOT_FOUND_VALUE);
     }
 
+    @Override
+    public Optional<UserEntity> findByUserId(Long userId) {
+        return userDao.findById(userId);
+    }
+
 
 }

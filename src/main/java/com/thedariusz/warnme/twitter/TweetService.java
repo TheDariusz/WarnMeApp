@@ -5,9 +5,11 @@ import com.thedariusz.warnme.MeteoAlertGenericMapper;
 import com.thedariusz.warnme.twitter.model.Media;
 import com.thedariusz.warnme.twitter.model.TweetDto;
 import com.thedariusz.warnme.twitter.model.TweetDtoWrapper;
+import com.thedariusz.warnme.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -39,16 +41,20 @@ public class TweetService {
     private final MeteoAlertService meteoAlertService;
     private final TwitterClient twitterClient;
     private final MeteoAlertGenericMapper meteoAlertGenericMapper;
+    private final UserService userService;
 
-    public TweetService(MeteoAlertService meteoAlertService, TwitterClient twitterClient, MeteoAlertGenericMapper meteoAlertGenericMapper) {
+    public TweetService(MeteoAlertService meteoAlertService, TwitterClient twitterClient, MeteoAlertGenericMapper meteoAlertGenericMapper, UserService userService) {
         this.meteoAlertService = meteoAlertService;
         this.twitterClient = twitterClient;
         this.meteoAlertGenericMapper = meteoAlertGenericMapper;
+        this.userService = userService;
     }
 
     public void syncTweets(String twitterUserId, Long loggedUserId) {
         //todo get last record date from DB as api start_date
-        String startTime = "2021-09-01T00:00:00.00Z";
+//        String startTime = "2021-09-01T00:00:00.00Z";
+        OffsetDateTime offsetStartTime = userService.lastDateTwitterRefreshedForApplication();
+        String startTime = offsetStartTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSXXX"));
 
         ZonedDateTime dateTime = ZonedDateTime.now();
         String endTime=dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSXXX"));
@@ -71,8 +77,9 @@ public class TweetService {
 //            logger.info("Fetched {} total alerts", meteoAlerts.size());
 //            meteoAlertService.save(meteoAlerts);
 //            logger.info("total tweets got: {}, pagination token: {}, total meteo alert got: {}", tweets.size(), paginationToken, meteoAlerts.size());
-            logger.info("start={}, end={}, total tweets got: {}, pagination token: {}", startTime, endTime, tweets.size(), paginationToken);
+            logger.info("start={}, end={}, total tweets got: {}, pagination token: {}", startTime, endTime, tweets!=null ? tweets.size() : "null", paginationToken);
         } while (paginationToken!=null);
+        userService.saveRefreshDateForUser(loggedUserId, endTime); //todo zapisuje dla utc a nie dla warszawy
     }
 
     boolean isMeteoAlert(TweetDto tweetDto) {

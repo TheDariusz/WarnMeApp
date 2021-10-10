@@ -4,5 +4,6 @@ import com.thedariusz.warnme.user.repository.entity.UserParametersEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserParametersRepository extends JpaRepository<UserParametersEntity, Long> {
-
+    UserParametersEntity findFirstByUserIdOrderByTwitterDateRefreshDesc(Long userId);
+    UserParametersEntity findFirstByOrderByTwitterDateRefreshDesc();
 }

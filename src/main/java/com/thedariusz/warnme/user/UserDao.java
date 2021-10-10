@@ -11,4 +11,6 @@ public interface UserDao {
     void saveUser(UserEntity userEntity);
 
     Long getUserId(String userName);
+
+    Optional<UserEntity> findByUserId(Long userId);
 }
