@@ -33,20 +33,20 @@ public class UserService {
     }
 
     public OffsetDateTime lastDateTwitterRefreshedForUser(Long userId) {
-        UserParametersEntity userParametersEntity = parametersRepository.findFirstByUserIdOrderByTwitterDateRefreshDesc(userId);
+        UserParametersEntity userParametersEntity = parametersRepository.findFirstByUserIdOrderBySourceDateRefreshDesc(userId);
         if (userParametersEntity==null) {
             return DEFAULT_REFRESH_DATE;
         } else {
-            return userParametersEntity.getTwitterDateRefresh();
+            return userParametersEntity.getSourceDateRefresh();
         }
     }
 
     public OffsetDateTime lastDateTwitterRefreshedForApplication() {
-        UserParametersEntity userParametersEntity = parametersRepository.findFirstByOrderByTwitterDateRefreshDesc();
+        UserParametersEntity userParametersEntity = parametersRepository.findFirstByOrderBySourceDateRefreshDesc();
         if (userParametersEntity==null) {
             return DEFAULT_REFRESH_DATE;
         } else {
-            return userParametersEntity.getTwitterDateRefresh();
+            return userParametersEntity.getSourceDateRefresh();
         }
     }
 
@@ -55,7 +55,7 @@ public class UserService {
         Optional<UserEntity> user = dao.findByUserId(loggedUserId);
         if (user.isPresent()) {
             userParametersEntity.setUser(user.get());
-            userParametersEntity.setTwitterDateRefresh(OffsetDateTime.parse(endTime));
+            userParametersEntity.setSourceDateRefresh(OffsetDateTime.parse(endTime));
             parametersRepository.save(userParametersEntity);
         }
     }

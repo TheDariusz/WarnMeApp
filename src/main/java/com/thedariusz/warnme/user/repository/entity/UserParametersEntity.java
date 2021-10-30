@@ -1,7 +1,11 @@
 package com.thedariusz.warnme.user.repository.entity;
 
+import com.thedariusz.warnme.repository.entity.MeteoAlertOriginEntity;
+
 import javax.persistence.*;
 import java.time.OffsetDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "warnme_param")
 public class UserParametersEntity {
@@ -13,14 +17,19 @@ public class UserParametersEntity {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private UserEntity user;
 
-    private OffsetDateTime twitterDateRefresh;
+    private OffsetDateTime sourceDateRefresh;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id")
+    private Set<MeteoAlertOriginEntity> meteoAlertOriginEntities = new HashSet<>();
 
     public UserParametersEntity() {
     }
 
-    public UserParametersEntity(UserEntity user, OffsetDateTime twitterDateRefresh) {
+    public UserParametersEntity(UserEntity user, OffsetDateTime sourceDateRefresh, Set<MeteoAlertOriginEntity> meteoAlertOriginEntities) {
         this.user = user;
-        this.twitterDateRefresh = twitterDateRefresh;
+        this.sourceDateRefresh = sourceDateRefresh;
+        this.meteoAlertOriginEntities = meteoAlertOriginEntities;
     }
 
     public UserEntity getUser() {
@@ -31,11 +40,19 @@ public class UserParametersEntity {
         this.user = user;
     }
 
-    public OffsetDateTime getTwitterDateRefresh() {
-        return twitterDateRefresh;
+    public OffsetDateTime getSourceDateRefresh() {
+        return sourceDateRefresh;
     }
 
-    public void setTwitterDateRefresh(OffsetDateTime twitterDateRefresh) {
-        this.twitterDateRefresh = twitterDateRefresh;
+    public void setSourceDateRefresh(OffsetDateTime sourceDateRefresh) {
+        this.sourceDateRefresh = sourceDateRefresh;
+    }
+
+    public Set<MeteoAlertOriginEntity> getMeteoAlertOriginEntities() {
+        return meteoAlertOriginEntities;
+    }
+
+    public void setMeteoAlertOriginEntities(Set<MeteoAlertOriginEntity> meteoAlertOriginEntities) {
+        this.meteoAlertOriginEntities = meteoAlertOriginEntities;
     }
 }
