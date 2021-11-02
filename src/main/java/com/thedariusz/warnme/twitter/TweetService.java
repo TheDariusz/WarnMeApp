@@ -10,6 +10,7 @@ import com.thedariusz.warnme.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.Clock;
 import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -51,17 +52,15 @@ public class TweetService {
     }
 
     public void syncTweets(String twitterUserId, Long loggedUserId) {
-        //todo get last record date from DB as api start_date
-//        String startTime = "2021-09-01T00:00:00.00Z";
         OffsetDateTime offsetStartTime = userService.lastDateTwitterRefreshedForApplication(twitterUserId);
         String startTime = offsetStartTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSXXX"));
 
-        ZonedDateTime dateTime = ZonedDateTime.now();
+        ZonedDateTime dateTime = ZonedDateTime.now(Clock.systemUTC());
         String endTime = dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSXXX"));
 
         String paginationToken = EMPTY_VALUE;
 
-//        TweetDtoWrapper tweetDtoWrapper = twitterClient.fetchAllTweets(twitterUserId);
+
         do {
             TweetDtoWrapper tweetDtoWrapper = twitterClient.fetchTweetsForUserAndSpecificTimePeriod(twitterUserId, startTime, endTime, paginationToken);
 
@@ -78,7 +77,7 @@ public class TweetService {
             meteoAlertService.save(meteoAlerts);
             logger.info("start={}, end={}, total tweets got: {}, pagination token: {}", startTime, endTime, tweets.size(), paginationToken);
         } while (paginationToken != null);
-        userService.saveRefreshDateForUser(loggedUserId, endTime, twitterUserId); //todo zapisuje dla utc a nie dla warszawy
+        userService.saveRefreshDateForUser(loggedUserId, endTime, twitterUserId);
     }
 
 
