@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface UserParametersRepository extends JpaRepository<UserParametersEntity, Long> {
     UserParametersEntity findFirstByUserIdOrderBySourceDateRefreshDesc(Long userId);
     UserParametersEntity findFirstByOrderBySourceDateRefreshDesc();
+    UserParametersEntity findFirstBySourceIdOrderBySourceDateRefreshDesc(String sourceId);
 }

@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public class UserService {
 
-    private static final OffsetDateTime DEFAULT_REFRESH_DATE = OffsetDateTime.of(2021, 10, 1, 0, 0, 1, 0, ZoneOffset.UTC);
+    private static final OffsetDateTime DEFAULT_REFRESH_DATE = OffsetDateTime.of(2021, 9, 1, 0, 0, 1, 0, ZoneOffset.UTC);
     private final UserDao dao;
     private final UserParametersRepository parametersRepository;
 
@@ -41,8 +41,8 @@ public class UserService {
         }
     }
 
-    public OffsetDateTime lastDateTwitterRefreshedForApplication() {
-        UserParametersEntity userParametersEntity = parametersRepository.findFirstByOrderBySourceDateRefreshDesc();
+    public OffsetDateTime lastDateTwitterRefreshedForApplication(String sourceId) {
+        UserParametersEntity userParametersEntity = parametersRepository.findFirstBySourceIdOrderBySourceDateRefreshDesc(sourceId);
         if (userParametersEntity==null) {
             return DEFAULT_REFRESH_DATE;
         } else {
@@ -50,12 +50,13 @@ public class UserService {
         }
     }
 
-    public void saveRefreshDateForUser(Long loggedUserId, String endTime) {
+    public void saveRefreshDateForUser(Long loggedUserId, String endTime, String sourceId) {
         UserParametersEntity userParametersEntity = new UserParametersEntity();
         Optional<UserEntity> user = dao.findByUserId(loggedUserId);
         if (user.isPresent()) {
             userParametersEntity.setUser(user.get());
             userParametersEntity.setSourceDateRefresh(OffsetDateTime.parse(endTime));
+            userParametersEntity.setSourceId(sourceId);
             parametersRepository.save(userParametersEntity);
         }
     }

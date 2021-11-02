@@ -1,11 +1,7 @@
 package com.thedariusz.warnme.user.repository.entity;
 
-import com.thedariusz.warnme.repository.entity.MeteoAlertOriginEntity;
-
 import javax.persistence.*;
 import java.time.OffsetDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity(name = "warnme_param")
 public class UserParametersEntity {
@@ -19,17 +15,15 @@ public class UserParametersEntity {
 
     private OffsetDateTime sourceDateRefresh;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
-    private Set<MeteoAlertOriginEntity> meteoAlertOriginEntities = new HashSet<>();
+    private String sourceId;
 
     public UserParametersEntity() {
     }
 
-    public UserParametersEntity(UserEntity user, OffsetDateTime sourceDateRefresh, Set<MeteoAlertOriginEntity> meteoAlertOriginEntities) {
+    public UserParametersEntity(UserEntity user, OffsetDateTime sourceDateRefresh, String sourceId) {
         this.user = user;
         this.sourceDateRefresh = sourceDateRefresh;
-        this.meteoAlertOriginEntities = meteoAlertOriginEntities;
+        this.sourceId = sourceId;
     }
 
     public UserEntity getUser() {
@@ -48,11 +42,11 @@ public class UserParametersEntity {
         this.sourceDateRefresh = sourceDateRefresh;
     }
 
-    public Set<MeteoAlertOriginEntity> getMeteoAlertOriginEntities() {
-        return meteoAlertOriginEntities;
+    public String getSourceId() {
+        return sourceId;
     }
 
-    public void setMeteoAlertOriginEntities(Set<MeteoAlertOriginEntity> meteoAlertOriginEntities) {
-        this.meteoAlertOriginEntities = meteoAlertOriginEntities;
+    public void setSourceId(String sourceId) {
+        this.sourceId = sourceId;
     }
 }
