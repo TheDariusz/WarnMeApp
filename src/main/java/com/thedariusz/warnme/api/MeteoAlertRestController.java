@@ -19,8 +19,8 @@ public class MeteoAlertRestController {
     }
 
     @PostMapping("/{id}")
-    public void fetchAllAlerts(@PathVariable("id") String twitterUserId) {
-        tweetService.syncTweets(twitterUserId);
+    public void fetchAllAlerts(@PathVariable("id") String twitterUserId ) {
+        tweetService.syncTweets(twitterUserId, -1L);
     }
 
 }

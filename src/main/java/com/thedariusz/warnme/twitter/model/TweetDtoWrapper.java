@@ -1,5 +1,7 @@
 package com.thedariusz.warnme.twitter.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TweetDtoWrapper {
@@ -18,7 +20,7 @@ public class TweetDtoWrapper {
     }
 
     public List<TweetDto> getData() {
-        return data;
+        return data!=null ? data : Collections.emptyList();
     }
 
     public void setData(List<TweetDto> data) {
@@ -42,7 +44,7 @@ public class TweetDtoWrapper {
     }
 
     public List<Media> getMedia() {
-        return includes == null ? List.of() : includes.getMedia();
+        return includes == null ? Collections.emptyList() : includes.getMedia();
     }
 }
 

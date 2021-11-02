@@ -6,15 +6,20 @@ import com.thedariusz.warnme.MeteoAlertGenericMapper;
 import com.thedariusz.warnme.twitter.model.Media;
 import com.thedariusz.warnme.twitter.model.TweetDto;
 import com.thedariusz.warnme.twitter.model.TweetDtoWrapper;
+import com.thedariusz.warnme.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.time.Clock;
+import java.time.OffsetDateTime;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class TweetService {
+
+    private static final String EMPTY_VALUE = null;
 
     enum TweetType {
         METEO,
@@ -37,26 +42,44 @@ public class TweetService {
     private final MeteoAlertService meteoAlertService;
     private final TwitterClient twitterClient;
     private final MeteoAlertGenericMapper meteoAlertGenericMapper;
+    private final UserService userService;
 
-    public TweetService(MeteoAlertService meteoAlertService, TwitterClient twitterClient, MeteoAlertGenericMapper meteoAlertGenericMapper) {
+    public TweetService(MeteoAlertService meteoAlertService, TwitterClient twitterClient, MeteoAlertGenericMapper meteoAlertGenericMapper, UserService userService) {
         this.meteoAlertService = meteoAlertService;
         this.twitterClient = twitterClient;
         this.meteoAlertGenericMapper = meteoAlertGenericMapper;
+        this.userService = userService;
     }
 
-    public void syncTweets(String twitterUserId) {
-        TweetDtoWrapper tweetDtoWrapper = twitterClient.fetchAllTweets(twitterUserId);
-        List<Media> media = tweetDtoWrapper.getMedia();
-        List<TweetDto> tweets = tweetDtoWrapper.getData();
+    public void syncTweets(String twitterUserId, Long loggedUserId) {
+        OffsetDateTime offsetStartTime = userService.lastDateTwitterRefreshedForApplication(twitterUserId);
+        String startTime = offsetStartTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSXXX"));
 
-        List<MeteoAlert> meteoAlerts = tweets.stream()
-                .filter(this::isMeteoAlert)
-                .map(tweetDto -> meteoAlertGenericMapper.mapToMeteoAlertFromTweet(tweetDto, media))
-                .collect(Collectors.toList());
+        ZonedDateTime dateTime = ZonedDateTime.now(Clock.systemUTC());
+        String endTime = dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSXXX"));
 
-        logger.info("Fetched {} total alerts", meteoAlerts.size());
-        meteoAlertService.save(meteoAlerts);
+        String paginationToken = EMPTY_VALUE;
+
+
+        do {
+            TweetDtoWrapper tweetDtoWrapper = twitterClient.fetchTweetsForUserAndSpecificTimePeriod(twitterUserId, startTime, endTime, paginationToken);
+
+            List<Media> media = tweetDtoWrapper.getMedia();
+            List<TweetDto> tweets = tweetDtoWrapper.getData();
+            paginationToken = tweetDtoWrapper.getMeta().getNextToken();
+
+            List<MeteoAlert> meteoAlerts = tweets.stream()
+                    .filter(this::isMeteoAlert)
+                    .map(tweetDto -> meteoAlertGenericMapper.mapToMeteoAlertFromTweet(tweetDto, media))
+                    .collect(Collectors.toList());
+
+            logger.info("Fetched {} total alerts", meteoAlerts.size());
+            meteoAlertService.save(meteoAlerts);
+            logger.info("start={}, end={}, total tweets got: {}, pagination token: {}", startTime, endTime, tweets.size(), paginationToken);
+        } while (paginationToken != null);
+        userService.saveRefreshDateForUser(loggedUserId, endTime, twitterUserId);
     }
+
 
     boolean isMeteoAlert(TweetDto tweetDto) {
         TweetType tweetType = TweetType.OTHER;

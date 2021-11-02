@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -101,8 +102,9 @@ public class MeteoAlertViewsController {
     }
 
     @GetMapping("/refresh/{id}")
-    public String getNewTweets(@PathVariable("id") String twitterUserId) {
-        tweetService.syncTweets(twitterUserId);
+    public String getNewTweets(@PathVariable("id") String twitterUserId, Principal principal) {
+        Long loggedUserId = userService.getUserId(principal.getName());
+        tweetService.syncTweets(twitterUserId, loggedUserId);
         return "redirect:/alerts";
     }
 

@@ -2,6 +2,7 @@ package com.thedariusz.warnme;
 
 import com.thedariusz.warnme.user.UserDetailsSecurityService;
 import com.thedariusz.warnme.user.UserService;
+import com.thedariusz.warnme.user.repository.UserParametersRepository;
 import com.thedariusz.warnme.user.repository.UserRepository;
 import com.thedariusz.warnme.user.repository.RoleJpaRepository;
 import com.thedariusz.warnme.user.UserDao;
@@ -61,7 +62,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public UserService userService(UserDao userDao) {
-        return new UserService(userDao);
+    public UserService userService(UserDao userDao, UserParametersRepository parametersRepository) {
+        return new UserService(userDao, parametersRepository);
     }
 }

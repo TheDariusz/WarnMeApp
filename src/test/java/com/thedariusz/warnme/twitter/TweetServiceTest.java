@@ -13,7 +13,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 class TweetServiceTest {
 
 
-    TweetService tweetService = new TweetService(null, null, null);
+    TweetService tweetService = new TweetService(null, null, null, null);
 
 //    @Test
 //    void shouldReturnMeteoTweetType(){
